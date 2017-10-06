@@ -1,0 +1,980 @@
+<sdf version='1.4'>
+  <model name='Cart'>
+    <link name='base_link'>
+      <pose>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>-0.557849 -0.813264 0.645007 0 -0 0</pose>
+        <mass>177.817</mass>
+        <inertia>
+          <ixx>96.5051</ixx>
+          <ixy>-4.96248e-06</ixy>
+          <ixz>3.35341e-05</ixz>
+          <iyy>98.3795</iyy>
+          <iyz>-0.785389</iyz>
+          <izz>19.0575</izz>
+        </inertia>
+      </inertial>
+      <collision name='base_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/base_link.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='base_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/base_link.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <link name='C_A1_L0'>
+      <pose>-0.33735 -0.75532 0.61185 3.14159 -1.1102e-14 -3.14159</pose>
+      <inertial>
+        <pose>0.0759536 -2.03636e-07 0.143692 0 -0 0</pose>
+        <mass>11.0927</mass>
+        <inertia>
+          <ixx>0.105609</ixx>
+          <ixy>-5.0514e-07</ixy>
+          <ixz>-0.0121806</ixz>
+          <iyy>0.10959</iyy>
+          <iyz>-1.95143e-07</iyz>
+          <izz>0.0469067</izz>
+        </inertia>
+      </inertial>
+      <collision name='C_A1_L0_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A1_L0.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='C_A1_L0_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A1_L0.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <joint name='C_A1_L0' type='prismatic'>
+      <child>C_A1_L0</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>5.39808e-11 -7.34641e-06 1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>1.2223</upper>
+          <effort>50</effort>
+          <velocity>50</velocity>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+    <link name='C_A1_L1'>
+      <pose>-0.33735 -0.75532 0.61185 3.14159 -7.34641e-06 1.5708</pose>
+      <inertial>
+        <pose>-2.44363e-06 0.187251 -0.108487 0 -0 0</pose>
+        <mass>4.35188</mass>
+        <inertia>
+          <ixx>0.174355</ixx>
+          <ixy>8.33391e-07</ixy>
+          <ixz>1.21245e-07</ixz>
+          <iyy>0.0321699</iyy>
+          <iyz>-0.0223552</iyz>
+          <izz>0.160835</izz>
+        </inertia>
+      </inertial>
+      <collision name='C_A1_L1_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A1_L1.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='C_A1_L1_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A1_L1.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <joint name='C_A1_L1' type='revolute'>
+      <child>C_A1_L1</child>
+      <parent>C_A1_L0</parent>
+      <axis>
+        <xyz>5.39697e-11 -7.34641e-06 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+    <link name='C_A1_L2'>
+      <pose>0.10715 -0.755318 0.78285 7.34641e-06 -1.77281e-19 7.34641e-06</pose>
+      <inertial>
+        <pose>0.212058 -6.03601e-06 0.0904988 0 -0 0</pose>
+        <mass>3.40101</mass>
+        <inertia>
+          <ixx>0.0171439</ixx>
+          <ixy>1.18e-06</ixy>
+          <ixz>0.00104805</ixz>
+          <iyy>0.126225</iyy>
+          <iyz>-5.52416e-07</iyz>
+          <izz>0.118326</izz>
+        </inertia>
+      </inertial>
+      <collision name='C_A1_L2_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A1_L2.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='C_A1_L2_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A1_L2.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <joint name='C_A1_L2' type='revolute'>
+      <child>C_A1_L2</child>
+      <parent>C_A1_L1</parent>
+      <axis>
+        <xyz>5.39697e-11 -7.34641e-06 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+    <link name='C_A1_L3'>
+      <pose>0.5453 -0.755315 0.78285 -1.5708 7.34641e-06 -1.57079</pose>
+      <inertial>
+        <pose>-7.80619e-07 0.0671597 -0.0458075 0 -0 0</pose>
+        <mass>0.955185</mass>
+        <inertia>
+          <ixx>0.0050206</ixx>
+          <ixy>1.3738e-08</ixy>
+          <ixz>6.07284e-08</ixz>
+          <iyy>0.00485259</iyy>
+          <iyz>0.000255461</iyz>
+          <izz>0.00220471</izz>
+        </inertia>
+      </inertial>
+      <collision name='C_A1_L3_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A1_L3.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='C_A1_L3_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A1_L3.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <joint name='C_A1_L3' type='revolute'>
+      <child>C_A1_L3</child>
+      <parent>C_A1_L2</parent>
+      <axis>
+        <xyz>5.39735e-11 -7.34641e-06 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+    <link name='C_A1_L4'>
+      <pose>0.6053 -0.755314 0.69985 -3.14159 -7.34641e-06 1.5708</pose>
+      <inertial>
+        <pose>4.70385e-08 0.128588 0.0987104 0 -0 0</pose>
+        <mass>3.11504</mass>
+        <inertia>
+          <ixx>0.0796457</ixx>
+          <ixy>-2.48551e-08</ixy>
+          <ixz>-1.34409e-09</ixz>
+          <iyy>0.0186084</iyy>
+          <iyz>-0.0226942</iyz>
+          <izz>0.0642473</izz>
+        </inertia>
+      </inertial>
+      <collision name='C_A1_L4_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A1_L4.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='C_A1_L4_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A1_L4.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <joint name='C_A1_L4' type='revolute'>
+      <child>C_A1_L4</child>
+      <parent>C_A1_L3</parent>
+      <axis>
+        <xyz>1 7.34641e-06 -7.34005e-15</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+    <link name='C_A2_L0'>
+      <pose>-0.55785 -0.53482 1.0137 -3.14159 -6.12295e-17 -1.5708</pose>
+      <inertial>
+        <pose>0.0759536 -2.03636e-07 0.143692 0 -0 0</pose>
+        <mass>11.0927</mass>
+        <inertia>
+          <ixx>0.105609</ixx>
+          <ixy>-5.0514e-07</ixy>
+          <ixz>-0.0121806</ixz>
+          <iyy>0.10959</iyy>
+          <iyz>-1.95143e-07</iyz>
+          <izz>0.0469067</izz>
+        </inertia>
+      </inertial>
+      <collision name='C_A2_L0_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A2_L0.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='C_A2_L0_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A2_L0.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <joint name='C_A2_L0' type='prismatic'>
+      <child>C_A2_L0</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>-7.34641e-06 2.69849e-11 1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0.82045</upper>
+          <effort>50</effort>
+          <velocity>50</velocity>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+    <link name='C_A2_L1'>
+      <pose>-0.55785 -0.53482 1.0137 -3.16989e-15 7.34641e-06 3.14159</pose>
+      <inertial>
+        <pose>-2.44381e-06 -0.187251 0.108487 0 -0 0</pose>
+        <mass>4.35188</mass>
+        <inertia>
+          <ixx>0.174355</ixx>
+          <ixy>-8.3353e-07</ixy>
+          <ixz>-1.21266e-07</ixz>
+          <iyy>0.0321699</iyy>
+          <iyz>-0.0223552</iyz>
+          <izz>0.160835</izz>
+        </inertia>
+      </inertial>
+      <collision name='C_A2_L1_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A2_L1.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='C_A2_L1_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A2_L1.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <joint name='C_A2_L1' type='revolute'>
+      <child>C_A2_L1</child>
+      <parent>C_A2_L0</parent>
+      <axis>
+        <xyz>-7.34641e-06 2.69817e-11 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+    <link name='C_A2_L2'>
+      <pose>-0.55785 -0.09032 1.1847 3.14159 -3.16991e-15 1.57079</pose>
+      <inertial>
+        <pose>0.212058 6.03665e-06 -0.0904988 0 -0 0</pose>
+        <mass>3.40101</mass>
+        <inertia>
+          <ixx>0.0171439</ixx>
+          <ixy>-1.18011e-06</ixy>
+          <ixz>-0.00104805</ixz>
+          <iyy>0.126225</iyy>
+          <iyz>-5.52417e-07</iyz>
+          <izz>0.118326</izz>
+        </inertia>
+      </inertial>
+      <collision name='C_A2_L2_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A2_L2.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='C_A2_L2_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A2_L2.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <joint name='C_A2_L2' type='revolute'>
+      <child>C_A2_L2</child>
+      <parent>C_A2_L1</parent>
+      <axis>
+        <xyz>-7.34641e-06 2.69817e-11 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+    <link name='C_A2_L3'>
+      <pose>-0.557848 0.34783 1.1847 -1.57079 3.05311e-15 -1.5708</pose>
+      <inertial>
+        <pose>0.101768 0.0781722 -9.32107e-08 0 -0 0</pose>
+        <mass>3.46505</mass>
+        <inertia>
+          <ixx>0.0231009</ixx>
+          <ixy>-0.00596526</ixy>
+          <ixz>3.34337e-08</ixz>
+          <iyy>0.022973</iyy>
+          <iyz>2.41536e-08</iyz>
+          <izz>0.0423497</izz>
+        </inertia>
+      </inertial>
+      <collision name='C_A2_L3_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A2_L3.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='C_A2_L3_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A2_L3.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <joint name='C_A2_L3' type='revolute'>
+      <child>C_A2_L3</child>
+      <parent>C_A2_L2</parent>
+      <axis>
+        <xyz>-7.34641e-06 2.69818e-11 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+    <link name='C_A3_L0'>
+      <pose>-0.55785 -0.53482 0.48985 -3.14159 -6.12295e-17 -1.5708</pose>
+      <inertial>
+        <pose>0.0759536 -2.03636e-07 0.143692 0 -0 0</pose>
+        <mass>11.0927</mass>
+        <inertia>
+          <ixx>0.105609</ixx>
+          <ixy>-5.0514e-07</ixy>
+          <ixz>-0.0121806</ixz>
+          <iyy>0.10959</iyy>
+          <iyz>-1.95143e-07</iyz>
+          <izz>0.0469067</izz>
+        </inertia>
+      </inertial>
+      <collision name='C_A3_L0_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A3_L0.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='C_A3_L0_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A3_L0.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <joint name='C_A3_L0' type='prismatic'>
+      <child>C_A3_L0</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>-7.34641e-06 2.69849e-11 1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0.82045</upper>
+          <effort>50</effort>
+          <velocity>50</velocity>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+    <link name='C_A3_L1'>
+      <pose>-0.55785 -0.53482 0.48985 -3.16989e-15 7.34641e-06 3.14159</pose>
+      <inertial>
+        <pose>-6.86961e-07 -0.20138 0.0996902 0 -0 0</pose>
+        <mass>7.77379</mass>
+        <inertia>
+          <ixx>0.291302</ixx>
+          <ixy>-7.20625e-07</ixy>
+          <ixz>-9.30062e-08</ixz>
+          <iyy>0.0414435</iyy>
+          <iyz>-0.0165474</iyz>
+          <izz>0.2798</izz>
+        </inertia>
+      </inertial>
+      <collision name='C_A3_L1_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A3_L1.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='C_A3_L1_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A3_L1.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <joint name='C_A3_L1' type='revolute'>
+      <child>C_A3_L1</child>
+      <parent>C_A3_L0</parent>
+      <axis>
+        <xyz>-7.34641e-06 2.69817e-11 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+    <link name='C_A3_L2'>
+      <pose>-0.557848 -0.09032 0.48985 3.14159 -3.16991e-15 1.57079</pose>
+      <inertial>
+        <pose>0.212058 -6.03537e-06 0.0904988 0 -0 0</pose>
+        <mass>3.40101</mass>
+        <inertia>
+          <ixx>0.0171439</ixx>
+          <ixy>1.17989e-06</ixy>
+          <ixz>0.00104805</ixz>
+          <iyy>0.126225</iyy>
+          <iyz>-5.52415e-07</iyz>
+          <izz>0.118326</izz>
+        </inertia>
+      </inertial>
+      <collision name='C_A3_L2_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A3_L2.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='C_A3_L2_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A3_L2.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <joint name='C_A3_L2' type='revolute'>
+      <child>C_A3_L2</child>
+      <parent>C_A3_L1</parent>
+      <axis>
+        <xyz>-7.34641e-06 2.69817e-11 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+    <link name='C_A3_L3'>
+      <pose>-0.557847 0.34783 0.48985 -1.5708 7.34641e-06 3.14159</pose>
+      <inertial>
+        <pose>-5.48927e-07 -0.149272 0.0296956 0 -0 0</pose>
+        <mass>1.47309</mass>
+        <inertia>
+          <ixx>0.0132145</ixx>
+          <ixy>-1.08033e-07</ixy>
+          <ixz>2.89719e-08</ixz>
+          <iyy>0.00662193</iyy>
+          <iyz>0.00235985</iyz>
+          <izz>0.00969487</izz>
+        </inertia>
+      </inertial>
+      <collision name='C_A3_L3_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A3_L3.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='C_A3_L3_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A3_L3.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <joint name='C_A3_L3' type='revolute'>
+      <child>C_A3_L3</child>
+      <parent>C_A3_L2</parent>
+      <axis>
+        <xyz>-7.34641e-06 2.69854e-11 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+    <link name='C_A3_L4'>
+      <pose>-0.557848 0.40783 0.69305 3.14159 7.34641e-06 3.14159</pose>
+      <inertial>
+        <pose>4.69131e-08 0.128588 0.10871 0 -0 0</pose>
+        <mass>3.11504</mass>
+        <inertia>
+          <ixx>0.0796457</ixx>
+          <ixy>-2.47956e-08</ixy>
+          <ixz>-1.32197e-09</ixz>
+          <iyy>0.0186084</iyy>
+          <iyz>-0.0226942</iyz>
+          <izz>0.0642473</izz>
+        </inertia>
+      </inertial>
+      <collision name='C_A3_L4_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A3_L4.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='C_A3_L4_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A3_L4.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <joint name='C_A3_L4' type='revolute'>
+      <child>C_A3_L4</child>
+      <parent>C_A3_L3</parent>
+      <axis>
+        <xyz>-3.67321e-06 -1 -3.11498e-15</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+    <link name='C_A4_L0'>
+      <pose>-0.78835 -0.75532 0.61185 -3.14159 -6.6613e-14 4.07878e-30</pose>
+      <inertial>
+        <pose>0.0859536 -2.03645e-07 0.143692 0 -0 0</pose>
+        <mass>11.0927</mass>
+        <inertia>
+          <ixx>0.105609</ixx>
+          <ixy>-5.05131e-07</ixy>
+          <ixz>-0.0121806</ixz>
+          <iyy>0.10959</iyy>
+          <iyz>-1.95153e-07</iyz>
+          <izz>0.0469067</izz>
+        </inertia>
+      </inertial>
+      <collision name='C_A4_L0_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A4_L0.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='C_A4_L0_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A4_L0.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <joint name='C_A4_L0' type='prismatic'>
+      <child>C_A4_L0</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>-6.6613e-14 -7.34641e-06 1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>1.2223</upper>
+          <effort>50</effort>
+          <velocity>50</velocity>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+    <link name='C_A4_L1'>
+      <pose>-0.77835 -0.75532 0.61185 3.14159 7.34641e-06 -1.5708</pose>
+      <inertial>
+        <pose>-2.44381e-06 0.187251 -0.108487 0 -0 0</pose>
+        <mass>4.35188</mass>
+        <inertia>
+          <ixx>0.174355</ixx>
+          <ixy>8.3353e-07</ixy>
+          <ixz>1.21266e-07</ixz>
+          <iyy>0.0321699</iyy>
+          <iyz>-0.0223552</iyz>
+          <izz>0.160835</izz>
+        </inertia>
+      </inertial>
+      <collision name='C_A4_L1_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A4_L1.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='C_A4_L1_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A4_L1.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <joint name='C_A4_L1' type='revolute'>
+      <child>C_A4_L1</child>
+      <parent>C_A4_L0</parent>
+      <axis>
+        <xyz>3.80741e-19 -7.34641e-06 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+    <link name='C_A4_L2'>
+      <pose>-1.22285 -0.755321 0.78285 -7.34641e-06 -4.3393e-19 3.14159</pose>
+      <inertial>
+        <pose>0.212058 -6.03665e-06 0.0904988 0 -0 0</pose>
+        <mass>3.40101</mass>
+        <inertia>
+          <ixx>0.0171439</ixx>
+          <ixy>1.18011e-06</ixy>
+          <ixz>0.00104805</ixz>
+          <iyy>0.126225</iyy>
+          <iyz>-5.52417e-07</iyz>
+          <izz>0.118326</izz>
+        </inertia>
+      </inertial>
+      <collision name='C_A4_L2_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A4_L2.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='C_A4_L2_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A4_L2.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <joint name='C_A4_L2' type='revolute'>
+      <child>C_A4_L2</child>
+      <parent>C_A4_L1</parent>
+      <axis>
+        <xyz>3.80915e-19 -7.34641e-06 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+    <link name='C_A4_L3'>
+      <pose>-1.661 -0.755321 0.78285 1.5708 -7.34641e-06 1.5708</pose>
+      <inertial>
+        <pose>-7.80663e-07 -0.0671597 0.0458075 0 -0 0</pose>
+        <mass>0.955185</mass>
+        <inertia>
+          <ixx>0.0050206</ixx>
+          <ixy>-1.37383e-08</ixy>
+          <ixz>-6.07256e-08</ixz>
+          <iyy>0.00485259</iyy>
+          <iyz>0.000255461</iyz>
+          <izz>0.00220471</izz>
+        </inertia>
+      </inertial>
+      <collision name='C_A4_L3_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A4_L3.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='C_A4_L3_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A4_L3.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <joint name='C_A4_L3' type='revolute'>
+      <child>C_A4_L3</child>
+      <parent>C_A4_L2</parent>
+      <axis>
+        <xyz>3.60822e-15 -7.34641e-06 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+    <link name='C_A4_L4'>
+      <pose>-1.721 -0.755321 0.70985 3.14159 7.34641e-06 -1.5708</pose>
+      <inertial>
+        <pose>4.69131e-08 0.128588 0.10871 0 -0 0</pose>
+        <mass>3.11504</mass>
+        <inertia>
+          <ixx>0.0796457</ixx>
+          <ixy>-2.47956e-08</ixy>
+          <ixz>-1.32197e-09</ixz>
+          <iyy>0.0186084</iyy>
+          <iyz>-0.0226942</iyz>
+          <izz>0.0642473</izz>
+        </inertia>
+      </inertial>
+      <collision name='C_A4_L4_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A4_L4.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='C_A4_L4_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A4_L4.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <joint name='C_A4_L4' type='revolute'>
+      <child>C_A4_L4</child>
+      <parent>C_A4_L3</parent>
+      <axis>
+        <xyz>1 -1.08215e-14 -7.25552e-15</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+  </model>
+</sdf>

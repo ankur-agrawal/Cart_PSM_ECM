@@ -1,0 +1,18 @@
+<launch>
+
+    <rosparam file="$(find dvrk_gazebo_control)/config/dvrk_psm_controller.yaml" command="load"/>
+
+    <rosparam file="$(find dvrk_gazebo_control)/config/dvrk_mtm_controller.yaml" command="load"/>
+
+    <!-- <rosparam file="$(find dvrk_gazebo_control)/config/platform.yaml" command="load"/> -->
+
+
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+	output="screen" args="joint_state_controller
+					   /psm_joint_1_position_controller
+					   /psm_joint_2_position_controller
+					   /psm_joint_3_position_controller">
+    </node>
+
+
+</launch>

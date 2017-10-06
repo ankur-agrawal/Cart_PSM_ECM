@@ -1,0 +1,20 @@
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+
+  # Position Controllers ---------------------------------------
+  psm_joint_1_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: one_outer_yaw_joint
+    pid: {p: 150.0, i: 0.01, d: 60.0}
+
+  psm_joint_2_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: one_outer_pitch_joint_1
+    pid: {p: 800.0, i: 30, d: 300.0}
+
+  psm_joint_3_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: one_outer_insertion_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}

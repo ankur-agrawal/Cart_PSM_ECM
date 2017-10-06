@@ -1,0 +1,34 @@
+<launch>
+
+    <rosparam file="$(find dvrk_gazebo_control)/config/dvrk_cart.yaml" command="load"/>
+
+    <!-- <rosparam file="$(find dvrk_gazebo_control)/config/dvrk_mtm_controller.yaml" command="load"/> -->
+
+    <!-- <rosparam file="$(find dvrk_gazebo_control)/config/platform.yaml" command="load"/> -->
+
+
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+	output="screen" args="joint_state_controller
+					   /cart_arm1_joint0_controller
+					   /cart_arm1_joint1_controller
+					   /cart_arm1_joint2_controller
+             /cart_arm1_joint3_controller
+             /cart_arm1_joint4_controller
+             /cart_arm2_joint0_controller
+					   /cart_arm2_joint1_controller
+					   /cart_arm2_joint2_controller
+             /cart_arm2_joint3_controller
+             /cart_arm3_joint0_controller
+					   /cart_arm3_joint1_controller
+					   /cart_arm3_joint2_controller
+             /cart_arm3_joint3_controller
+             /cart_arm3_joint4_controller
+             /cart_arm4_joint0_controller
+					   /cart_arm4_joint1_controller
+					   /cart_arm4_joint2_controller
+             /cart_arm4_joint3_controller
+             /cart_arm4_joint4_controller">
+    </node>
+
+
+</launch>

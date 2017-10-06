@@ -1,0 +1,28 @@
+
+  # Publish all joint states -----------------------------------
+
+  Cart:
+  Cart_controller:
+    type: "position_controllers/JointTrajectoryController"
+    joints:
+      - C_A1_L0
+      - C_A1_L1
+      - C_A1_L2
+      - C_A1_L3
+      - C_A1_L4
+      - C_A2_L0
+      - C_A2_L1
+
+    gains:
+      C_A1_L0:   {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
+      C_A1_L1: {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
+      C_A1_L2:  {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
+      C_A1_L3:       {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
+      C_A1_L4:    {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
+      C_A2_L0:      {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
+      C_A2_L1:    {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
+
+  
+
+ 
+ 

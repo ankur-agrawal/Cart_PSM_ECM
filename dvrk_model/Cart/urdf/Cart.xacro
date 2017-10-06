@@ -1,0 +1,1153 @@
+<?xml version="1.0"?>
+
+<robot name="Cart" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  
+ <xacro:macro name="transmission_block" params="joint_name">
+	  <transmission name="tran1">
+	    <type>transmission_interface/SimpleTransmission</type>
+	    <joint name="${joint_name}">
+	      <hardwareInterface>PositionJointInterface</hardwareInterface>
+	    </joint>
+	    <actuator name="motor1">
+	      <hardwareInterface>EffortJointInterface</hardwareInterface>
+	      <mechanicalReduction>1</mechanicalReduction>
+	    </actuator>
+	  </transmission>
+   </xacro:macro>
+
+<property name="damping" value="0.2"/>
+<property name="friction" value="1"/>
+
+<link name="world"/>
+<joint name="fixed" type="fixed">
+<parent link="world"/>
+<child link="base_link"/>
+</joint>
+
+<link name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.557849193874323 -0.813264262886105 0.645007171697147"
+        rpy="0 0 0" />
+      <mass
+        value="177.817385553285" />
+      <inertia
+        ixx="96.5051304293487"
+        ixy="-4.96248399612141E-06"
+        ixz="3.35340925263716E-05"
+        iyy="98.379534963888"
+        iyz="-0.78538915055125"
+        izz="19.0575205424658" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cart/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.647058823529412 0.619607843137255 0.588235294117647 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cart/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  
+<link name="C_A1_L0">
+    <inertial>
+      <origin
+        xyz="0.075953578554958 -2.03636284834552E-07 0.143692250626163"
+        rpy="0 0 0" />
+      <mass
+        value="11.0926940805219" />
+      <inertia
+        ixx="0.10560942970055"
+        ixy="-5.05140460543134E-07"
+        ixz="-0.0121806324947753"
+        iyy="0.109590130168998"
+        iyz="-1.95142624563224E-07"
+        izz="0.0469067208116145" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cart/meshes/C_A1_L0.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cart/meshes/C_A1_L0.STL" />
+      </geometry>
+    </collision>
+  
+</link>
+  <joint name="C_A1_L0" type="prismatic">
+    <origin
+      xyz="-0.33735 -0.75532 0.61185"
+      rpy="-3.1416 -1.1102E-14 3.1416" />
+    <parent link="base_link" />
+    <child link="C_A1_L0" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="1.2223"
+      effort="50"
+      velocity="50" />
+<dynamics damping="${damping}" friction="${friction}"/>
+  </joint>
+  
+
+<link
+    name="C_A1_L1">
+    <inertial>
+      <origin
+        xyz="-2.44362590706704E-06 0.187250782553175 -0.108487242469459"
+        rpy="0 0 0" />
+      <mass
+        value="4.35187990646796" />
+      <inertia
+        ixx="0.174355409525625"
+        ixy="8.33391444074635E-07"
+        ixz="1.21244554738311E-07"
+        iyy="0.0321699406659818"
+        iyz="-0.0223552208986747"
+        izz="0.160834852672872" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cart/meshes/C_A1_L1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cart/meshes/C_A1_L1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="C_A1_L1"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="-1.11022302462517E-14 0 1.5707963267949" />
+    <parent
+      link="C_A1_L0" />
+    <child
+      link="C_A1_L1" />
+    <axis
+      xyz="0 0 -1" />
+    <limit effort="300" velocity="1" lower="-1.5953400194" upper="1.98394848567"/>
+    <dynamics damping="${damping}" friction="${friction}"/>
+  </joint>
+  <link
+    name="C_A1_L2">
+    <inertial>
+      <origin
+        xyz="0.212057687401799 -6.03601295601219E-06 0.0904988108593199"
+        rpy="0 0 0" />
+      <mass
+        value="3.40100692221784" />
+      <inertia
+        ixx="0.0171438557598793"
+        ixy="1.18000074447512E-06"
+        ixz="0.00104805117272118"
+        iyy="0.126224646339105"
+        iyz="-5.52416303730912E-07"
+        izz="0.118325883705" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cart/meshes/C_A1_L2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cart/meshes/C_A1_L2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="C_A1_L2"
+    type="continuous">
+    <origin
+      xyz="0 0.4445 -0.171"
+      rpy="3.14159265358979 0 1.5707963267949" />
+    <parent
+      link="C_A1_L1" />
+    <child
+      link="C_A1_L2" />
+    <axis
+      xyz="0 0 1" />
+   
+  </joint>
+  <link
+    name="C_A1_L3">
+    <inertial>
+      <origin
+        xyz="-7.80618542028932E-07 0.0671596733734499 -0.0458074866733074"
+        rpy="0 0 0" />
+      <mass
+        value="0.955185180813725" />
+      <inertia
+        ixx="0.00502060305122404"
+        ixy="1.37380469784994E-08"
+        ixz="6.07283892713778E-08"
+        iyy="0.0048525897193261"
+        iyz="0.000255460605424329"
+        izz="0.00220471024636927" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cart/meshes/C_A1_L3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cart/meshes/C_A1_L3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="C_A1_L3"
+    type="continuous">
+    <origin
+      xyz="0.43815 0 0"
+      rpy="-1.5707963267949 0 -1.5707963267949" />
+    <parent
+      link="C_A1_L2" />
+    <child
+      link="C_A1_L3" />
+    <axis
+      xyz="0 -1 0" />
+<dynamics damping="${damping}" friction="${friction}"/>
+  </joint>
+
+  <link
+    name="C_A1_L4">
+    <inertial>
+      <origin
+        xyz="4.70384754480691E-08 0.128588326667814 0.0987103875643585"
+        rpy="0 0 0" />
+      <mass
+        value="3.11504410574449" />
+      <inertia
+        ixx="0.0796456742281321"
+        ixy="-2.48551056610334E-08"
+        ixz="-1.34409390260954E-09"
+        iyy="0.0186083564141078"
+        iyz="-0.0226942177256411"
+        izz="0.0642473147196267" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cart/meshes/C_A1_L4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cart/meshes/C_A1_L4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="C_A1_L4"
+    type="continuous">
+    <origin
+      xyz="0 0.0830000000000001 0.0600000000000001"
+      rpy="1.5707963267949 0 3.14159265358979" />
+    <parent
+      link="C_A1_L3" />
+    <child
+      link="C_A1_L4" />
+    <axis
+      xyz="0 1 0" />
+   <dynamics damping="${damping}" friction="${friction}"/>
+  </joint>
+  <link
+    name="C_A2_L0">
+    <inertial>
+      <origin
+        xyz="0.0759535785549599 -2.03636285056596E-07 0.143692250626162"
+        rpy="0 0 0" />
+      <mass
+        value="11.0926940805219" />
+      <inertia
+        ixx="0.10560942970055"
+        ixy="-5.0514046057063E-07"
+        ixz="-0.012180632494776"
+        iyy="0.109590130168998"
+        iyz="-1.95142624537163E-07"
+        izz="0.0469067208116149" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cart/meshes/C_A2_L0.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cart/meshes/C_A2_L0.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="C_A2_L0"
+    type="prismatic">
+    <origin
+      xyz="-0.55785 -0.53482 1.0137"
+      rpy="3.1416 -6.123E-17 -1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="C_A2_L0" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0.82045"
+      effort="50"
+      velocity="50" />
+  <dynamics damping="${damping}" friction="${friction}"/> 
+  </joint>
+  <link
+    name="C_A2_L1">
+    <inertial>
+      <origin
+        xyz="-2.44380844383052E-06 -0.187250782553173 0.108487242469458"
+        rpy="0 0 0" />
+      <mass
+        value="4.35187990646815" />
+      <inertia
+        ixx="0.174355409525629"
+        ixy="-8.33530046686598E-07"
+        ixz="-1.21266348753841E-07"
+        iyy="0.0321699406659832"
+        iyz="-0.0223552208986752"
+        izz="0.160834852672877" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cart/meshes/C_A2_L1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cart/meshes/C_A2_L1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="C_A2_L1"
+    type="continuous">
+    <origin
+      xyz="0 0 0"
+      rpy="3.14159265358979 0 1.5707963267949" />
+    <parent
+      link="C_A2_L0" />
+    <child
+      link="C_A2_L1" />
+    <axis
+      xyz="0 0 1" />
+  <dynamics damping="${damping}" friction="${friction}"/>
+  </joint>
+  <link
+    name="C_A2_L2">
+    <inertial>
+      <origin
+        xyz="0.212057687401794 6.03665296139422E-06 -0.0904988108593126"
+        rpy="0 0 0" />
+      <mass
+        value="3.40100692221722" />
+      <inertia
+        ixx="0.0171438557598805"
+        ixy="-1.18010707869087E-06"
+        ixz="-0.00104805117272175"
+        iyy="0.126224646339101"
+        iyz="-5.52417327070742E-07"
+        izz="0.118325883704996" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cart/meshes/C_A2_L2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cart/meshes/C_A2_L2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="C_A2_L2"
+    type="continuous">
+    <origin
+      xyz="0 -0.4445 0.171"
+      rpy="3.14159265358979 0 -1.5707963267949" />
+    <parent
+      link="C_A2_L1" />
+    <child
+      link="C_A2_L2" />
+    <axis
+      xyz="0 0 -1" />
+  <dynamics damping="${damping}" friction="${friction}"/>
+  </joint>
+  <link
+    name="C_A2_L3">
+    <inertial>
+      <origin
+        xyz="0.101768197599805 0.0781722391509527 -9.32107030449103E-08"
+        rpy="0 0 0" />
+      <mass
+        value="3.4650484513455" />
+      <inertia
+        ixx="0.0231009121493162"
+        ixy="-0.00596525910973689"
+        ixz="3.34337024083484E-08"
+        iyy="0.0229730063480829"
+        iyz="2.41536265588646E-08"
+        izz="0.0423496868455047" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cart/meshes/C_A2_L3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cart/meshes/C_A2_L3.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="C_A2_L3"
+    type="continuous">
+    <origin
+      xyz="0.43815 0 0"
+      rpy="1.5707963267949 0 3.14159265358979" />
+    <parent
+      link="C_A2_L2" />
+    <child
+      link="C_A2_L3" />
+    <axis
+      xyz="0 -1 0" />
+  <dynamics damping="${damping}" friction="${friction}"/>
+  </joint>
+
+  <link
+    name="C_A3_L0">
+    <inertial>
+      <origin
+        xyz="0.0759535785549602 -2.03636284612507E-07 0.143692250626162"
+        rpy="0 0 0" />
+      <mass
+        value="11.0926940805219" />
+      <inertia
+        ixx="0.10560942970055"
+        ixy="-5.05140460539399E-07"
+        ixz="-0.0121806324947762"
+        iyy="0.109590130168997"
+        iyz="-1.95142624557971E-07"
+        izz="0.0469067208116145" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cart/meshes/C_A3_L0.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cart/meshes/C_A3_L0.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="C_A3_L0"
+    type="prismatic">
+    <origin
+      xyz="-0.55785 -0.53482 0.48985"
+      rpy="3.1416 -6.123E-17 -1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="C_A3_L0" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0.82045"
+      effort="50"
+      velocity="50" />
+  <dynamics damping="${damping}" friction="${friction}"/>
+  </joint>
+  <link
+    name="C_A3_L1">
+    <inertial>
+      <origin
+        xyz="-6.86961344475989E-07 -0.201379579686525 0.0996902493558574"
+        rpy="0 0 0" />
+      <mass
+        value="7.77379196971775" />
+      <inertia
+        ixx="0.291301856846876"
+        ixy="-7.20625438292036E-07"
+        ixz="-9.30061512483615E-08"
+        iyy="0.041443547472612"
+        iyz="-0.0165474441099319"
+        izz="0.279800325563782" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cart/meshes/C_A3_L1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cart/meshes/C_A3_L1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="C_A3_L1"
+    type="continuous">
+    <origin
+      xyz="0 0 0"
+      rpy="3.14159265358979 0 1.5707963267949" />
+    <parent
+      link="C_A3_L0" />
+    <child
+      link="C_A3_L1" />
+    <axis
+      xyz="0 0 1" />
+  <dynamics damping="${damping}" friction="${friction}"/>
+  </joint>
+  <link
+    name="C_A3_L2">
+    <inertial>
+      <origin
+        xyz="0.212057687401803 -6.03537295040812E-06 0.090498810859328"
+        rpy="0 0 0" />
+      <mass
+        value="3.4010069222184" />
+      <inertia
+        ixx="0.0171438557598778"
+        ixy="1.1798944102949E-06"
+        ixz="0.00104805117272044"
+        iyy="0.126224646339108"
+        iyz="-5.52415280414858E-07"
+        izz="0.118325883705004" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cart/meshes/C_A3_L2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cart/meshes/C_A3_L2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="C_A3_L2"
+    type="continuous">
+    <origin
+      xyz="0 -0.4445 0"
+      rpy="3.14159265358979 0 -1.5707963267949" />
+    <parent
+      link="C_A3_L1" />
+    <child
+      link="C_A3_L2" />
+    <axis
+      xyz="0 0 -1" />
+  <dynamics damping="${damping}" friction="${friction}"/>
+  </joint>
+  <link
+    name="C_A3_L3">
+    <inertial>
+      <origin
+        xyz="-5.48926565646646E-07 -0.149272124807621 0.0296956113717952"
+        rpy="0 0 0" />
+      <mass
+        value="1.47309340265676" />
+      <inertia
+        ixx="0.0132145111506709"
+        ixy="-1.08032566856272E-07"
+        ixz="2.89718779717797E-08"
+        iyy="0.00662192684676566"
+        iyz="0.00235985056985546"
+        izz="0.0096948677474233" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cart/meshes/C_A3_L3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cart/meshes/C_A3_L3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="C_A3_L3"
+    type="continuous">
+    <origin
+      xyz="0.43815 0 0"
+      rpy="1.5707963267949 0 -1.5707963267949" />
+    <parent
+      link="C_A3_L2" />
+    <child
+      link="C_A3_L3" />
+    <axis
+      xyz="0 -1 0" />
+  <dynamics damping="${damping}" friction="${friction}"/>
+  </joint>
+  <link
+    name="C_A3_L4">
+    <inertial>
+      <origin
+        xyz="4.69131279379198E-08 0.128588326667815 0.108710387564358"
+        rpy="0 0 0" />
+      <mass
+        value="3.11504410574449" />
+      <inertia
+        ixx="0.0796456742281321"
+        ixy="-2.47956065801551E-08"
+        ixz="-1.32197163913809E-09"
+        iyy="0.0186083564141077"
+        iyz="-0.022694217725641"
+        izz="0.0642473147196267" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cart/meshes/C_A3_L4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cart/meshes/C_A3_L4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="C_A3_L4"
+    type="continuous">
+    <origin
+      xyz="0 -0.203199999999999 -0.06"
+      rpy="-1.5707963267949 0 0" />
+    <parent
+      link="C_A3_L3" />
+    <child
+      link="C_A3_L4" />
+    <axis
+      xyz="0 -1 0" />
+  <dynamics damping="${damping}" friction="${friction}"/>
+  </joint>
+  <link
+    name="C_A4_L0">
+    <inertial>
+      <origin
+        xyz="0.0859535785204426 -2.03645474483594E-07 0.143692250688602"
+        rpy="0 0 0" />
+      <mass
+        value="11.0926940733976" />
+      <inertia
+        ixx="0.105609429627316"
+        ixy="-5.05131095097567E-07"
+        ixz="-0.0121806325387437"
+        iyy="0.109590130077433"
+        iyz="-1.95152527838409E-07"
+        izz="0.0469067207933245" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cart/meshes/C_A4_L0.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cart/meshes/C_A4_L0.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="C_A4_L0"
+    type="prismatic">
+    <origin
+      xyz="-0.78835 -0.75532 0.61185"
+      rpy="3.1416 -6.6613E-14 4.0788E-30" />
+    <parent
+      link="base_link" />
+    <child
+      link="C_A4_L0" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="1.2223"
+      effort="50"
+      velocity="50" />
+  <dynamics damping="${damping}" friction="${friction}"/>
+  </joint>
+  <link
+    name="C_A4_L1">
+    <inertial>
+      <origin
+        xyz="-2.44380844316439E-06 0.187250782553174 -0.108487242469458"
+        rpy="0 0 0" />
+      <mass
+        value="4.35187990646818" />
+      <inertia
+        ixx="0.174355409525629"
+        ixy="8.33530046682483E-07"
+        ixz="1.21266348725112E-07"
+        iyy="0.0321699406659832"
+        iyz="-0.0223552208986752"
+        izz="0.160834852672877" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cart/meshes/C_A4_L1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cart/meshes/C_A4_L1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="C_A4_L1"
+    type="continuous">
+    <origin
+      xyz="0.01 0 0"
+      rpy="-6.66133814775079E-14 0 1.5707963267949" />
+    <parent
+      link="C_A4_L0" />
+    <child
+      link="C_A4_L1" />
+    <axis
+      xyz="0 0 -1" />
+  <dynamics damping="${damping}" friction="${friction}"/>
+  </joint>
+  <link
+    name="C_A4_L2">
+    <inertial>
+      <origin
+        xyz="0.212057687401795 -6.0366529622824E-06 0.0904988108593124"
+        rpy="0 0 0" />
+      <mass
+        value="3.40100692221721" />
+      <inertia
+        ixx="0.0171438557598805"
+        ixy="1.18010707872497E-06"
+        ixz="0.00104805117272164"
+        iyy="0.1262246463391"
+        iyz="-5.52417327106105E-07"
+        izz="0.118325883704996" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cart/meshes/C_A4_L2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cart/meshes/C_A4_L2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="C_A4_L2"
+    type="continuous">
+    <origin
+      xyz="0 0.444499999999999 -0.171000000000001"
+      rpy="3.14159265358979 0 1.5707963267949" />
+    <parent
+      link="C_A4_L1" />
+    <child
+      link="C_A4_L2" />
+    <axis
+      xyz="0 0 1" />
+  <dynamics damping="${damping}" friction="${friction}"/>
+  </joint>
+  <link
+    name="C_A4_L3">
+    <inertial>
+      <origin
+        xyz="-7.80663182209373E-07 -0.0671596733734502 0.0458074866733054"
+        rpy="0 0 0" />
+      <mass
+        value="0.955185180813738" />
+      <inertia
+        ixx="0.00502060305122423"
+        ixy="-1.37382965101666E-08"
+        ixz="-6.0725644206211E-08"
+        iyy="0.0048525897193261"
+        iyz="0.000255460605424373"
+        izz="0.00220471024636916" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cart/meshes/C_A4_L3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cart/meshes/C_A4_L3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="C_A4_L3"
+    type="continuous">
+    <origin
+      xyz="0.43815 0 0"
+      rpy="1.5707963267949 0 -1.5707963267949" />
+    <parent
+      link="C_A4_L2" />
+    <child
+      link="C_A4_L3" />
+    <axis
+      xyz="0 1 0" />
+  <dynamics damping="${damping}" friction="${friction}"/>
+  </joint>
+  <link
+    name="C_A4_L4">
+    <inertial>
+      <origin
+        xyz="4.69131278268975E-08 0.128588326761395 0.108710387564359"
+        rpy="0 0 0" />
+      <mass
+        value="3.11504410574443" />
+      <inertia
+        ixx="0.0796456742281314"
+        ixy="-2.47956065639044E-08"
+        ixz="-1.32197164170627E-09"
+        iyy="0.0186083564141076"
+        iyz="-0.0226942177256409"
+        izz="0.064247314719626" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cart/meshes/C_A4_L4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Cart/meshes/C_A4_L4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="C_A4_L4"
+    type="continuous">
+    <origin
+      xyz="0 -0.0730000000000001 -0.0599999999064196"
+      rpy="-1.5707963267949 0 3.14159265358979" />
+    <parent
+      link="C_A4_L3" />
+    <child
+      link="C_A4_L4" />
+    <axis
+      xyz="0 -1 0" />
+  <dynamics damping="${damping}" friction="${friction}"/>
+  </joint>
+
+
+<!-- //////////////////////////////////////////////////////////////////////////// -->
+
+<!-- Transmissions for ROS Control -->
+
+   <xacro:transmission_block joint_name="C_A1_L0"/>
+   <xacro:transmission_block joint_name="C_A1_L1"/>
+   <xacro:transmission_block joint_name="C_A1_L2"/>
+   <xacro:transmission_block joint_name="C_A1_L3"/>
+   <xacro:transmission_block joint_name="C_A1_L4"/>
+
+   <xacro:transmission_block joint_name="C_A2_L0"/>
+   <xacro:transmission_block joint_name="C_A2_L1"/>
+   <xacro:transmission_block joint_name="C_A2_L2"/>
+   <xacro:transmission_block joint_name="C_A2_L3"/>
+   
+   <xacro:transmission_block joint_name="C_A3_L0"/>
+   <xacro:transmission_block joint_name="C_A3_L1"/>
+   <xacro:transmission_block joint_name="C_A3_L2"/>
+   <xacro:transmission_block joint_name="C_A3_L3"/>
+   <xacro:transmission_block joint_name="C_A3_L4"/>
+
+   <xacro:transmission_block joint_name="C_A4_L0"/>
+   <xacro:transmission_block joint_name="C_A4_L1"/>
+   <xacro:transmission_block joint_name="C_A4_L2"/>
+   <xacro:transmission_block joint_name="C_A4_L3"/>
+   <xacro:transmission_block joint_name="C_A4_L4"/>
+  
+  <!-- ros_control plugin -->
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/Cart</robotNamespace>
+    </plugin>
+  </gazebo>
+
+
+
+</robot>

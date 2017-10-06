@@ -1,0 +1,90 @@
+Cart:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50  
+  
+  # Position Controllers ---------------------------------------
+  C_A1_L0_Pos:
+    type: position_controllers/JointTrajectoryController
+    joint: C_A1_L0
+    pid: {p: 100.0, i: 0.01, d: 10.0, i_clamp: 1}
+  C_A1_L1_Pos:
+    type: position_controllers/JointTrajectoryController
+    joint: C_A1_L1
+    pid: {p: 100.0, i: 0.01, d: 10.0, i_clamp: 1}
+  C_A1_L2_Pos:
+    type: position_controllers/JointTrajectoryController
+    joint: C_A1_L2
+    pid: {p: 100.0, i: 0.01, d: 10.0, i_clamp: 1}
+  C_A1_L3_Pos:
+    type: position_controllers/JointTrajectoryController
+    joint: C_A1_L3
+    pid: {p: 100.0, i: 0.01, d: 10.0, i_clamp: 1}
+  C_A1_L4_Pos:
+    type: position_controllers/JointTrajectoryController
+    joint: C_A1_L4
+    pid: {p: 100.0, i: 0.01, d: 10.0, i_clamp: 1}
+
+  C_A2_L0_Pos:
+    type: position_controllers/JointTrajectoryController
+    joint: C_A2_L0
+    pid: {p: 100.0, i: 0.01, d: 10.0, i_clamp: 1}
+  C_A2_L1_Pos:
+    type: position_controllers/JointTrajectoryController
+    joint: C_A2_L1
+    pid: {p: 100.0, i: 0.01, d: 10.0, i_clamp: 1}
+  C_A2_L2_Pos:
+    type: position_controllers/JointTrajectoryController
+    joint: C_A2_L2
+    pid: {p: 100.0, i: 0.01, d: 10.0, i_clamp: 1}
+  C_A2_L3_Pos:
+    type: position_controllers/JointTrajectoryController
+    joint: C_A2_L3
+    pid: {p: 100.0, i: 0.01, d: 10.0, i_clamp: 1}
+  
+  C_A3_L0_Pos:
+    type: position_controllers/JointTrajectoryController
+    joint: C_A3_L0
+    pid: {p: 100.0, i: 0.01, d: 10.0, i_clamp: 1}
+  C_A3_L1_Pos:
+    type: position_controllers/JointTrajectoryController
+    joint: C_A3_L1
+    pid: {p: 100.0, i: 0.01, d: 10.0, i_clamp: 1}
+  C_A3_L2_Pos:
+    type: position_controllers/JointTrajectoryController
+    joint: C_A3_L2
+    pid: {p: 100.0, i: 0.01, d: 10.0, i_clamp: 1}
+  C_A3_L3_Pos:
+    type: position_controllers/JointTrajectoryController
+    joint: C_A3_L3
+    pid: {p: 100.0, i: 0.01, d: 10.0, i_clamp: 1}
+  C_A3_L4_Pos:
+    type: position_controllers/JointTrajectoryController
+    joint: C_A3_L4
+    pid: {p: 100.0, i: 0.01, d: 10.0, i_clamp: 1}
+
+  C_A4_L0_Pos:
+    type: position_controllers/JointTrajectoryController
+    joint: C_A4_L0
+    pid: {p: 100.0, i: 0.01, d: 10.0, i_clamp: 1}
+  C_A4_L1_Pos:
+    type: position_controllers/JointTrajectoryController
+    joint: C_A4_L1
+    pid: {p: 100.0, i: 0.01, d: 10.0, i_clamp: 1}
+  C_A4_L2_Pos:
+    type: position_controllers/JointTrajectoryController
+    joint: C_A4_L2
+    pid: {p: 100.0, i: 0.01, d: 10.0, i_clamp: 1}
+  C_A4_L3_Pos:
+    type: position_controllers/JointTrajectoryController
+    joint: C_A4_L3
+    pid: {p: 100.0, i: 0.01, d: 10.0, i_clamp: 1}
+  C_A4_L4_Pos:
+    type: position_controllers/JointTrajectoryController
+    joint: C_A4_L4
+    pid: {p: 100.0, i: 0.01, d: 10.0, i_clamp: 1}
+
+
+ 
+ 
