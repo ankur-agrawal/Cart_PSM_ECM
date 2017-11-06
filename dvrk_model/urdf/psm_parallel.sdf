@@ -2,7 +2,7 @@
 <sdf version='1.4'>
 
   <model name='master'>
-  <pose> 1 4 0 0 0 3.14159 </pose>
+  <pose> 0 0 0 0 0 0 </pose>
     <link name='one_remote_center_link'>
       <pose>-0.5 0 1 0 -0 3.14159</pose>
       <inertial>
@@ -304,7 +304,8 @@
     <joint name='one_fixed_joint' type='revolute'>
       <child>one_remote_center_link</child>
       <parent>world</parent>
-      <pose>0 1 1 0 0 -0.27129</pose>
+      <!-- <pose>0 1 1 0 0 -0.27129</pose> -->
+      <pose>0 0 0 0 0 0</pose>
       <axis>
         <limit>
           <lower>0</lower>
@@ -458,7 +459,7 @@
         <dynamics/>
       </axis>
     </joint>
-<!--    <link name='one_tool_wrist_link'>
+   <link name='one_tool_wrist_link'>
       <pose>-0.4997 -1.99273e-05 1.01949 -3.14159 3.67319e-06 1.5708</pose>
       <inertial>
         <pose>0 0.003208 0.00728 0 -0 1.5708</pose>
@@ -481,7 +482,7 @@
           </mesh>
         </geometry>
       </collision>
-      <collision name='one_tool_wrist_link_collision_one_tool_wrist_shaft_link'>
+      <!-- <collision name='one_tool_wrist_link_collision_one_tool_wrist_shaft_link'>
         <pose>0 0.00401 0.0364 1.5708 -0 0</pose>
         <geometry>
           <mesh>
@@ -489,7 +490,7 @@
             <uri>model://dvrk_model/meshes/psm/tool_wrist_shaft_link.dae</uri>
           </mesh>
         </geometry>
-      </collision>
+      </collision> -->
       <visual name='one_tool_wrist_link_visual'>
         <pose>0 0 0 0 -0 1.5708</pose>
         <geometry>
@@ -499,7 +500,7 @@
           </mesh>
         </geometry>
       </visual>
-      <visual name='one_tool_wrist_link_visual_one_tool_wrist_shaft_link'>
+      <!-- <visual name='one_tool_wrist_link_visual_one_tool_wrist_shaft_link'>
         <pose>0 0.00401 0.0364 1.5708 -0 0</pose>
         <geometry>
           <mesh>
@@ -507,13 +508,14 @@
             <uri>model://dvrk_model/meshes/psm/tool_wrist_shaft_link.dae</uri>
           </mesh>
         </geometry>
-      </visual>
+      </visual> -->
       <velocity_decay>
         <linear>0</linear>
         <angular>0</angular>
       </velocity_decay>
     </link>
     <joint name='one_outer_roll_joint' type='revolute'>
+      <pose>0 0 0 0 0 0</pose>
       <child>one_tool_wrist_link</child>
       <parent>one_tool_main_link</parent>
       <axis>
@@ -527,7 +529,7 @@
         <dynamics/>
       </axis>
     </joint>
-    <link name='one_tool_wrist_sca_link'>
+    <!-- <link name='one_tool_wrist_sca_link'>
       <pose>-0.4997 -2.0061e-05 0.983092 -2.03445 1.57079 -2.03444</pose>
       <inertial>
         <pose>0.0051 0.0032 0 -1.57079 -7.34641e-06 3.14159</pose>
@@ -699,7 +701,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://dvrk_model/meshes/psm/sphere_50mm.dae</uri>
+            <uri>model://dvrk_model/meshes/psm/tool_wrist_sca_link_2.dae</uri>
           </mesh>
         </geometry>
       </collision>
@@ -708,7 +710,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://dvrk_model/meshes/psm/sphere_50mm.dae</uri>
+            <uri>model://dvrk_model/meshes/psm/tool_wrist_sca_link_2.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -730,7 +732,7 @@
         </limit>
         <dynamics/>
       </axis>
-    </joint>-->
+    </joint> -->
 
     <!-- <joint name='prismatic_joint' type='prismatic'>
       <child>platform</child>

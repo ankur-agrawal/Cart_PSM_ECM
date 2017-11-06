@@ -5,7 +5,7 @@
 <!--
 <xacro:include filename="$(find dvrk_model)/model/mtm.urdf.xacro"/>
 
-  <xacro:mtm 
+  <xacro:mtm
       prefix="right_"
       parent_link="world"
       xyz="0.5 0.0 1.0" rpy="0.0 0.0 0.0"/>-->
@@ -13,10 +13,10 @@
 
 
   <!-- Macros -->
- <xacro:include filename="$(find dvrk_model)/Cart/urdf/Cart_n.xacro"/>
- <!--<xacro:include filename="$(find dvrk_model)/urdf/psm.xacro"/>-->
- <xacro:include filename="$(find dvrk_model)/urdf/psm_parallel.urdf.xacro"/>
- <xacro:include filename="$(find dvrk_model)/urdf/ecm.urdf.xacro"/>
+ <xacro:include filename="$(find dvrk_model)/Cart/Cart_n.xacro"/>
+ <xacro:include filename="$(find dvrk_model)/urdf/psm.xacro"/>
+ <!--<xacro:include filename="$(find dvrk_model)/PSM/psm_parallel.urdf.xacro"/>-->
+ <xacro:include filename="$(find dvrk_model)/ECM/ecm.urdf.xacro"/>
 
 
 <!--specify how many psms:(1 to 3) change true to one of the values-->
@@ -24,49 +24,52 @@
 <property name= "psm_num_2" value = "false" />
 <property name= "psm_num_3" value = "false"  />
 
-<!--specify where they go: Choose enter number [1 3 or 4]-->  
- 
+<!--specify where they go: Choose enter number [1 3 or 4]-->
+
 <property name= "psm1" value= "1" />
 <property name= "psm2" value= "3" />
 <property name= "psm3" value= "4" />
 
 
-<property name="if" value="1" />  
+<property name="if" value="1" />
 
 
  <xacro:if value="${psm_num_1}">
-   	<xacro:psm prefix="1" parent="${psm1}"  />
-	<xacro:ecm prefix="ecm" parent_link="C_A2_L3" xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"  /> 		
+  <xacro:psm prefix="one_" parent_link="C_A1_L4" xyz= "0 0 0" rpy="0 0 0"/>
+   	<!--<xacro:psm prefix="one_" parent="${psm1}"  />-->
+	<xacro:ecm prefix="ecm" parent_link="C_A2_L3" xyz="0.16 0.125 0.075" rpy="0.0 0 -${3.14159/4-0.05}"  />
  </xacro:if>
 
  <xacro:if value="${psm_num_2}">
-   	<xacro:psm prefix="1" parent="${psm1}"  /> 
-	<xacro:psm prefix="2" parent="${psm2}"  /> 
+   	<xacro:psm prefix="1" parent="${psm1}"  />
+	<xacro:psm prefix="2" parent="${psm2}"  />
  </xacro:if>
 
  <xacro:if value="${psm_num_3}">
-   	<xacro:psm prefix="1" parent="1"  /> 
+   	<xacro:psm prefix="1" parent="1"  />
 	<xacro:psm prefix="2" parent="3"  />
 	<xacro:psm prefix="3" parent="4"  />
-	<xacro:ecm prefix="ecm" parent_link="C_A2_L3" xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"  />  
+  <!--<xacro:psm prefix="one_" parent_link="C_A1_L4" xyz= "0 0 0" rpy="0 0 0"/>
+  <xacro:psm prefix="one_" parent_link="C_A3_L4" xyz= "0 0 0" rpy="0 0 0"/>
+  <xacro:psm prefix="one_" parent_link="C_A4_L4" xyz= "0 0 0" rpy="0 0 0"/>-->
+	<xacro:ecm prefix="ecm" parent_link="C_A2_L3" xyz="0.16 0.125 0.075" rpy="0.0 0 -${3.14159/4-0.05}"  />
  </xacro:if>
 
- 
+
 
       <!-- "-0.5 0.0 1"    -->
 
  <!--xacro:include filename="$(find dvrk_model)/urdf/platform.urdf.xacro"/
-  
+
   <xacro:pf
       parent_link="world"
       xyz="-0.5 -0.1 0.82949" rpy="0 -1.570796 0.0"/> -->
 
-  <gazebo>
+  <!--<gazebo>
   <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
   <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
   </plugin>
-  </gazebo>
+  </gazebo>-->
 
 
 </robot>
-

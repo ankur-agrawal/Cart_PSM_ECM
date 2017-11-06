@@ -7,7 +7,7 @@
     <!-- <rosparam file="$(find dvrk_gazebo_control)/config/platform.yaml" command="load"/> -->
 
 
-    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+    <node name="controller_spawner2" pkg="controller_manager" type="spawner" respawn="false"
 	output="screen" args="joint_state_controller
 					   /cart_arm1_joint0_controller
 					   /cart_arm1_joint1_controller
