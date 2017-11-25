@@ -39,19 +39,39 @@
     </link>-->
 
     <!-- Joint 0: Fixed to Setup Joint-->
-    <!--<joint name="fixed_joint" type="fixed">
+    <joint name="fixed_joint" type="fixed">
       <parent link="${parent_link}"/>
       <child link="${prefix}_base_link"/>
-      <origin rpy="0 0 0" xyz="0.38866 0 -0.46107"/>
+      <origin rpy="${rpy}" xyz="${xyz}"/>
     </joint>
-    <link name="${prefix}_base_link"/>-->
+    <link name="${prefix}_base_link">
+      <inertial>
+        <mass value="0.01"/>
+        <origin rpy="0 0 0" xyz="0.0 0 0"/>
+        <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      </inertial>
+      <visual>
+        <origin rpy="0 ${3.14159/2} ${3.14159}" xyz="0.0 0 0"/>
+        <geometry>
+          <mesh filename="package://dvrk_model/meshes/ecm/ECM_Base.STL" scale="0.001 0.001 0.001"/>
+        </geometry>
+	<material name="DaVinciGreen"/>
+      </visual>
+      <collision>
+        <origin rpy="0 ${3.14159/2} ${3.14159}" xyz="0.0 0 0"/>
+        <geometry>
+          <mesh filename="package://dvrk_model/meshes/ecm/ECM_Base.STL" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </collision>
+    </link>
 
     <!-- Joint 1: Outer Yaw -->
     <joint name="outer_yaw" type="revolute">
-      <parent link="${parent_link}"/>
+      <parent link="${prefix}_base_link"/>
       <child link="${prefix}_yaw_link"/>
       <!--<origin rpy="0 -${3.14159/2} ${3.14159/2}" xyz="0 0 0"/>-->
-      <origin rpy="-${3.14159/2} 0 -${3.14159/2}" xyz="-0.6 0.1 0"/>
+      <!--<origin rpy="-${3.14159/2} 0 -${3.14159/2}" xyz="-0.6 0.1 0"/>-->
+      <origin rpy="-${3.14159/2} 0 -${3.14159/2}" xyz="-0.76 -0.075 -0.0775"/>
       <axis xyz="0 0 1"/>
       <!--rotates about z axis-->
       <!--limit effort and velocity picked arbitrarily check-->
@@ -75,7 +95,6 @@
       <collision>
         <origin rpy="0 0 -${3.14159/2}" xyz="0.0 0 0.603"/>
         <geometry>
-
           <mesh filename="package://dvrk_model/meshes/ecm/Endo_Link_5.STL"/>
         </geometry>
       </collision>
@@ -265,7 +284,7 @@
     </link>
 
 
-  <gazebo reference="${prefix}_yaw_link">
+  <!--<gazebo reference="${prefix}_yaw_link">
   <material>Gazebo/Black</material>
   <turnGravityOff>true</turnGravityOff>
   </gazebo>
@@ -298,7 +317,7 @@
   <gazebo reference="${prefix}_roll_link">
   <material>Gazebo/Black</material>
   <turnGravityOff>true</turnGravityOff>
-  </gazebo>
+  </gazebo>-->
 
 
  <!-- camera -->

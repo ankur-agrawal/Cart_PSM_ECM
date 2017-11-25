@@ -1,0 +1,1780 @@
+<sdf version='1.6'>
+
+<model name='dvrk'>
+<link name='base_link'>
+      <pose>0 0 0.167458 0 -0 0</pose>
+      <inertial>
+        <pose>3.41426e-07 -0.163433 0.552458 0 -0 0</pose>
+        <mass>251.331</mass>
+        <inertia>
+          <ixx>116.092</ixx>
+          <ixy>-5.29792e-06</ixy>
+          <ixz>3.94602e-05</ixz>
+          <iyy>116.786</iyy>
+          <iyz>-2.7945</iyz>
+          <izz>20.7205</izz>
+        </inertia>
+      </inertial>
+      <collision name='base_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/base_link.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='base_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/base_link.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <joint name='fixed' type='fixed'>
+      <child>base_link</child>
+      <parent>world</parent>
+    </joint>
+    <link name='C_A1_L0'>
+      <pose>0.1912 -0.1016 0.928558 -3.14159 -0 3.14159</pose>
+      <inertial>
+        <pose>0.05684 4.20187e-07 0.148467 0 -0 0</pose>
+        <mass>8.19045</mass>
+        <inertia>
+          <ixx>0.0849399</ixx>
+          <ixy>-2.62415e-07</ixy>
+          <ixz>-0.00950409</ixz>
+          <iyy>0.0840388</iyy>
+          <iyz>-7.34497e-07</iyz>
+          <izz>0.0337579</izz>
+        </inertia>
+      </inertial>
+      <collision name='C_A1_L0_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A1_L0.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='C_A1_L0_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A1_L0.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <joint name='C_A1_L0' type='prismatic'>
+      <child>C_A1_L0</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>1.04399e-29 3.23109e-15 1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>1.2223</upper>
+          <effort>5000</effort>
+          <velocity>50</velocity>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+    <link name='C_A1_L1'>
+      <pose>0.1912 -0.1016 0.928558 3.14159 3.23109e-15 1.5708</pose>
+      <inertial>
+        <pose>-2.39047e-06 0.181423 -0.108874 0 -0 0</pose>
+        <mass>4.28515</mass>
+        <inertia>
+          <ixx>0.165299</ixx>
+          <ixy>8.05521e-07</ixy>
+          <ixz>1.12357e-07</ixz>
+          <iyy>0.0318879</iyy>
+          <iyz>-0.0216382</iyz>
+          <izz>0.151812</izz>
+        </inertia>
+      </inertial>
+      <collision name='C_A1_L1_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A1_L1.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='C_A1_L1_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A1_L1.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <joint name='C_A1_L1' type='revolute'>
+      <child>C_A1_L1</child>
+      <parent>C_A1_L0</parent>
+      <axis>
+        <xyz>1.0058e-29 3.23109e-15 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+    <link name='C_A1_L2'>
+      <pose>0.623 -0.1016 1.09981 -6.46218e-15 -2.33033e-29 -1.03251e-14</pose>
+      <inertial>
+        <pose>0.20892 -5.98682e-06 0.0907666 0 -0 0</pose>
+        <mass>3.37391</mass>
+        <inertia>
+          <ixx>0.0170496</ixx>
+          <ixy>1.14494e-06</ixy>
+          <ixz>0.00102556</ixz>
+          <iyy>0.122648</iyy>
+          <iyz>-5.47957e-07</iyz>
+          <izz>0.11478</izz>
+        </inertia>
+      </inertial>
+      <collision name='C_A1_L2_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A1_L2.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='C_A1_L2_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A1_L2.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <joint name='C_A1_L2' type='revolute'>
+      <child>C_A1_L2</child>
+      <parent>C_A1_L1</parent>
+      <axis>
+        <xyz>4.34192e-29 6.46218e-15 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+    <link name='C_A1_L3'>
+      <pose>1.0548 -0.1016 1.09981 -1.5708 -6.66134e-15 -1.5708</pose>
+      <inertial>
+        <pose>-7.80457e-07 0.0671938 -0.0457966 0 -0 0</pose>
+        <mass>0.955411</mass>
+        <inertia>
+          <ixx>0.0050224</ixx>
+          <ixy>1.37715e-08</ixy>
+          <ixz>6.06907e-08</ixz>
+          <iyy>0.00485367</iyy>
+          <iyz>0.000256157</iyz>
+          <izz>0.00220603</izz>
+        </inertia>
+      </inertial>
+      <collision name='C_A1_L3_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A1_L3.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='C_A1_L3_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A1_L3.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <joint name='C_A1_L3' type='revolute'>
+      <child>C_A1_L3</child>
+      <parent>C_A1_L2</parent>
+      <axis>
+        <xyz>3.44169e-15 6.60583e-15 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+    <link name='C_A1_L4'>
+      <pose>1.1158 -0.1016 1.02676 -3.14159 9.85853e-15 1.5708</pose>
+      <inertial>
+        <pose>4.48122e-08 0.13369 0.106531 0 -0 0</pose>
+        <mass>3.17073</mass>
+        <inertia>
+          <ixx>0.0814805</ixx>
+          <ixy>-2.272e-08</ixy>
+          <ixz>-1.15333e-09</ixz>
+          <iyy>0.0179293</iyy>
+          <iyz>-0.0218807</iyz>
+          <izz>0.0668099</izz>
+        </inertia>
+      </inertial>
+      <collision name='C_A1_L4_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A1_L4.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='C_A1_L4_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A1_L4.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <joint name='C_A1_L4' type='revolute'>
+      <child>C_A1_L4</child>
+      <parent>C_A1_L3</parent>
+      <axis>
+        <xyz>1 -1.38223e-14 -7.03236e-15</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+    <link name='C_A2_L0'>
+      <pose>0 0.0896 0.928558 3.14159 -3.41872e-16 -1.5708</pose>
+      <inertial>
+        <pose>0.05684 4.20187e-07 0.148467 0 -0 0</pose>
+        <mass>8.19045</mass>
+        <inertia>
+          <ixx>0.0849399</ixx>
+          <ixy>-2.62415e-07</ixy>
+          <ixz>-0.00950409</ixz>
+          <iyy>0.0840388</iyy>
+          <iyz>-7.34497e-07</iyz>
+          <izz>0.0337579</izz>
+        </inertia>
+      </inertial>
+      <collision name='C_A2_L0_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A2_L0.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='C_A2_L0_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A2_L0.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <joint name='C_A2_L0' type='prismatic'>
+      <child>C_A2_L0</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>3.23109e-15 3.41872e-16 1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>1.2223</upper>
+          <effort>50</effort>
+          <velocity>50</velocity>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+    <link name='C_A2_L1'>
+      <pose>0 0.0896 0.928558 -2.88922e-15 -3.23109e-15 3.14159</pose>
+      <inertial>
+        <pose>-2.39047e-06 -0.181423 0.108874 0 -0 0</pose>
+        <mass>4.28515</mass>
+        <inertia>
+          <ixx>0.165299</ixx>
+          <ixy>-8.05521e-07</ixy>
+          <ixz>-1.12357e-07</ixz>
+          <iyy>0.0318879</iyy>
+          <iyz>-0.0216382</iyz>
+          <izz>0.151812</izz>
+        </inertia>
+      </inertial>
+      <collision name='C_A2_L1_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A2_L1.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='C_A2_L1_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A2_L1.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <joint name='C_A2_L1' type='revolute'>
+      <child>C_A2_L1</child>
+      <parent>C_A2_L0</parent>
+      <axis>
+        <xyz>3.23109e-15 -2.88922e-15 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+    <link name='C_A2_L2'>
+      <pose>3.66939e-15 0.5214 1.09981 -3.14159 -2.88922e-15 1.5708</pose>
+      <inertial>
+        <pose>0.20892 5.98682e-06 -0.0907666 0 -0 0</pose>
+        <mass>3.37391</mass>
+        <inertia>
+          <ixx>0.0170496</ixx>
+          <ixy>-1.14494e-06</ixy>
+          <ixz>-0.00102556</ixz>
+          <iyy>0.122648</iyy>
+          <iyz>-5.47957e-07</iyz>
+          <izz>0.11478</izz>
+        </inertia>
+      </inertial>
+      <collision name='C_A2_L2_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A2_L2.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='C_A2_L2_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A2_L2.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <joint name='C_A2_L2' type='revolute'>
+      <child>C_A2_L2</child>
+      <parent>C_A2_L1</parent>
+      <axis>
+        <xyz>-2.18909e-29 -2.88922e-15 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+    <link name='C_A2_L3'>
+      <pose>8.31437e-15 0.9532 1.04781 -1.5708 2.94209e-15 -1.5708</pose>
+      <inertial>
+        <pose>0.101751 0.0259124 -9.327e-08 0 -0 0</pose>
+        <mass>3.45916</mass>
+        <inertia>
+          <ixx>0.0229633</ixx>
+          <ixy>-0.0059561</ixy>
+          <ixz>3.34205e-08</ixz>
+          <iyy>0.0229722</iyy>
+          <iyz>2.42316e-08</iyz>
+          <izz>0.0422114</izz>
+        </inertia>
+      </inertial>
+      <collision name='C_A2_L3_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A2_L3.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='C_A2_L3_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A2_L3.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <joint name='C_A2_L3' type='revolute'>
+      <child>C_A2_L3</child>
+      <parent>C_A2_L2</parent>
+      <axis>
+        <xyz>-3.38618e-15 -2.9976e-15 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+    <link name='C_A3_L0'>
+      <pose>0 0.0896 0.548758 3.14159 -3.41872e-16 -1.5708</pose>
+      <inertial>
+        <pose>0.060211 -2.92607e-07 0.1132 0 -0 0</pose>
+        <mass>6.04817</mass>
+        <inertia>
+          <ixx>0.0427518</ixx>
+          <ixy>-6.0601e-07</ixy>
+          <ixz>-0.00566678</ixz>
+          <iyy>0.0405</iyy>
+          <iyz>-5.59951e-07</iyz>
+          <izz>0.0232273</izz>
+        </inertia>
+      </inertial>
+      <collision name='C_A3_L0_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A3_L0.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='C_A3_L0_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A3_L0.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <joint name='C_A3_L0' type='prismatic'>
+      <child>C_A3_L0</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>3.23109e-15 3.41872e-16 1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>1.2223</upper>
+          <effort>50</effort>
+          <velocity>50</velocity>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+    <link name='C_A3_L1'>
+      <pose>0 0.0896 0.548758 -2.88922e-15 -3.23109e-15 3.14159</pose>
+      <inertial>
+        <pose>-8.83879e-07 -0.269227 0.0974465 0 -0 0</pose>
+        <mass>9.21434</mass>
+        <inertia>
+          <ixx>0.512543</ixx>
+          <ixy>-1.12853e-06</ixy>
+          <ixz>-1.98944e-07</ixz>
+          <iyy>0.0466755</iyy>
+          <iyz>-0.0223247</iyz>
+          <izz>0.500776</izz>
+        </inertia>
+      </inertial>
+      <collision name='C_A3_L1_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A3_L1.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='C_A3_L1_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A3_L1.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <joint name='C_A3_L1' type='revolute'>
+      <child>C_A3_L1</child>
+      <parent>C_A3_L0</parent>
+      <axis>
+        <xyz>3.23109e-15 -2.88922e-15 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+    <link name='C_A3_L2'>
+      <pose>4.21504e-15 0.6738 0.548508 -3.14159 -2.88922e-15 1.5708</pose>
+      <inertial>
+        <pose>0.20892 -5.98682e-06 0.0907666 0 -0 0</pose>
+        <mass>3.37391</mass>
+        <inertia>
+          <ixx>0.0170496</ixx>
+          <ixy>1.14494e-06</ixy>
+          <ixz>0.00102556</ixz>
+          <iyy>0.122648</iyy>
+          <iyz>-5.47957e-07</iyz>
+          <izz>0.11478</izz>
+        </inertia>
+      </inertial>
+      <collision name='C_A3_L2_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A3_L2.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='C_A3_L2_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A3_L2.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <joint name='C_A3_L2' type='revolute'>
+      <child>C_A3_L2</child>
+      <parent>C_A3_L1</parent>
+      <axis>
+        <xyz>-2.18909e-29 -2.88922e-15 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+    <link name='C_A3_L3'>
+      <pose>8.90573e-15 1.1056 0.548508 -1.5708 3.15253e-17 3.14159</pose>
+      <inertial>
+        <pose>-5.52738e-07 -0.14737 0.0299587 0 -0 0</pose>
+        <mass>1.46017</mass>
+        <inertia>
+          <ixx>0.0128891</ixx>
+          <ixy>-1.05508e-07</ixy>
+          <ixz>2.68237e-08</ixz>
+          <iyy>0.00658385</iyy>
+          <iyz>0.00230089</iyz>
+          <izz>0.00938096</izz>
+        </inertia>
+      </inertial>
+      <collision name='C_A3_L3_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A3_L3.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='C_A3_L3_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A3_L3.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <joint name='C_A3_L3' type='revolute'>
+      <child>C_A3_L3</child>
+      <parent>C_A3_L2</parent>
+      <axis>
+        <xyz>-3.15253e-17 5.55112e-16 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+    <link name='C_A3_L4'>
+      <pose>9.34e-15 1.1666 0.748458 3.14159 3.15253e-17 3.14159</pose>
+      <inertial>
+        <pose>4.48122e-08 0.13369 0.106531 0 -0 0</pose>
+        <mass>3.17073</mass>
+        <inertia>
+          <ixx>0.0814805</ixx>
+          <ixy>-2.272e-08</ixy>
+          <ixz>-1.15333e-09</ixz>
+          <iyy>0.0179293</iyy>
+          <iyz>-0.0218807</iyz>
+          <izz>0.0668099</izz>
+        </inertia>
+      </inertial>
+      <collision name='C_A3_L4_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A3_L4.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='C_A3_L4_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A3_L4.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <joint name='C_A3_L4' type='revolute'>
+      <child>C_A3_L4</child>
+      <parent>C_A3_L3</parent>
+      <axis>
+        <xyz>-7.22243e-15 -1 -2.9976e-15</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+    <link name='C_A4_L0'>
+      <pose>-0.1912 -0.1016 0.928558 3.14159 -0 0</pose>
+      <inertial>
+        <pose>0.05684 4.20187e-07 0.148467 0 -0 0</pose>
+        <mass>8.19045</mass>
+        <inertia>
+          <ixx>0.0849399</ixx>
+          <ixy>-2.62415e-07</ixy>
+          <ixz>-0.00950409</ixz>
+          <iyy>0.0840388</iyy>
+          <iyz>-7.34497e-07</iyz>
+          <izz>0.0337579</izz>
+        </inertia>
+      </inertial>
+      <collision name='C_A4_L0_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A4_L0.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='C_A4_L0_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A4_L0.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <joint name='C_A4_L0' type='prismatic'>
+      <child>C_A4_L0</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>0 3.23109e-15 1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>1.2223</upper>
+          <effort>50</effort>
+          <velocity>50</velocity>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+    <link name='C_A4_L1'>
+      <pose>-0.1912 -0.1016 0.928558 -3.14159 -3.23109e-15 -1.5708</pose>
+      <inertial>
+        <pose>-2.39047e-06 0.181423 -0.108874 0 -0 0</pose>
+        <mass>4.28515</mass>
+        <inertia>
+          <ixx>0.165299</ixx>
+          <ixy>8.05521e-07</ixy>
+          <ixz>1.12357e-07</ixz>
+          <iyy>0.0318879</iyy>
+          <iyz>-0.0216382</iyz>
+          <izz>0.151812</izz>
+        </inertia>
+      </inertial>
+      <collision name='C_A4_L1_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A4_L1.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='C_A4_L1_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A4_L1.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <joint name='C_A4_L1' type='revolute'>
+      <child>C_A4_L1</child>
+      <parent>C_A4_L0</parent>
+      <axis>
+        <xyz>0 3.23109e-15 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+    <link name='C_A4_L2'>
+      <pose>-0.623 -0.1016 1.09981 -8.53916e-44 2.36658e-29 3.14159</pose>
+      <inertial>
+        <pose>0.20892 -5.98682e-06 0.0907666 0 -0 0</pose>
+        <mass>3.37391</mass>
+        <inertia>
+          <ixx>0.0170496</ixx>
+          <ixy>1.14494e-06</ixy>
+          <ixz>0.00102556</ixz>
+          <iyy>0.122648</iyy>
+          <iyz>-5.47957e-07</iyz>
+          <izz>0.11478</izz>
+        </inertia>
+      </inertial>
+      <collision name='C_A4_L2_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A4_L2.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='C_A4_L2_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A4_L2.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <joint name='C_A4_L2' type='revolute'>
+      <child>C_A4_L2</child>
+      <parent>C_A4_L1</parent>
+      <axis>
+        <xyz>-2.36658e-29 8.53916e-44 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+    <link name='C_A4_L3'>
+      <pose>-1.0548 -0.1016 1.09981 1.5708 -5.55112e-17 1.5708</pose>
+      <inertial>
+        <pose>-7.80457e-07 -0.0671938 0.0457966 0 -0 0</pose>
+        <mass>0.955411</mass>
+        <inertia>
+          <ixx>0.0050224</ixx>
+          <ixy>-1.37715e-08</ixy>
+          <ixz>-6.06907e-08</ixz>
+          <iyy>0.00485367</iyy>
+          <iyz>0.000256157</iyz>
+          <izz>0.00220603</izz>
+        </inertia>
+      </inertial>
+      <collision name='C_A4_L3_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A4_L3.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='C_A4_L3_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A4_L3.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <joint name='C_A4_L3' type='revolute'>
+      <child>C_A4_L3</child>
+      <parent>C_A4_L2</parent>
+      <axis>
+        <xyz>3.46945e-15 0 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+    <link name='C_A4_L4'>
+      <pose>-1.1158 -0.1016 1.02676 3.14159 -3.34265e-15 -1.5708</pose>
+      <inertial>
+        <pose>4.48122e-08 0.13369 0.106531 0 -0 0</pose>
+        <mass>3.17073</mass>
+        <inertia>
+          <ixx>0.0814805</ixx>
+          <ixy>-2.272e-08</ixy>
+          <ixz>-1.15333e-09</ixz>
+          <iyy>0.0179293</iyy>
+          <iyz>-0.0218807</iyz>
+          <izz>0.0668099</izz>
+        </inertia>
+      </inertial>
+      <collision name='C_A4_L4_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A4_L4.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='C_A4_L4_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Cart/meshes/C_A4_L4.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <joint name='C_A4_L4' type='revolute'>
+      <child>C_A4_L4</child>
+      <parent>C_A4_L3</parent>
+      <axis>
+        <xyz>1 -1.06581e-14 -7.17697e-15</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+
+    <!-- <plugin name='gazebo_ros_control' filename='libgazebo_ros_control.so'>
+      <robotNamespace>/Cart</robotNamespace>
+    </plugin> -->
+
+
+
+
+
+  <model name='PSM1'>
+  <pose> 1.9501 0.3984 .0848 0 0  1.57</pose>
+<link name='one_remote_center_link'>
+      <pose>-0.5 0 1 0 -0 3.14159</pose>
+      <inertial>
+        <pose>0.039 -0.40788 -0.07879 0 -0 0</pose>
+        <mass>0.0001</mass>
+        <inertia>
+          <ixx>1</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1</iyy>
+          <iyz>0</iyz>
+          <izz>1</izz>
+        </inertia>
+      </inertial>
+      <collision name='one_remote_center_link_collision_one_psm_base_link'>
+        <pose>0.039 -0.40788 -0.07879 1.5708 -4.23516e-22 -3.14159</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dvrk_model/meshes/psm/psm_base.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='one_remote_center_link_visual_one_psm_base_link'>
+        <pose>0.039 -0.40788 -0.07879 1.5708 -4.23516e-22 -3.14159</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dvrk_model/meshes/psm/psm_base.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <link name='one_outer_yaw_link'>
+      <pose>-0.5 0.369 1 -1.57079 -1.57079 -5.35564e-08</pose>
+      <inertial>
+        <pose>0.0125 0 0.1575 -3.14159 -4.23516e-22 1.5708</pose>
+        <mass>0.01</mass>
+        <inertia>
+          <ixx>1</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1</iyy>
+          <iyz>0</iyz>
+          <izz>1</izz>
+        </inertia>
+      </inertial>
+      <collision name='one_outer_yaw_link_collision'>
+        <pose>0.0125 0 0.1575 -3.14159 -4.23516e-22 1.5708</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dvrk_model/meshes/psm/outer_yaw.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='one_outer_yaw_link_visual'>
+        <pose>0.0125 0 0.1575 -3.14159 -4.23516e-22 1.5708</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dvrk_model/meshes/psm/outer_yaw.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <link name='one_outer_pitch_back_link'>
+      <pose>-0.470501 0.5185 1 1.5708 3.67319e-06 1.5708</pose>
+      <inertial>
+        <pose>0 0 0 0 0 -0.27129</pose>
+        <mass>0.1</mass>
+        <inertia>
+          <ixx>1</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1</iyy>
+          <iyz>0</iyz>
+          <izz>1</izz>
+        </inertia>
+      </inertial>
+      <collision name='one_outer_pitch_back_link_collision'>
+        <pose>0 0 0 0 0 -0.27129</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dvrk_model/meshes/psm/outer_pitch_back.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='one_outer_pitch_back_link_visual'>
+        <pose>0 0 0 0 0 -0.27129</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dvrk_model/meshes/psm/outer_pitch_back.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <link name='one_outer_pitch_front_link'>
+      <pose>-0.4705 0.4285 1 1.5708 3.67319e-06 1.5708</pose>
+      <inertial>
+        <pose>0 0 0 0 0 -0.27129</pose>
+        <mass>0.1</mass>
+        <inertia>
+          <ixx>1</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1</iyy>
+          <iyz>0</iyz>
+          <izz>1</izz>
+        </inertia>
+      </inertial>
+      <collision name='one_outer_pitch_front_link_collision'>
+        <pose>0 0 0 0 0 -0.27129</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dvrk_model/meshes/psm/outer_pitch_front.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='one_outer_pitch_front_link_visual'>
+        <pose>0 0 0 0 0 -0.27129</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dvrk_model/meshes/psm/outer_pitch_front.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>-->
+    <link name='one_outer_pitch_bottom_link'>
+      <pose>-0.484201 0.560281 1.15007 1.5708 3.67319e-06 1.5708</pose>
+      <inertial>
+        <pose>0.009 0 0 3.14159 -1.57079 3.14159</pose>
+        <mass>0.3</mass>
+        <inertia>
+          <ixx>1</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1</iyy>
+          <iyz>0</iyz>
+          <izz>1</izz>
+        </inertia>
+      </inertial>
+      <collision name='one_outer_pitch_bottom_link_collision'>
+        <pose>0.009 0 0 3.14159 -1.57079 3.14159</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dvrk_model/meshes/psm/outer_pitch_bottom.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='one_outer_pitch_bottom_link_visual'>
+        <pose>0.009 0 0 3.14159 -1.57079 3.14159</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dvrk_model/meshes/psm/outer_pitch_bottom.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <link name='one_outer_pitch_top_link'>
+      <pose>-0.494621 0.560591 1.18695 1.5708 3.67319e-06 1.5708</pose>
+      <inertial>
+        <pose>0.009 0 0 3.14159 -1.57079 3.14159</pose>
+        <mass>0.2</mass>
+        <inertia>
+          <ixx>1</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1</iyy>
+          <iyz>0</iyz>
+          <izz>1</izz>
+        </inertia>
+      </inertial>
+      <collision name='one_outer_pitch_top_link_collision'>
+        <pose>0.009 0 0 3.14159 -1.57079 3.14159</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dvrk_model/meshes/psm/outer_pitch_top.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='one_outer_pitch_top_link_visual'>
+        <pose>0.009 0 0 3.14159 -1.57079 3.14159</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dvrk_model/meshes/psm/outer_pitch_top.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <link name='one_outer_insertion_link'>
+      <pose>-0.499699 0.0402806 1.15007 1.5708 3.67319e-06 1.5708</pose>
+      <inertial>
+        <pose>0.02528 0.429 0 3.14159 -1.57079 -1.57079</pose>
+        <mass>0.5</mass>
+        <inertia>
+          <ixx>1</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1</iyy>
+          <iyz>0</iyz>
+          <izz>1</izz>
+        </inertia>
+      </inertial>
+      <collision name='one_outer_insertion_link_collision'>
+        <pose>0.02528 0.429 0 3.14159 -1.57079 -1.57079</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dvrk_model/meshes/psm/outer_insertion.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='one_outer_insertion_link_visual'>
+        <pose>0.02528 0.429 0 3.14159 -1.57079 -1.57079</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dvrk_model/meshes/psm/outer_insertion.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <link name='one_tool_main_link'>
+      <pose>-0.499699 -1.858e-05 1.38629 -3.14159 3.67319e-06 1.5708</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 1.5708</pose>
+        <mass>0.01</mass>
+        <inertia>
+          <ixx>1</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1</iyy>
+          <iyz>0</iyz>
+          <izz>1</izz>
+        </inertia>
+      </inertial>
+      <collision name='one_tool_main_link_collision'>
+        <pose>0 0 0 0 -0 1.5708</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dvrk_model/meshes/psm/tool_main.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='one_tool_main_link_visual'>
+        <pose>0 0 0 0 -0 1.5708</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dvrk_model/meshes/psm/tool_main.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+
+
+
+    <joint name='one_outer_yaw_joint' type='revolute'>
+      <child>one_outer_yaw_link</child>
+      <parent>one_remote_center_link</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1.5707</lower>
+          <upper>1.5707</upper>
+          <effort>1000</effort>
+          <velocity>0.4</velocity>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+    <joint name='one_outer_pitch_joint_1' type='revolute'>
+      <child>one_outer_pitch_back_link</child>
+      <parent>one_outer_yaw_link</parent>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-1.5708</lower>
+          <upper>1.5708</upper>
+          <effort>1000</effort>
+          <velocity>0.4</velocity>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+    <joint name='one_outer_pitch_joint_2' type='revolute'>
+      <child>one_outer_pitch_bottom_link</child>
+      <parent>one_outer_pitch_back_link</parent>
+      <axis>
+        <xyz>1 3.61963e-06 -2.77556e-17</xyz>
+        <limit>
+          <lower>-1.5708</lower>
+          <upper>1.5708</upper>
+          <effort>1000</effort>
+          <velocity>0.4</velocity>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+    <joint name='one_outer_pitch_joint_3' type='revolute'>
+      <child>one_outer_pitch_front_link</child>
+      <parent>one_outer_yaw_link</parent>
+      <axis>
+        <xyz>1 3.61963e-06 -2.77556e-17</xyz>
+        <limit>
+          <lower>-1.5708</lower>
+          <upper>1.5708</upper>
+          <effort>1000</effort>
+          <velocity>0.4</velocity>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+    <joint name='one_outer_pitch_joint_4' type='revolute'>
+      <child>one_outer_pitch_bottom_link</child>
+      <parent>one_outer_pitch_front_link</parent>
+      <pose>-0.09 0 0 0 0 0</pose>
+      <axis>
+        <xyz>1 3.61963e-06 -2.77556e-17</xyz>
+        <limit>
+          <lower>-1.5708</lower>
+          <upper>1.5708</upper>
+          <effort>1000</effort>
+          <velocity>0.4</velocity>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+    <joint name='one_outer_pitch_joint_5' type='revolute'>
+      <child>one_outer_pitch_top_link</child>
+      <parent>one_outer_pitch_back_link</parent>
+      <axis>
+        <xyz>1 3.61963e-06 -2.77556e-17</xyz>
+        <limit>
+          <lower>-1.5708</lower>
+          <upper>1.5708</upper>
+          <effort>1000</effort>
+          <velocity>0.4</velocity>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+<!--    <joint name='one_outer_pitch_joint_6' type='revolute'>
+      <child>one_outer_pitch_top_link</child>
+      <parent>one_outer_pitch_front_link</parent>
+      <axis>
+        <xyz>1 3.61963e-06 -2.77556e-17</xyz>
+        <limit>
+          <lower>-1.5708</lower>
+          <upper>1.5708</upper>
+          <effort>1000</effort>
+          <velocity>0.4</velocity>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>-->
+    <joint name='one_outer_pitch_joint_7' type='revolute'>
+      <child>one_outer_insertion_link</child>
+      <parent>one_outer_pitch_bottom_link</parent>
+      <axis>
+        <xyz>1 3.61963e-06 -2.77556e-17</xyz>
+        <limit>
+          <lower>-1.5708</lower>
+          <upper>1.5708</upper>
+          <effort>1000</effort>
+          <velocity>0.4</velocity>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+    <joint name='one_outer_pitch_joint_8' type='revolute'>
+      <child>one_outer_insertion_link</child>
+      <parent>one_outer_pitch_top_link</parent>
+      <pose>0 0.036 0 0 0 0</pose>
+      <axis>
+        <xyz>1 3.61963e-06 -2.77556e-17</xyz>
+        <limit>
+          <lower>-1.5708</lower>
+          <upper>1.5708</upper>
+          <effort>1000</effort>
+          <velocity>0.4</velocity>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+    <joint name='one_outer_insertion_joint' type='prismatic'>
+      <child>one_tool_main_link</child>
+      <parent>one_outer_insertion_link</parent>
+      <axis>
+        <xyz>-3.67319e-06 -3.6732e-06 -1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0.24</upper>
+          <effort>1000</effort>
+          <velocity>0.4</velocity>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+<!--    <link name='one_tool_wrist_link'>
+      <pose>-0.4997 -1.99273e-05 1.01949 -3.14159 3.67319e-06 1.5708</pose>
+      <inertial>
+        <pose>0 0.003208 0.00728 0 -0 1.5708</pose>
+        <mass>0.05</mass>
+        <inertia>
+          <ixx>5</ixx>
+          <ixy>4.72524e-13</ixy>
+          <ixz>-2.91928e-07</ixz>
+          <iyy>5</iyy>
+          <iyz>1.07231e-12</iyz>
+          <izz>5</izz>
+        </inertia>
+      </inertial>
+      <collision name='one_tool_wrist_link_collision'>
+        <pose>0 0 0 0 -0 1.5708</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dvrk_model/meshes/psm/tool_wrist_link.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name='one_tool_wrist_link_collision_one_tool_wrist_shaft_link'>
+        <pose>0 0.00401 0.0364 1.5708 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dvrk_model/meshes/psm/tool_wrist_shaft_link.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='one_tool_wrist_link_visual'>
+        <pose>0 0 0 0 -0 1.5708</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dvrk_model/meshes/psm/tool_wrist_link.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='one_tool_wrist_link_visual_one_tool_wrist_shaft_link'>
+        <pose>0 0.00401 0.0364 1.5708 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dvrk_model/meshes/psm/tool_wrist_shaft_link.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <joint name='one_outer_roll_joint' type='revolute'>
+      <child>one_tool_wrist_link</child>
+      <parent>one_tool_main_link</parent>
+      <axis>
+        <xyz>-3.67319e-06 -3.6732e-06 -1</xyz>
+        <limit>
+          <lower>-2.2689</lower>
+          <upper>2.2689</upper>
+          <effort>1000</effort>
+          <velocity>0.4</velocity>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+    <link name='one_tool_wrist_sca_link'>
+      <pose>-0.4997 -2.0061e-05 0.983092 -2.03445 1.57079 -2.03444</pose>
+      <inertial>
+        <pose>0.0051 0.0032 0 -1.57079 -7.34641e-06 3.14159</pose>
+        <mass>0.01</mass>
+        <inertia>
+          <ixx>1</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1</iyy>
+          <iyz>0</iyz>
+          <izz>1</izz>
+        </inertia>
+      </inertial>
+      <collision name='one_tool_wrist_sca_link_collision'>
+        <pose>0.0051 0.0032 0 -1.57079 -7.34641e-06 3.14159</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dvrk_model/meshes/psm/tool_wrist_sca_link.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='one_tool_wrist_sca_link_visual'>
+        <pose>0.0051 0.0032 0 -1.57079 -7.34641e-06 3.14159</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dvrk_model/meshes/psm/tool_wrist_sca_link.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <joint name='one_outer_wrist_pitch_joint' type='revolute'>
+      <child>one_tool_wrist_sca_link</child>
+      <parent>one_tool_wrist_link</parent>
+      <axis>
+        <xyz>1 7.29282e-06 -3.67323e-06</xyz>
+        <limit>
+          <lower>-1.5707</lower>
+          <upper>1.5707</upper>
+          <effort>1000</effort>
+          <velocity>0.4</velocity>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+    <link name='one_tool_wrist_sca_shaft_link'>
+      <pose>-0.4997 -2.01264e-05 0.974192 -1.57081 2.69848e-11 7.29285e-06</pose>
+      <inertial>
+        <pose>0 0 -0.0025 0 -0 0</pose>
+        <mass>0.01</mass>
+        <inertia>
+          <ixx>1</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1</iyy>
+          <iyz>0</iyz>
+          <izz>1</izz>
+        </inertia>
+      </inertial>
+      <collision name='one_tool_wrist_sca_shaft_link_collision'>
+        <pose>0 0 -0.0025 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dvrk_model/meshes/psm/tool_wrist_sca_shaft_link.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='one_tool_wrist_sca_shaft_link_visual'>
+        <pose>0 0 -0.0025 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dvrk_model/meshes/psm/tool_wrist_sca_shaft_link.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <joint name='one_outer_wrist_yaw_joint' type='revolute'>
+      <child>one_tool_wrist_sca_shaft_link</child>
+      <parent>one_tool_wrist_sca_link</parent>
+      <axis>
+        <xyz>-7.29285e-06 1 -1.10196e-05</xyz>
+        <limit>
+          <lower>-1.3963</lower>
+          <upper>1.3963</upper>
+          <effort>1000</effort>
+          <velocity>0.4</velocity>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+    <link name='one_tool_wrist_sca_ee_link_1'>
+      <pose>-0.4997 -2.01264e-05 0.974192 -1.57081 2.69848e-11 7.29285e-06</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.01</mass>
+        <inertia>
+          <ixx>1</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1</iyy>
+          <iyz>0</iyz>
+          <izz>1</izz>
+        </inertia>
+      </inertial>
+      <collision name='one_tool_wrist_sca_ee_link_1_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dvrk_model/meshes/psm/tool_wrist_sca_link_2.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='one_tool_wrist_sca_ee_link_1_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dvrk_model/meshes/psm/tool_wrist_sca_link_2.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <joint name='one_outer_wrist_open_angle_joint_1' type='revolute'>
+      <child>one_tool_wrist_sca_ee_link_1</child>
+      <parent>one_tool_wrist_sca_shaft_link</parent>
+      <axis>
+        <xyz>-7.29285e-06 1 -1.10196e-05</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>1.5707</upper>
+          <effort>1000</effort>
+          <velocity>0.4</velocity>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>
+    <link name='one_tool_wrist_sca_ee_link_2'>
+      <pose>-0.4997 -2.01264e-05 0.974192 -1.57081 2.69848e-11 7.29285e-06</pose>
+      <inertial>
+        <pose>0 0 0.1 3.14159 -0.0100073 3.14159</pose>
+        <mass>0.01</mass>
+        <inertia>
+          <ixx>1</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1</iyy>
+          <iyz>0</iyz>
+          <izz>1</izz>
+        </inertia>
+      </inertial>
+      <collision name='one_tool_wrist_sca_ee_link_2_collision'>
+        <pose>0 0 0.1 3.14159 -0.0100073 3.14159</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dvrk_model/meshes/psm/sphere_50mm.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='one_tool_wrist_sca_ee_link_2_visual'>
+        <pose>0 0 0.1 3.14159 -0.0100073 3.14159</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dvrk_model/meshes/psm/sphere_50mm.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
+    </link>
+    <joint name='one_outer_wrist_open_angle_joint_2' type='revolute'>
+      <child>one_tool_wrist_sca_ee_link_2</child>
+      <parent>one_tool_wrist_sca_shaft_link</parent>
+      <axis>
+        <xyz>-7.29285e-06 1 -1.10196e-05</xyz>
+        <limit>
+          <lower>-1.5707</lower>
+          <upper>1.5707</upper>
+          <effort>1000</effort>
+          <velocity>0.4</velocity>
+        </limit>
+        <dynamics/>
+      </axis>
+    </joint>-->
+
+    <!-- <joint name='prismatic_joint' type='prismatic'>
+      <child>platform</child>
+      <parent>world</parent>
+      <axis>
+        <limit>
+          <lower>-0.12</lower>
+          <upper>0.12</upper>
+          <effort>1000</effort>
+          <velocity>0.4</velocity>
+        </limit>
+        <dynamics>
+          <damping>0</damping>
+        </dynamics>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+    <link name='platform'>
+      <pose>-0.5 -0.1 0.87949 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.1</mass>
+        <inertia>
+          <ixx>1</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1</iyy>
+          <iyz>0</iyz>
+          <izz>1</izz>
+        </inertia>
+      </inertial>
+      <collision name='platform_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.2 0.2 0.05</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='platform_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.2 0.2 0.05</size>
+          </box>
+        </geometry>
+      </visual>
+    </link> -->
+
+
+  </model>
+ <static>0</static>
+   <joint name='one_rev_joint' type='revolute'>
+      <child>PSM1::one_remote_center_link</child>
+      <parent>C_A1_L4</parent>
+      <pose> 1 1 1 0 0 -3.14</pose>
+      <axis>
+        <limit>
+          <lower>0</lower>
+          <upper>0</upper>
+        </limit>
+        <dynamics>
+          <damping>0</damping>
+        </dynamics>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+    <plugin name='gazebo_ros_control' filename='libgazebo_ros_control.so'>
+      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+    </plugin>
+ </model>
+</sdf>

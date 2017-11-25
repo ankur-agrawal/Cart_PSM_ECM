@@ -1,0 +1,100 @@
+<sdf version="1.6">
+  <model name="dvrk">
+
+  <include>
+    <uri>model://Cart</uri>
+    <!-- <name>Cart</name> -->
+    <pose>0 0 0 0 0 0</pose>
+  </include>
+
+  <!-- <include>
+    <uri>model://PSM</uri>
+      <name>PSM1</name>
+      <pose> 1.9501 0.3984 0.0848 0 0 1.57</pose>
+  </include> -->
+
+  <!-- <include>
+    <uri>model://PSM</uri>
+    <name>PSM2</name>
+    <pose> -0.5 2 -0.2 0 0 3.14159</pose>
+  </include>
+
+  <include>
+    <uri>model://PSM</uri>
+    <name>PSM3</name>
+    <pose>-1.9501 -0.6016 0.0848 0 0 -1.57</pose>
+  </include> -->
+
+  <!-- <include>
+    <uri>model://ECM</uri>
+    <name>ecm</name>
+    <pose>0.075 0.7932 0.92135 -1.57 -0.735398 -1.57</pose>
+  </include> -->
+
+
+  <!-- <joint name='one_rev_joint' type='revolute'>
+   <child>PSM1::one_remote_center_link</child>
+   <parent>Cart::C_A1_L4</parent>
+   <axis>
+     <limit>
+       <lower>0</lower>
+       <upper>0</upper>
+     </limit>
+     <dynamics>
+       <damping>0</damping>
+     </dynamics>
+     <xyz>0 0 1</xyz>
+   </axis>
+ </joint> -->
+
+ <!-- <joint name='two_rev_joint' type='revolute'>
+  <child>PSM2::one_remote_center_link</child>
+  <parent>Cart::C_A3_L4</parent>
+  <axis>
+    <limit>
+      <lower>0</lower>
+      <upper>0</upper>
+    </limit>
+    <dynamics>
+      <damping>0</damping>
+    </dynamics>
+    <xyz>0 0 1</xyz>
+  </axis>
+</joint>
+
+<joint name='three_rev_joint' type='revolute'>
+ <child>PSM3::one_remote_center_link</child>
+ <parent>Cart::C_A4_L4</parent>
+ <axis>
+   <limit>
+     <lower>0</lower>
+     <upper>0</upper>
+   </limit>
+   <dynamics>
+     <damping>0</damping>
+   </dynamics>
+   <xyz>0 0 1</xyz>
+ </axis>
+</joint> -->
+
+<!-- <joint name='outer_yaw' type='fixed'>
+  <child>ecm::ecm_base_link</child>
+  <parent>Cart::C_A2_L3</parent>
+  <axis>
+    <xyz>1 1e-06 1e-06</xyz>
+    <limit>
+      <lower>-1.309</lower>
+      <upper>0.785397</upper>
+      <effort>50</effort>
+      <velocity>2</velocity>
+    </limit>
+    <dynamics>
+      <spring_reference>0</spring_reference>
+      <spring_stiffness>0</spring_stiffness>
+    </dynamics>
+    <use_parent_model_frame>1</use_parent_model_frame>
+  </axis>
+</joint> -->
+
+  </model>
+</sdf>
