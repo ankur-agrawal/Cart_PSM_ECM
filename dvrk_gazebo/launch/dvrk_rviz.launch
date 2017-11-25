@@ -7,7 +7,7 @@
   <arg name="headless" default="false"/>
   <arg name="debug" default="false"/>
 
-  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+  <!-- <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="world_name" value="$(find dvrk_gazebo)/worlds/dvrk.world"/>
     <arg name="debug" value="$(arg debug)" />
     <arg name="gui" value="$(arg gui)" />
@@ -15,7 +15,7 @@
     <arg name="use_sim_time" value="$(arg use_sim_time)"/>
     <arg name="headless" value="$(arg headless)"/>
     <arg name="verbose" value="true" />
-  </include>
+  </include> -->
   <arg
     name="model" />
   <!-- <arg
@@ -23,15 +23,15 @@
     default="true" /> -->
   <param
     name="robot_description"
-    command="$(find xacro)/xacro.py $(find dvrk_model)/urdf/dvrk_t1_1.xacro" />
+    command="$(find xacro)/xacro.py $(find dvrk_model)/urdf/LaprotekMaster.urdf" />
 
     <!-- <param
       name="robot_description"
       command="$(find xacro)/xacro.py $(find dvrk_model)/urdf/dvrk.urdf.xacro" /> -->
 
-    <param
+    <!-- <param
       name="robot_description_sdf"
-      command="$(find xacro)/xacro.py $(find dvrk_model)/dvrk/dvrk_full.sdf" />
+      command="$(find xacro)/xacro.py $(find dvrk_model)/dvrk/dvrk_full.sdf" /> -->
 
       <!-- <param
         name="robot_description_sdf"
@@ -44,18 +44,18 @@
      command="$(find xacro)/xacro.py $(find dvrk_model)/urdf/psm_parallel.sdf" /> -->
 
 
-       <node name="sdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
-         	 args="-sdf -model dvrk -param robot_description_sdf"/>
+       <!-- <node name="sdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+         	 args="-sdf -model dvrk -param robot_description_sdf"/> -->
 
        <!-- <node name="sdf_spawner2" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
          	 args="-sdf -model dvrk -param robot_description_sdf"/> -->
-  <!-- <param
+  <param
     name="use_gui"
     value="$(arg gui)" />
-  <node
+  <!-- <node
     name="joint_state_publisher"
     pkg="joint_state_publisher"
-    type="joint_state_publisher" />
+    type="joint_state_publisher" /> -->
   <node
     name="robot_state_publisher"
     pkg="robot_state_publisher"
@@ -64,7 +64,7 @@
     name="rviz"
     pkg="rviz"
     type="rviz"
-    args="-d $(find dvrk_gazebo)/rviz/dvrk.rviz" /> -->
+    args="-d $(find dvrk_gazebo)/rviz/dvrk.rviz" />
 
     <!-- <include file="$(find dvrk_gazebo_control)/launch/dvrk_cart.launch"/> -->
     <!-- <include file="$(find dvrk_gazebo_control)/launch/dvrk_control.launch"/> -->
