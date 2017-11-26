@@ -1,9 +1,10 @@
-#include "trial.h"
+// #include "trial.h"
+#include "server.h"
 
 template<typename C>
 class RosBridge{
-  typedef void (trial::*my_func_ptr)( geometry_msgs::PoseStamped&,  geometry_msgs::PoseStamped&);
-  typedef void (trial::*my_func_ptr2)( sensor_msgs::JointState&);
+  typedef void (C::*my_func_ptr)( geometry_msgs::PoseStamped&,  geometry_msgs::PoseStamped&);
+  typedef void (C::*my_func_ptr2)( sensor_msgs::JointState&);
 
 private:
    geometry_msgs::PoseStamped leftPose;
