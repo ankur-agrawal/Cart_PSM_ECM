@@ -53,7 +53,8 @@ template<typename C>void RosBridge<C>::setJoints()
 
 template<typename C>void RosBridge<C>::print()
 {
-  std::cout << Joints.name.size() << '\n';
+  std::cout << Joints.position[0] << '\t' << Joints.position[1] << '\t' << Joints.position[2] << '\t' << Joints.position[3] << '\t' << Joints.position[4] << '\t' << Joints.position[5] << '\t' << Joints.position[6] << '\t' << '\n';
+  std::cout << Joints.position[7] << '\t' << Joints.position[8] << '\t' << Joints.position[9] << '\t' << Joints.position[10] << '\t' << Joints.position[11] << '\t' << Joints.position[12] << '\t' << Joints.position[13] << '\t' << '\n';
 }
 
 template<typename C>void RosBridge<C>::init()
