@@ -17,10 +17,14 @@
 #include <sensor_msgs/JointState.h>
 #include <vector>
 #include <signal.h>
+// #include "tf/LinearMath/Matrix3x3.h"
+// #include "tf/Quaternion.h"
+#include <tf/transform_datatypes.h>
+#include <string.h>
 
-#define IP "192.168.1.205"
-// #define IP "127.0.0.1"
-#define DATATYPE 1
+// #define IP "192.168.1.205"
+#define IP "127.0.0.1"
+#define DATATYPE 0
 
 class Server{
 private:
@@ -199,6 +203,24 @@ void Server::getRosPoses(geometry_msgs::PoseStamped &leftPose, geometry_msgs::Po
   rightPose.pose.position.x=RT[0][3];
   rightPose.pose.position.y=RT[1][3];
   rightPose.pose.position.z=RT[2][3];
+  tf::Matrix3x3 LeftRotation(LT[0][0], LT[0][1], LT[0][2], LT[1][0], LT[1][1], LT[1][2], LT[2][0], LT[2][1], LT[2][2]);
+  tf::Quaternion LeftQuaternion;
+  LeftRotation.getRotation(LeftQuaternion);
+  LeftQuaternion.normalize();
+  leftPose.pose.orientation.x=LeftQuaternion.getX();
+  leftPose.pose.orientation.y=LeftQuaternion.getY();
+  leftPose.pose.orientation.z=LeftQuaternion.getZ();
+  leftPose.pose.orientation.w=LeftQuaternion.getW();
+
+  tf::Matrix3x3 RightRotation(RT[0][0], RT[0][1], RT[0][2], RT[1][0], RT[1][1], RT[1][2], RT[2][0], RT[2][1], RT[2][2]);
+  tf::Quaternion RightQuaternion;
+  RightRotation.getRotation(RightQuaternion);
+  RightQuaternion.normalize();
+  rightPose.pose.orientation.x=RightQuaternion.getX();
+  rightPose.pose.orientation.y=RightQuaternion.getY();
+  rightPose.pose.orientation.z=RightQuaternion.getZ();
+  rightPose.pose.orientation.w=RightQuaternion.getW();
+  std::cout << RightQuaternion.getX() << '\t' << RightQuaternion.getY() << '\t' << RightQuaternion.getZ() << '\t' << RightQuaternion.getW() << '\n';
 }
 
 void Server::getRosJoints(sensor_msgs::JointState &joints)

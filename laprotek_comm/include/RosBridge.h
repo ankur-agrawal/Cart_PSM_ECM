@@ -1,6 +1,7 @@
 // #include "trial.h"
 #include "server.h"
 
+
 template<typename C>
 class RosBridge{
   typedef void (C::*my_func_ptr)( geometry_msgs::PoseStamped&,  geometry_msgs::PoseStamped&);
@@ -64,8 +65,8 @@ template<typename C>void RosBridge<C>::init()
   // ros::M_string s;
   ros::init(argc, argv, "laprotek_comm_node");
   ros::NodeHandle n;
-  leftHandlePosePub = n.advertise<geometry_msgs::PoseStamped>("/Laprotek/LeftHandle/Transform",1000);
-  rightHandlePosePub = n.advertise<geometry_msgs::PoseStamped>("/Laprotek/RightHandle/Transform",1000);
+  leftHandlePosePub = n.advertise<geometry_msgs::PoseStamped>("/Laprotek/LeftHandle/Pose",1000);
+  rightHandlePosePub = n.advertise<geometry_msgs::PoseStamped>("/Laprotek/RightHandle/Pose",1000);
   HandleJointsPub = n.advertise<sensor_msgs::JointState>("/joint_states",1000);
 }
 
