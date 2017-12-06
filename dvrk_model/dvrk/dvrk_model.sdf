@@ -1,4 +1,4 @@
-<sdf version='1.6'>
+<sdf version="1.6">
   <model name='Cart'>
     <link name='base_link'>
       <pose>0 0 0.167458 0 -0 0</pose>
@@ -991,11 +991,13 @@
       </axis>
     </joint>
 
-    <!-- <static>0</static>
-    <plugin name='gazebo_ros_control' filename='libgazebo_ros_control.so'>
-      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
-      <robotNamespace>/dvrk/Cart</robotNamespace>
-    </plugin> -->
+    <static>0</static>
+    <!-- <plugin name='gazebo_ros_control' filename='libgazebo_ros_control.so'> -->
+      <!-- <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType> -->
+      <!-- <robotNamespace>/dvrk/Cart</robotNamespace> -->
+      <!-- <robotParam>robot_description_cart</robotParam> -->
+    <!-- </plugin> -->
 
+    <plugin name='dvrk_plugins' filename='libdvrk_plugins.so'/>
   </model>
 </sdf>

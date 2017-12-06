@@ -131,8 +131,11 @@ bool DefaultRobotHWSim::initSim(
     // Add data from transmission
     joint_names_[j] = transmissions[j].joints_[0].name_;
     //std::string str = joint_names_[0];
+//    std::cout<<  parent_model->NestedModels().size()<<"\n";
+    printf("%d\n",parent_model->GetChildCount());
+//    printf("%s\n", parent_model->GetChild("one_outer_yaw")->GetScopedName().c_str());
     printf("%s\n",joint_names_[0].c_str());
-    std::cerr <<"***************************\\\\\\\\vskdmvlmbskm" << joint_names_[0].c_str() << "\n";
+
     joint_position_[j] = 1.0;
     joint_velocity_[j] = 0.0;
     joint_effort_[j] = 1.0;  // N/m for continuous joints
