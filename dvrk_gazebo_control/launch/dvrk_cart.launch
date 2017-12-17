@@ -8,9 +8,9 @@
 
 
     <node name="controller_spawner2" pkg="controller_manager" type="spawner" respawn="false"
-	output="screen" args="joint_state_controller
-					   /cart_arm1_joint0_controller
-					   /cart_arm1_joint1_controller
+	output="screen" robotNamespace="robot_description_cart" args="joint_state_controller
+					   /cart_arm1_joint0_controller">
+					   <!-- /cart_arm1_joint1_controller
 					   /cart_arm1_joint2_controller
              /cart_arm1_joint3_controller
              /cart_arm1_joint4_controller
@@ -27,7 +27,7 @@
 					   /cart_arm4_joint1_controller
 					   /cart_arm4_joint2_controller
              /cart_arm4_joint3_controller
-             /cart_arm4_joint4_controller">
+             /cart_arm4_joint4_controller"> -->
     </node>
 
 

@@ -1,4 +1,4 @@
-<sdf version='1.6'>
+<sdf version="1.6">
   <model name='Cart'>
     <link name='base_link'>
       <pose>0 0 0.167458 0 -0 0</pose>
@@ -92,16 +92,14 @@
       <child>C_A1_L0</child>
       <parent>base_link</parent>
       <axis>
-        <xyz>0 0 -1</xyz>
+        <xyz>1.04399e-29 3.23109e-15 1</xyz>
         <limit>
           <lower>0</lower>
           <upper>1.2223</upper>
-          <effort>50000</effort>
+          <effort>5000</effort>
           <velocity>50</velocity>
         </limit>
-        <dynamics>
-          <damping>0.2</damping>
-        </dynamics>
+        <dynamics/>
       </axis>
     </joint>
     <link name='C_A1_L1'>
@@ -199,9 +197,7 @@
           <lower>-1e+16</lower>
           <upper>1e+16</upper>
         </limit>
-        <dynamics>
-          <damping>0.2</damping>
-        </dynamics>
+        <dynamics/>
       </axis>
     </joint>
     <link name='C_A1_L3'>
@@ -245,14 +241,12 @@
       <child>C_A1_L3</child>
       <parent>C_A1_L2</parent>
       <axis>
-        <xyz>0 1 0</xyz>
+        <xyz>3.44169e-15 6.60583e-15 1</xyz>
         <limit>
           <lower>-1e+16</lower>
           <upper>1e+16</upper>
         </limit>
-        <dynamics>
-          <damping>0.2</damping>
-        </dynamics>
+        <dynamics/>
       </axis>
     </joint>
     <link name='C_A1_L4'>
@@ -296,14 +290,12 @@
       <child>C_A1_L4</child>
       <parent>C_A1_L3</parent>
       <axis>
-        <xyz>0 1 0</xyz>
+        <xyz>1 -1.38223e-14 -7.03236e-15</xyz>
         <limit>
           <lower>-1e+16</lower>
           <upper>1e+16</upper>
         </limit>
-        <dynamics>
-          <damping>0.2</damping>
-        </dynamics>
+        <dynamics/>
       </axis>
     </joint>
     <link name='C_A2_L0'>
@@ -347,16 +339,14 @@
       <child>C_A2_L0</child>
       <parent>base_link</parent>
       <axis>
-        <xyz>0 0 -1</xyz>
+        <xyz>3.23109e-15 3.41872e-16 1</xyz>
         <limit>
           <lower>0</lower>
           <upper>1.2223</upper>
           <effort>50</effort>
           <velocity>50</velocity>
         </limit>
-        <dynamics>
-          <damping>0.2</damping>
-        </dynamics>
+        <dynamics/>
       </axis>
     </joint>
     <link name='C_A2_L1'>
@@ -405,9 +395,7 @@
           <lower>-1e+16</lower>
           <upper>1e+16</upper>
         </limit>
-        <dynamics>
-          <damping>0.2</damping>
-        </dynamics>
+        <dynamics/>
       </axis>
     </joint>
     <link name='C_A2_L2'>
@@ -456,9 +444,7 @@
           <lower>-1e+16</lower>
           <upper>1e+16</upper>
         </limit>
-        <dynamics>
-          <damping>0.2</damping>
-        </dynamics>
+        <dynamics/>
       </axis>
     </joint>
     <link name='C_A2_L3'>
@@ -502,14 +488,12 @@
       <child>C_A2_L3</child>
       <parent>C_A2_L2</parent>
       <axis>
-        <xyz>0 1 0</xyz>
+        <xyz>-3.38618e-15 -2.9976e-15 1</xyz>
         <limit>
           <lower>-1e+16</lower>
           <upper>1e+16</upper>
         </limit>
-        <dynamics>
-          <damping>0.2</damping>
-        </dynamics>
+        <dynamics/>
       </axis>
     </joint>
     <link name='C_A3_L0'>
@@ -553,16 +537,14 @@
       <child>C_A3_L0</child>
       <parent>base_link</parent>
       <axis>
-        <xyz>0 0 -1</xyz>
+        <xyz>3.23109e-15 3.41872e-16 1</xyz>
         <limit>
           <lower>0</lower>
           <upper>1.2223</upper>
           <effort>50</effort>
           <velocity>50</velocity>
         </limit>
-        <dynamics>
-          <damping>0.2</damping>
-        </dynamics>
+        <dynamics/>
       </axis>
     </joint>
     <link name='C_A3_L1'>
@@ -606,14 +588,12 @@
       <child>C_A3_L1</child>
       <parent>C_A3_L0</parent>
       <axis>
-        <xyz>0 0 1</xyz>
+        <xyz>3.23109e-15 -2.88922e-15 1</xyz>
         <limit>
           <lower>-1e+16</lower>
           <upper>1e+16</upper>
         </limit>
-        <dynamics>
-          <damping>0.2</damping>
-        </dynamics>
+        <dynamics/>
       </axis>
     </joint>
     <link name='C_A3_L2'>
@@ -657,7 +637,7 @@
       <child>C_A3_L2</child>
       <parent>C_A3_L1</parent>
       <axis>
-        <xyz>0 0 1</xyz>
+        <xyz>-2.18909e-29 -2.88922e-15 1</xyz>
         <limit>
           <lower>-1e+16</lower>
           <upper>1e+16</upper>
@@ -706,14 +686,12 @@
       <child>C_A3_L3</child>
       <parent>C_A3_L2</parent>
       <axis>
-        <xyz>0 1 0</xyz>
+        <xyz>-3.15253e-17 5.55112e-16 1</xyz>
         <limit>
           <lower>-1e+16</lower>
           <upper>1e+16</upper>
         </limit>
-        <dynamics>
-          <damping>0.2</damping>
-        </dynamics>
+        <dynamics/>
       </axis>
     </joint>
     <link name='C_A3_L4'>
@@ -757,14 +735,12 @@
       <child>C_A3_L4</child>
       <parent>C_A3_L3</parent>
       <axis>
-        <xyz>0 -1 0</xyz>
+        <xyz>-7.22243e-15 -1 -2.9976e-15</xyz>
         <limit>
           <lower>-1e+16</lower>
           <upper>1e+16</upper>
         </limit>
-        <dynamics>
-          <damping>0.2</damping>
-        </dynamics>
+        <dynamics/>
       </axis>
     </joint>
     <link name='C_A4_L0'>
@@ -808,16 +784,14 @@
       <child>C_A4_L0</child>
       <parent>base_link</parent>
       <axis>
-        <xyz>0 0 -1</xyz>
+        <xyz>0 3.23109e-15 1</xyz>
         <limit>
           <lower>0</lower>
           <upper>1.2223</upper>
           <effort>50</effort>
           <velocity>50</velocity>
         </limit>
-        <dynamics>
-          <damping>0.2</damping>
-        </dynamics>
+        <dynamics/>
       </axis>
     </joint>
     <link name='C_A4_L1'>
@@ -861,14 +835,12 @@
       <child>C_A4_L1</child>
       <parent>C_A4_L0</parent>
       <axis>
-        <xyz>0 0 1</xyz>
+        <xyz>0 3.23109e-15 1</xyz>
         <limit>
           <lower>-1e+16</lower>
           <upper>1e+16</upper>
         </limit>
-        <dynamics>
-          <damping>0.2</damping>
-        </dynamics>
+        <dynamics/>
       </axis>
     </joint>
     <link name='C_A4_L2'>
@@ -912,14 +884,12 @@
       <child>C_A4_L2</child>
       <parent>C_A4_L1</parent>
       <axis>
-        <xyz>0 0 1</xyz>
+        <xyz>-2.36658e-29 8.53916e-44 1</xyz>
         <limit>
           <lower>-1e+16</lower>
           <upper>1e+16</upper>
         </limit>
-        <dynamics>
-          <damping>0.2</damping>
-        </dynamics>
+        <dynamics/>
       </axis>
     </joint>
     <link name='C_A4_L3'>
@@ -963,14 +933,12 @@
       <child>C_A4_L3</child>
       <parent>C_A4_L2</parent>
       <axis>
-        <xyz>0 1 0</xyz>
+        <xyz>3.46945e-15 0 1</xyz>
         <limit>
           <lower>-1e+16</lower>
           <upper>1e+16</upper>
         </limit>
-        <dynamics>
-          <damping>0.2</damping>
-        </dynamics>
+        <dynamics/>
       </axis>
     </joint>
     <link name='C_A4_L4'>
@@ -1014,22 +982,22 @@
       <child>C_A4_L4</child>
       <parent>C_A4_L3</parent>
       <axis>
-        <xyz>0 1 0</xyz>
+        <xyz>1 -1.06581e-14 -7.17697e-15</xyz>
         <limit>
           <lower>-1e+16</lower>
           <upper>1e+16</upper>
         </limit>
-        <dynamics>
-          <damping>0.2</damping>
-        </dynamics>
+        <dynamics/>
       </axis>
     </joint>
 
     <static>0</static>
-    <!-- <plugin name='gazebo_ros_control' filename='libgazebo_ros_control.so'>
-      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
-      <robotNamespace>/dvrk/Cart</robotNamespace>
-    </plugin> -->
+    <!-- <plugin name='gazebo_ros_control' filename='libgazebo_ros_control.so'> -->
+      <!-- <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType> -->
+      <!-- <robotNamespace>/dvrk/Cart</robotNamespace> -->
+      <!-- <robotParam>robot_description_cart</robotParam> -->
+    <!-- </plugin> -->
 
+    <plugin name='dvrk_plugins' filename='libdvrk_plugins.so'/>
   </model>
 </sdf>

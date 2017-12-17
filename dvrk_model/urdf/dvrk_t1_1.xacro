@@ -15,8 +15,8 @@
   <!-- Macros -->
  <xacro:include filename="$(find dvrk_model)/Cart/Cart_n.xacro"/>
  <!-- <xacro:include filename="$(find dvrk_model)/urdf/psm.xacro"/> -->
- <!-- <xacro:include filename="$(find dvrk_model)/PSM/psm_parallel.urdf.xacro"/>
- <xacro:include filename="$(find dvrk_model)/ECM/ecm.urdf.xacro"/> -->
+ <xacro:include filename="$(find dvrk_model)/PSM/psm_parallel.urdf.xacro"/>
+ <!-- <xacro:include filename="$(find dvrk_model)/ECM/ecm.urdf.xacro"/> -->
 
 
 <!--specify how many psms:(1 to 3) change true to one of the values-->
@@ -33,9 +33,9 @@
 
 <property name="if" value="1" />
 
-<xacro:Cart prefix="Cart/"/>
+<xacro:Cart prefix=""/>
  <xacro:if value="${psm_num_1}">
-  <!-- <xacro:psm prefix="PSM1::one_" parent_link="C_A1_L4" xyz= "0 0 0" rpy="0 0 0"/> -->
+  <!-- <xacro:psm prefix="one_" parent_link="Cart/C_A1_L4" xyz= "0 0 0" rpy="0 0 0"/> -->
    	<!-- <xacro:psm prefix="one_" parent="${psm1}"  /> -->
 	<!-- <xacro:ecm prefix="ecm" parent_link="C_A2_L3" xyz="0.16 0.125 0.075" rpy="0.0 0 -${3.14159/4-0.05}"  /> -->
  </xacro:if>

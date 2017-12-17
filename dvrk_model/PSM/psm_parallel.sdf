@@ -4,9 +4,10 @@
   <model name='psm'>
   <pose> 0 0 0 0 0 0 </pose>
     <link name='one_remote_center_link'>
-      <pose>-0.5 0 1 0 -0 3.14159</pose>
+      <!-- <pose>-0.5 0 1 0 -0 3.14159</pose> -->
+      <pose>-0.5 0.485 0.845 0 -0 3.14159</pose>
       <inertial>
-        <pose>0.039 -0.40788 -0.07879 0 -0 0</pose>
+        <pose>0.039 0.075 0.07879 1.5708 -4.23516e-22 -3.14159</pose>
         <mass>0.0001</mass>
         <inertia>
           <ixx>1</ixx>
@@ -18,7 +19,7 @@
         </inertia>
       </inertial>
       <collision name='one_remote_center_link_collision_one_psm_base_link'>
-        <pose>0.039 -0.40788 -0.07879 1.5708 -4.23516e-22 -3.14159</pose>
+        <pose>0.039 0.075 0.07879 1.5708 -4.23516e-22 -3.14159</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -27,7 +28,8 @@
         </geometry>
       </collision>
       <visual name='one_remote_center_link_visual_one_psm_base_link'>
-        <pose>0.039 -0.40788 -0.07879 1.5708 -4.23516e-22 -3.14159</pose>
+        <!-- <pose>0.039 -0.40788 -0.07879 1.5708 -4.23516e-22 -3.14159</pose> -->
+        <pose>0.039 0.075 0.07879 1.5708 -4.23516e-22 -3.14159</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -150,7 +152,7 @@
         <linear>0</linear>
         <angular>0</angular>
       </velocity_decay>
-    </link>-->
+    </link>
     <link name='one_outer_pitch_bottom_link'>
       <pose>-0.484201 0.560281 1.15007 1.5708 3.67319e-06 1.5708</pose>
       <inertial>
@@ -401,6 +403,8 @@
         <dynamics/>
       </axis>
     </joint>
+<!-- DontIncludeStart -->
+
 <!--    <joint name='one_outer_pitch_joint_6' type='revolute'>
       <child>one_outer_pitch_top_link</child>
       <parent>one_outer_pitch_front_link</parent>
@@ -415,6 +419,8 @@
         <dynamics/>
       </axis>
     </joint>-->
+<!-- DontIncludeEnd     -->
+
     <joint name='one_outer_pitch_joint_7' type='revolute'>
       <child>one_outer_insertion_link</child>
       <parent>one_outer_pitch_bottom_link</parent>
@@ -513,7 +519,7 @@
         <angular>0</angular>
       </velocity_decay>
     </link>
-    <joint name='one_outer_roll_joint' type='revolute'>
+    <!-- <joint name='one_outer_roll_joint' type='revolute'>
       <pose>0 0 0 0 0 0</pose>
       <child>one_tool_wrist_link</child>
       <parent>one_tool_main_link</parent>
@@ -527,7 +533,7 @@
         </limit>
         <dynamics/>
       </axis>
-    </joint>
+    </joint> -->
     <!-- <link name='one_tool_wrist_sca_link'>
       <pose>-0.4997 -2.0061e-05 0.983092 -2.03445 1.57079 -2.03444</pose>
       <inertial>
@@ -781,8 +787,8 @@
       </visual>
     </link> -->
     <static>0</static>
-    <plugin name='gazebo_ros_control' filename='libgazebo_ros_control.so'>
+    <!-- <plugin name='gazebo_ros_control' filename='libgazebo_ros_control.so'>
       <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
-    </plugin>
+    </plugin> -->
   </model>
 </sdf>

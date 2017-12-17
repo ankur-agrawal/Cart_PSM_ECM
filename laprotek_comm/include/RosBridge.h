@@ -1,9 +1,11 @@
-#include "trial.h"
+// #include "trial.h"
+#include "server.h"
+
 
 template<typename C>
 class RosBridge{
-  typedef void (trial::*my_func_ptr)( geometry_msgs::PoseStamped&,  geometry_msgs::PoseStamped&);
-  typedef void (trial::*my_func_ptr2)( sensor_msgs::JointState&);
+  typedef void (C::*my_func_ptr)( geometry_msgs::PoseStamped&,  geometry_msgs::PoseStamped&);
+  typedef void (C::*my_func_ptr2)( sensor_msgs::JointState&);
 
 private:
    geometry_msgs::PoseStamped leftPose;
@@ -52,7 +54,8 @@ template<typename C>void RosBridge<C>::setJoints()
 
 template<typename C>void RosBridge<C>::print()
 {
-  std::cout << Joints.name.size() << '\n';
+  std::cout << Joints.position[0] << '\t' << Joints.position[1] << '\t' << Joints.position[2] << '\t' << Joints.position[3] << '\t' << Joints.position[4] << '\t' << Joints.position[5] << '\t' << Joints.position[6] << '\t' << '\n';
+  std::cout << Joints.position[7] << '\t' << Joints.position[8] << '\t' << Joints.position[9] << '\t' << Joints.position[10] << '\t' << Joints.position[11] << '\t' << Joints.position[12] << '\t' << Joints.position[13] << '\t' << '\n';
 }
 
 template<typename C>void RosBridge<C>::init()
@@ -62,8 +65,8 @@ template<typename C>void RosBridge<C>::init()
   // ros::M_string s;
   ros::init(argc, argv, "laprotek_comm_node");
   ros::NodeHandle n;
-  leftHandlePosePub = n.advertise<geometry_msgs::PoseStamped>("/Laprotek/LeftHandle/Transform",1000);
-  rightHandlePosePub = n.advertise<geometry_msgs::PoseStamped>("/Laprotek/RightHandle/Transform",1000);
+  leftHandlePosePub = n.advertise<geometry_msgs::PoseStamped>("/Laprotek/LeftHandle/Pose",1000);
+  rightHandlePosePub = n.advertise<geometry_msgs::PoseStamped>("/Laprotek/RightHandle/Pose",1000);
   HandleJointsPub = n.advertise<sensor_msgs::JointState>("/joint_states",1000);
 }
 
