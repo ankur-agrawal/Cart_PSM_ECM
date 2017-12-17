@@ -21,9 +21,11 @@
   <!-- <arg
     name="gui"
     default="true" /> -->
-  <param
+  <rosparam file="$(find dvrk_gazebo_control)/config/dvrk_new.yaml" command="load"/>
+
+  <!-- <param
     name="robot_description_cart"
-    command="$(find xacro)/xacro.py $(find dvrk_model)/urdf/dvrk_t1_1.xacro" />
+    command="$(find xacro)/xacro.py $(find dvrk_model)/urdf/dvrk_t1_1.xacro" /> -->
 
     <!-- <param
       name="robot_description"

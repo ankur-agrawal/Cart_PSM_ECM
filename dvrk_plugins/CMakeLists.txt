@@ -17,7 +17,7 @@ link_directories(${GAZEBO_LIBRARY_DIRS})
 include_directories(include)
 include_directories(${Boost_INCLUDE_DIR} ${catkin_INCLUDE_DIRS} ${GAZEBO_INCLUDE_DIRS})
 
-add_library(${PROJECT_NAME} src/simple_world_plugin.cpp)
+add_library(${PROJECT_NAME} src/dvrk_gazebo_control_plugin.cpp)
 target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES})
 
 catkin_package(
