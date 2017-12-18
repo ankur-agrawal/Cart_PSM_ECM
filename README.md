@@ -1,58 +1,27 @@
-da Vinci Research Kit ROS
+Description
 ====================
-This repository has code related to daVinci\_research\_kit ROS packages. 
+This repository has code for using daVinci research kit on Gazebo 7 and controlled using ROS.
 
-# Install 
-* download & build cisst, see dvrk tutorial wiki for detail 
-* download & compile cisst-ros
+# Author
 
-```sh
-# cd to catkin ws src dir
-cd /PATH/TO/CATKIN_WS/src
-# clone repo
-git clone git@github.com:jhu-cisst/cisst-ros.git
+Ankur Agrawal:asagrawal@wpi.edu
 
-# build 
-cd ..
-catkin_make
-```
-* download & compile dvrk-ros
+Radian Azhar Gondokaryono:ragondokaryono@wpi.edu
+
+
+# Install
+* download & compile dvrk_gazebo_ros
 
 ```sh
 # cd to catkin ws src dir
 cd /PATH/TO/CATKIN_WS/src
 # clone repo
-git clone git@github.com:jhu-dvrk/dvrk-ros.git
-# build 
+git clone https://github.com/ankur-agrawal/Cart_PSM_ECM.git
+# build
 cd ..
 catkin_make
 ```
 
-# How to run the code
-* **simulation:** see dvrk_teleop/README.md for details
-* **robot:** see dvrk_robot/README.md for details 
+# Dependencies
 
-# List of Branches
-* master: current stable version
-* dev\_groovy: groovy development verison
-* catkin: catkin version 
-
-# List of Packages:
-* dv\_gazebo\_plugins: from WPI Nirav, don't know how to use Nirav? 
-* dvrk\_joint\_publisher: publishes joint state
-* dvrk_kinematics:
-  * kinematics model of MTM/PSM
-* dvrk_model:
-  * MTM + PSM CAD models & meshes
-  * rviz configs
-  * launch files
-* dvrk_teleop:
-  * dummy teleop component with a Qt GUI
-* dvrk_robot: 
-  * main file to start robot, publish & subscribe ros topics 
-* dvrk\_joint\_publisher:
-  * publish named joint states (position + velocity)
-* dvrk\pcl
-  * demonstration of stereovision
-  * topics include raw images from left and right cameras, disparity map and point cloud 
-  * launch files 
+Gazebo 7, ROS indigo or ROS kinetic. If ROS-indigo is to be used with Gazebo 7, keep gazebo_ros_pksgs (https://github.com/ros-simulation/gazebo_ros_pkgs/tree/indigo-devel) in your src folder.
