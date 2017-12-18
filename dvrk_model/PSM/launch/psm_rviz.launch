@@ -6,10 +6,10 @@
     name="gui"
     default="true" />
 
- <arg name="rvizconfig" default="$(find dvrk_model)/rviz/cart.rviz" />
+ <arg name="rvizconfig" default="$(find dvrk_model)/rviz/psm.rviz" />
   <param
     name="robot_description"
-    command="$(find xacro)/xacro.py $(find dvrk_model)/Cart/suj.urdf" />
+    command="$(find xacro)/xacro.py $(find dvrk_model)/PSM/psm.urdf" />
   <param
     name="use_gui"
     value="$(arg gui)" />
