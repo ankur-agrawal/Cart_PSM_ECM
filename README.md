@@ -22,6 +22,6 @@ cd ..
 catkin_make
 ```
 
-#Dependencies
+# Dependencies
 
 Gazebo 7, ROS indigo or ROS kinetic. If ROS-indigo is to be used with Gazebo 7, keep gazebo_ros_pksgs (https://github.com/ros-simulation/gazebo_ros_pkgs/tree/indigo-devel) in your src folder.
