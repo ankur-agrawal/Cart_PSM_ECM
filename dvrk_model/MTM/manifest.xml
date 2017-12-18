@@ -1,5 +1,5 @@
 <package>
-  <description brief="dvrk_model">dvrk</description>
+  <description brief="dvrk_model">MTM</description>
   <depend package="gazebo" />
   <author>Ankur Agrawal</author>
   <license>BSD</license>

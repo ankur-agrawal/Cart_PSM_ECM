@@ -15,3 +15,11 @@
 .DS_Store
 
 CATKIN_IGNORE
+
+gazebo_ros
+gazebo_ros_pkgs
+gazebo_msgs
+gazebo_plugins
+gazebo_ros_control
+CONTRIBUTING.md
+.travis.yml
