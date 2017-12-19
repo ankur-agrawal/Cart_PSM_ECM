@@ -24,22 +24,26 @@ public:
     plot_x=n.advertise<std_msgs::Float64>("/plotx",1000);
     plot_y=n.advertise<std_msgs::Float64>("/ploty",1000);
     plot_z=n.advertise<std_msgs::Float64>("/plotz",1000);
-    cartPub.resize(20);
+    cartPub.resize(19);
     char topic[100];
-    for (int i=1;i<5;i++)
+    for (int i=1;i<4;i++)
     {
       for (int j=0;j<5;j++)
       {
-        sprintf(topic, "/dvrk/Cart/C_A%d_L%d/SetPosition", i,j);
-        if (i==2 && j==4)
-          continue;
+        sprintf(topic, "/dvrk/SUJ/SUJ_PSM%d_J%d/SetPosition", i,j);
 
         cartPub[5*(i-1)+j] = n.advertise<std_msgs::Float64>(topic,1000);
       }
     }
+    for (int j=0;j<4;j++)
+    {
+      sprintf(topic, "/dvrk/SUJ/SUJ_ECM_J%d/SetPosition",j);
 
+      cartPub[15+j] = n.advertise<std_msgs::Float64>(topic,1000);
+    }
     link_states=n.subscribe("/gazebo/link_states", 1, &dvrk_gazebo_control::getECMEndEffector, this);
   }
   void getECMEndEffector(const gazebo_msgs::LinkStatesPtr &msg);
+  void PublishCartStates(std::std::vector<Float64> v);
 
 };

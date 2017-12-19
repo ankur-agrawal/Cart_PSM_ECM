@@ -4,7 +4,6 @@ project(dvrk_plugins)
 # Load catkin and all dependencies required for this package
 find_package(catkin REQUIRED COMPONENTS
   roscpp
-  gazebo_ros
 )
 
 # Depend on system install of Gazebo
@@ -23,7 +22,6 @@ target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES})
 catkin_package(
   DEPENDS
     roscpp
-    gazebo_ros
 )
 
 set(CMAKE_CXX_FLAGS "-std=c++11 ${CMAKE_CXX_FLAGS}")
