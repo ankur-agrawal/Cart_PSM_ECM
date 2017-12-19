@@ -1,104 +1,104 @@
-Cart:
-  C_A1_L0_controller:
+SUJ:
+  SUJ_PSM1_J0_controller:
     p: 2000
     i: 0
     d: 10
 
-  C_A1_L1_controller:
+  SUJ_PSM1_J1_controller:
     p: 2000
     i: 0
     d: 10
 
-  C_A1_L2_controller:
+  SUJ_PSM1_J2_controller:
     p: 2000
     i: 0
     d: 10
 
-  C_A1_L3_controller:
+  SUJ_PSM1_J3_controller:
     p: 2000
     i: 0
     d: 10
 
-  C_A1_L4_controller:
+  SUJ_PSM1_J4_controller:
     p: 2000
     i: 0
     d: 10
 
-  C_A2_L0_controller:
+  SUJ_ECM_J0_controller:
     p: 2000
     i: 0
     d: 10
 
-  C_A2_L1_controller:
+  SUJ_ECM_J1_controller:
     p: 2000
     i: 0
     d: 10
 
-  C_A2_L2_controller:
+  SUJ_ECM_J2_controller:
     p: 2000
     i: 0
     d: 10
 
-  C_A2_L3_controller:
+  SUJ_ECM_J3_controller:
     p: 2000
     i: 0
     d: 10
 
-  C_A3_L0_controller:
+  SUJ_PSM2_J0_controller:
     p: 2000
     i: 0
     d: 10
 
-  C_A3_L1_controller:
+  SUJ_PSM2_J1_controller:
     p: 2000
     i: 0
     d: 10
 
-  C_A1_L2_controller:
+  SUJ_PSM2_J2_controller:
     p: 2000
     i: 0
     d: 10
 
-  C_A3_L3_controller:
+  SUJ_PSM2_J3_controller:
     p: 2000
     i: 0
     d: 10
 
-  C_A3_L4_controller:
+  SUJ_PSM2_J4_controller:
     p: 2000
     i: 0
     d: 10
 
-  C_A4_L0_controller:
+  SUJ_PSM3_J0_controller:
     p: 2000
     i: 0
     d: 10
 
-  C_A4_L1_controller:
+  SUJ_PSM3_J1_controller:
     p: 2000
     i: 0
     d: 10
 
-  C_A4_L2_controller:
+  SUJ_PSM3_J2_controller:
     p: 2000
     i: 0
     d: 10
 
-  C_A4_L3_controller:
+  SUJ_PSM3_J3_controller:
     p: 2000
     i: 0
     d: 10
 
-  C_A4_L4_controller:
+  SUJ_PSM3_J4_controller:
     p: 2000
     i: 0
     d: 10
 PSM1:
-  one_outer_yaw_controller:
+  outer_yaw_controller:
     p: 20
     i: 0
     d: 10
-  one_outer_pitch_joint_1_controller:
+  outer_pitch_joint_1_controller:
     p: 600
     i: 0
     d: 0
