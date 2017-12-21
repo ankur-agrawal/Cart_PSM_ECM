@@ -1,7 +1,7 @@
 <sdf version="1.6">
   <model name="dvrk">
 
-  <include>
+  <!-- <include>
     <uri>model://Cart</uri>
     <name>SUJ</name>
     <pose>0 0 0 0 0 0</pose>>
@@ -24,17 +24,17 @@
     <uri>model://PSM</uri>
     <name>PSM3</name>
     <pose> -0.5 2 -0.19 0 0 3.14159</pose>
-  </include>
+  </include> -->
 
   <include>
     <uri>model://ECM</uri>
     <name>ecm</name>
-    <pose>0.075 0.7932 0.92135 -1.5708 -0.735398 -1.5708</pose>
-    <!-- <pose>0 0 0.5 -1.5708 0 -1.5708</pose> -->
+    <!-- <pose>0.075 0.7932 0.92135 -1.5708 -0.735398 -1.5708</pose> -->
+    <pose>0 0 0.5 0 0 0</pose>
   </include>
 
 
-  <joint name='PSM1::rev_joint' type='revolute'>
+  <!-- <joint name='PSM1::rev_joint' type='revolute'>
    <child>PSM1::remote_center_link</child>
    <parent>SUJ::SUJ_PSM1_L4</parent>
    <axis>
@@ -77,12 +77,12 @@
    </dynamics>
    <xyz>0 0 1</xyz>
  </axis>
-</joint>
+</joint> -->
 
 <joint name='ecm::fixed' type='fixed'>
-  <child>ecm::ecm_base_link</child>
-  <parent>SUJ::SUJ_ECM_L3</parent>
-  <!-- <parent>world</parent> -->
+  <child>ecm::base_link</child>
+  <!-- <parent>SUJ::SUJ_ECM_L3</parent> -->
+  <parent>world</parent>
 </joint>
 
 <!-- <plugin name='gazebo_ros_control' filename='libgazebo_ros_control.so'>

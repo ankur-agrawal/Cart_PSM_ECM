@@ -103,7 +103,7 @@ PSM1:
     i: 0
     d: 0
 ecm:
-  outer_pitch_1_controller:
+  pitch_front_joint_controller:
     p: 500
     i: 0
     d: 0
