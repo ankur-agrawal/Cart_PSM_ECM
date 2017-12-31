@@ -44,6 +44,6 @@ public:
     link_states=n.subscribe("/gazebo/link_states", 1, &dvrk_gazebo_control::getECMEndEffector, this);
   }
   void getECMEndEffector(const gazebo_msgs::LinkStatesPtr &msg);
-  void PublishCartStates(std::std::vector<Float64> v);
+  // void PublishCartStates(std::std::vector<Float64> v);
 
 };
