@@ -103,7 +103,11 @@ PSM1:
     i: 0
     d: 0
 ecm:
-  pitch_front_joint_controller:
+  pitch_back_joint_controller:
     p: 500
+    i: 0
+    d: 0
+  main_insertion_joint_controller:
+    p: 50
     i: 0
     d: 0

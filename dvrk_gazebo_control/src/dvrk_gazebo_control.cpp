@@ -40,22 +40,25 @@ void dvrk_gazebo_control::getECMEndEffector(const gazebo_msgs::LinkStatesPtr &ms
   ecmPub[2].publish(msg2);
   msg2.data=0;
 
+  PublishCartStates();
 
 }
-// PublishCartStates(std::vector<Float64> v)
-// {
-//   for (int i=1;i<4;i++)
-//   {
-//     for (int j=0;j<5;j++)
-//     {
-//       cartPub[5*(i-1)+j].publish(msg2);
-//     }
-//   }
-//   for (int j=0;j<4;j++)
-//   {
-//     cartPub[15+j].publish(msg2);
-//   }
-// }
+void dvrk_gazebo_control::PublishCartStates()
+{
+  std_msgs::Float64 msg;
+  msg.data=0;
+  for (int i=1;i<4;i++)
+  {
+    for (int j=0;j<5;j++)
+    {
+      cartPub[5*(i-1)+j].publish(msg);
+    }
+  }
+  for (int j=0;j<4;j++)
+  {
+    cartPub[15+j].publish(msg);
+  }
+}
 
 int main(int argc, char **argv)
 {

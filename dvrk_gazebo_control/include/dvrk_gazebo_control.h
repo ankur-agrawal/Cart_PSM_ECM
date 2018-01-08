@@ -17,10 +17,10 @@ private:
 public:
   dvrk_gazebo_control(ros::NodeHandle n){
     ecmPub.resize(4);
-    ecmPub[0]=n.advertise<std_msgs::Float64>("/dvrk/ecm/outer_yaw/SetPosition",1000);
-    ecmPub[1]=n.advertise<std_msgs::Float64>("/dvrk/ecm/outer_pitch_1/SetPositionTarget",1000);
-    ecmPub[2]=n.advertise<std_msgs::Float64>("/dvrk/ecm/insertion/SetPosition",1000);
-    ecmPub[3]=n.advertise<std_msgs::Float64>("/dvrk/ecm/outer_roll/SetPosition",1000);
+    ecmPub[0]=n.advertise<std_msgs::Float64>("/dvrk/ecm/yaw_joint/SetPosition",1000);
+    ecmPub[1]=n.advertise<std_msgs::Float64>("/dvrk/ecm/pitch_back_joint/SetPositionTarget",1000);
+    ecmPub[2]=n.advertise<std_msgs::Float64>("/dvrk/ecm/main_insertion_joint/SetPositionTarget",1000);
+    ecmPub[3]=n.advertise<std_msgs::Float64>("/dvrk/ecm/tool_joint/SetPosition",1000);
     plot_x=n.advertise<std_msgs::Float64>("/plotx",1000);
     plot_y=n.advertise<std_msgs::Float64>("/ploty",1000);
     plot_z=n.advertise<std_msgs::Float64>("/plotz",1000);
@@ -41,9 +41,9 @@ public:
 
       cartPub[15+j] = n.advertise<std_msgs::Float64>(topic,1000);
     }
-    link_states=n.subscribe("/gazebo/link_states", 1, &dvrk_gazebo_control::getECMEndEffector, this);
+    link_states=n.subscribe("/gazebo/link_states", 100, &dvrk_gazebo_control::getECMEndEffector, this);
   }
   void getECMEndEffector(const gazebo_msgs::LinkStatesPtr &msg);
-  // void PublishCartStates(std::std::vector<Float64> v);
+  void PublishCartStates();
 
 };
