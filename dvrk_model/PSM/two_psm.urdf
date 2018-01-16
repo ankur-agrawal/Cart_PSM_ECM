@@ -20,11 +20,11 @@
 
   <xacro:psm 
       prefix="one_"
-      parent_link="camera"
+      parent_link="world"
       xyz="-0.25 0.0 0.5" rpy="0.2 3.14 -0.256"/>
   <xacro:psm 
       prefix="two_"
-      parent_link="camera"
+      parent_link="world"
       xyz="0.5 0.0 0.5" rpy="0.2 3.14 0.4"/>
   
 </robot>

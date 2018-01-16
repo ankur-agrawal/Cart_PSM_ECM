@@ -34,8 +34,8 @@ void dvrkGazeboControlPlugin::Load(gazebo::physics::ModelPtr _model, sdf::Elemen
     getJointStrings(joint,joint_namespace, joint_name);
     pub_states[i] = model_nh_.advertise<std_msgs::Float64>(joint_namespace+"/"+joint_name+"/states", 1000);
     // std::cout << (joint_name.find("outer_pitch_joint")!=std::string::npos) << '\n';
-    if ((joint_name.find("outer_pitch_joint")!=std::string::npos) && joint_name.compare("one_outer_pitch_joint_1")||(joint_name.find("fixed")!=std::string::npos))
-      continue;
+    //if ((joint_name.find("outer_pitch_joint")!=std::string::npos) && joint_name.compare("one_outer_pitch_joint_1")||(joint_name.find("fixed")!=std::string::npos))
+    //  continue;
     // std::cout << parent_model->GetJoints()[i]->GetAngle(0).Radian() << '\n';
     boost::function<void (const std_msgs::Float64Ptr)>PositionFunc(boost::bind(&dvrkGazeboControlPlugin::SetPosition,this, _1,joint));
     boost::function<void (const std_msgs::Float64Ptr)>PositionTargetFunc(boost::bind(&dvrkGazeboControlPlugin::SetPositionTarget,this, _1,joint));

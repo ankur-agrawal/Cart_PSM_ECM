@@ -1,7 +1,7 @@
 <sdf version="1.6">
   <model name="dvrk">
 
-  <!-- <include>
+  <include>
     <uri>model://Cart</uri>
     <name>SUJ</name>
     <pose>0 0 0 0 0 0</pose>>
@@ -24,7 +24,7 @@
     <uri>model://PSM</uri>
     <name>PSM3</name>
     <pose> -0.5 2 -0.19 0 0 3.14159</pose>
-  </include> -->
+  </include> 
 
   <include>
     <uri>model://ECM</uri>
@@ -34,7 +34,7 @@
   </include>
 
 
-  <!-- <joint name='PSM1::rev_joint' type='revolute'>
+  <joint name='PSM1::rev_joint' type='revolute'>
    <child>PSM1::remote_center_link</child>
    <parent>SUJ::SUJ_PSM1_L4</parent>
    <axis>
@@ -77,7 +77,7 @@
    </dynamics>
    <xyz>0 0 1</xyz>
  </axis>
-</joint> -->
+</joint>
 
 <joint name='ecm::fixed' type='fixed'>
   <child>ecm::base_link</child>
