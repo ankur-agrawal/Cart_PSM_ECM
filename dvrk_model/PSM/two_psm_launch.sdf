@@ -14,7 +14,7 @@
   </include>
   
   <joint name='PSM1::rev_joint' type='fixed'>
-   <child>PSM1::remote_center_link</child>
+   <child>PSM1::base_link</child>
    <parent>world</parent>
    <axis>
      <limit>
@@ -29,7 +29,7 @@
  </joint>
 
   <joint name='PSM2::rev_joint' type='fixed'>
-   <child>PSM2::remote_center_link</child>
+   <child>PSM2::base_link</child>
    <parent>world</parent>
    <axis>
      <limit>

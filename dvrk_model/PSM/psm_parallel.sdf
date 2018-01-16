@@ -3,9 +3,25 @@
 
   <model name='psm'>
   <pose> 0 0 0 0 0 0 </pose>
+
     <link name='remote_center_link'>
+    <pose>-0.5 0 1 0 -0 3.14159</pose> 
+    <!--<pose>-0.5 0.485 0.845 0 -0 3.14159</pose> -->
+    <visual name='rcm_visual'>
+      <!--<pose>0.039 0.075 0.07879 1.5708 -4.23516e-22 -3.14159</pose>-->
+      <geometry>
+        <sphere>
+          <radius>.01</radius>
+        </sphere>
+      </geometry>
+      <transparency>0.7</transparency>
+    </visual>
+    </link>
+
+
+    <link name='base_link'>
       <!--<pose>-0.5 0 1 0 -0 3.14159</pose> -->
-      <pose>-0.5 0.485 0.845 0 -0 3.14159</pose>
+      <pose>-0.5 0.485 0.845 0 -0 3.14159</pose> 
       <inertial>
         <pose>0.039 0.075 0.07879 1.5708 -4.23516e-22 -3.14159</pose>
         <mass>0.1</mass>
@@ -303,7 +319,7 @@
     </link>
 
 
-    <!-- <joint name='fixed_joint' type='revolute'>
+     <joint name='fixed_joint' type='revolute'>
       <child>remote_center_link</child>
       <parent>world</parent>
       <pose>0 0 0 0 0 0</pose>
@@ -317,10 +333,26 @@
         </dynamics>
         <xyz>0 0 1</xyz>
       </axis>
+    </joint> 
+
+    <!--<joint name='remote_center_joint' type='fixed'>
+      <child>remote_center_link</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1.5707</lower>
+          <upper>1.5707</upper>
+          <effort>1000</effort>
+          <velocity>0.4</velocity>
+        </limit>
+        <dynamics/>
+      </axis>
     </joint> -->
+
     <joint name='outer_yaw_joint' type='revolute'>
       <child>outer_yaw_link</child>
-      <parent>remote_center_link</parent>
+      <parent>base_link</parent>
       <axis>
         <xyz>0 1 0</xyz>
         <limit>
