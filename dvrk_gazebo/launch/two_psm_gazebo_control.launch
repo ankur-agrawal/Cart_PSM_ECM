@@ -1,0 +1,36 @@
+<launch>
+
+  <arg name="paused" default="false"/>
+  <arg name="use_sim_time" default="true"/>
+  <arg name="gui" default="true"/>
+  <arg name="headless" default="false"/>
+  <arg name="debug" default="false"/>
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find dvrk_gazebo)/worlds/dvrk.world"/>
+    <arg name="debug" value="$(arg debug)" />
+    <arg name="gui" value="$(arg gui)" />
+    <arg name="paused" value="$(arg paused)"/>
+    <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+    <arg name="headless" value="$(arg headless)"/>
+    <arg name="verbose" value="true" />
+  </include>
+  
+<rosparam param="number">2</rosparam>
+<rosparam param="name">['one','two']</rosparam>
+<rosparam param="gazebo_on">1</rosparam>
+
+<param name="robot_description" command="$(find xacro)/xacro.py '$(find dvrk_model)/PSM/two_psm_launch.sdf'" />
+
+<rosparam file="$(find dvrk_gazebo_control)/config/two_psm.yaml" command="load"/>
+
+<node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+args="-sdf -model dvrk_psm -param robot_description"/>
+
+<!--include file="$(find psm_coop)/launch/mainframe.launch" /-->
+
+<node pkg="psm_coop" type="gazebo_joint_controller.py"
+    name="gazebo_controller" >
+</node>
+
+</launch>

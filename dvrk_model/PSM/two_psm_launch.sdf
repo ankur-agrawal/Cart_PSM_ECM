@@ -16,7 +16,7 @@
   <joint name='PSM1::rev_joint' type='fixed'>
    <child>PSM1::base_link</child>
    <parent>world</parent>
-   <axis>
+   <!--axis>
      <limit>
        <lower>-1.57</lower>
        <upper>1.57</upper>
@@ -25,13 +25,13 @@
        <damping>0</damping>
      </dynamics>
      <xyz>0 0 1</xyz>
-   </axis>
+   </axis-->
  </joint>
 
   <joint name='PSM2::rev_joint' type='fixed'>
    <child>PSM2::base_link</child>
    <parent>world</parent>
-   <axis>
+   <!--axis>
      <limit>
        <lower>-1.57</lower>
        <upper>1.57</upper>
@@ -40,7 +40,7 @@
        <damping>0</damping>
      </dynamics>
      <xyz>0 0 1</xyz>
-   </axis>
+   </axis-->
  </joint>
 
  <plugin name='dvrk_plugins' filename='libdvrk_plugins.so'/>
