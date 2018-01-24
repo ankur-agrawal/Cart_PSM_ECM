@@ -5,6 +5,7 @@
 #include <ros/ros.h>
 #include <std_msgs/Bool.h>
 #include <std_msgs/Float64.h>
+#include <rosgraph_msgs/Clock.h>
 #include <string.h>
 #include <boost/bind.hpp>
 #include <boost/function.hpp>
@@ -17,6 +18,8 @@ public:
   dvrkGazeboControlPlugin(){}
 
   void Load(gazebo::physics::ModelPtr _model, sdf::ElementPtr _sdf);
+
+  void clock_cb(const rosgraph_msgs::Clock msg);
 
   void print(const std_msgs::BoolConstPtr& msg);
 
@@ -36,6 +39,7 @@ private:
   gazebo::transport::NodePtr node;
   std::vector<ros::Subscriber> sub_position, sub_positionTarget, sub_Force;
   std::vector<ros::Publisher> pub_states;
+  ros::Subscriber sub_clock;
   int num_joints;
 protected:
   ros::NodeHandle model_nh_;

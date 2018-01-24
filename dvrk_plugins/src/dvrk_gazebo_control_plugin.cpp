@@ -26,6 +26,8 @@ void dvrkGazeboControlPlugin::Load(gazebo::physics::ModelPtr _model, sdf::Elemen
   sub_positionTarget.resize(num_joints);
   sub_Force.resize(num_joints);
   pub_states.resize(num_joints);
+  sub_clock = model_nh_.subscribe<rosgraph_msgs::Clock>("/clock",1,&dvrkGazeboControlPlugin::clock_cb, this);
+
   for (int i=0;i<num_joints; i++)
   {
     joint=parent_model->GetJoints()[i];
@@ -46,6 +48,10 @@ void dvrkGazeboControlPlugin::Load(gazebo::physics::ModelPtr _model, sdf::Elemen
 
   }
   this->PublishStates();
+}
+void dvrkGazeboControlPlugin::clock_cb(const rosgraph_msgs::Clock msg)
+{
+  PublishStates();
 }
 
 void dvrkGazeboControlPlugin::print(const std_msgs::BoolConstPtr& msg)
@@ -99,6 +105,7 @@ void dvrkGazeboControlPlugin::PublishStates()
     if ((joint_name.find("fixed")!=std::string::npos))
       continue;
     msg.data=parent_model->GetJoints()[n]->GetAngle(0).Radian();
+
     pub_states[n].publish(msg);
   }
 }
