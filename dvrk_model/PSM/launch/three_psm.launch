@@ -5,6 +5,9 @@
   <arg name="gui" default="true" />
   <arg name="rate" default="20" />
 
+  <rosparam param="number">3</rosparam>
+  <rosparam param="name">['one','two','three']</rosparam>
+  <rosparam param="gazebo_on">0</rosparam>
 
   <param name="robot_description"
          command="rosrun xacro xacro.py $(arg model)"/>
