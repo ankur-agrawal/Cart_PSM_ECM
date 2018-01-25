@@ -7,11 +7,14 @@
 #include <boost/bind.hpp>
 #include <gazebo_msgs/LinkState.h>
 #include <gazebo_msgs/LinkStates.h>
+#include <opencv2/opencv.hpp>
+#include <cv_bridge/cv_bridge.h>
+#include <sensor_msgs/Image.h>
 
 class dvrk_gazebo_control{
 private:
   std::vector<ros::Publisher> ecmPub;
-  ros::Subscriber link_states;
+  ros::Subscriber link_states, image_sub;
   ros::Publisher plot_x, plot_y, plot_z;
   std::vector<ros::Publisher> cartPub;
 public:
@@ -42,7 +45,10 @@ public:
       cartPub[15+j] = n.advertise<std_msgs::Float64>(topic,1000);
     }
     link_states=n.subscribe("/gazebo/link_states", 100, &dvrk_gazebo_control::getECMEndEffector, this);
+    image_sub = n.subscribe("/dvrk/ecm/camera/image_raw", 100, &dvrk_gazebo_control::showImage, this);
   }
+
+  void showImage(const sensor_msgs::ImageConstPtr& img);
   void getECMEndEffector(const gazebo_msgs::LinkStatesPtr &msg);
   void PublishCartStates();
 

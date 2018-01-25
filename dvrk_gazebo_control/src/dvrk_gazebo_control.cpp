@@ -1,5 +1,12 @@
 #include "dvrk_gazebo_control.h"
 // #include <string>
+void dvrk_gazebo_control::showImage(const sensor_msgs::ImageConstPtr &img)
+{
+  // cv::Mat a;
+  // cv_bridge::CvImagePtr inMsgPtr;
+  // inMsgPtr = cv_bridge::toCvCopy(img,sensor_msgs::image_encodings::BGR8);
+  // a = inMsgPtr->image;
+}
 
 void dvrk_gazebo_control::getECMEndEffector(const gazebo_msgs::LinkStatesPtr &msg)
 {
