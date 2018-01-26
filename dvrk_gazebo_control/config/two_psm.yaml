@@ -1,27 +1,27 @@
 PSM1:
   outer_yaw_joint_controller:
-    p: 20
+    p: 15
     i: 0
     d: 10
   outer_pitch_joint_1_controller:
-    p: 30
+    p: 45
     i: 1
     d: 15
   outer_insertion_joint_controller:
-    p: 100
+    p: 40
     i: 0.1
     d: 15
 
 PSM2:
   outer_yaw_joint_controller:
-    p: 20
+    p: 15
     i: 0
     d: 10
   outer_pitch_joint_1_controller:
-    p: 30
+    p: 45
     i: 1
     d: 15
   outer_insertion_joint_controller:
-    p: 100
+    p: 40
     i: 0.1
     d: 15

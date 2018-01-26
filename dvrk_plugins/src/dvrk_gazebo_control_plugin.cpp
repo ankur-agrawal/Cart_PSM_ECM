@@ -99,7 +99,13 @@ void dvrkGazeboControlPlugin::PublishStates()
     if ((joint_name.find("fixed")!=std::string::npos))
       continue;
     //msg.data=parent_model->GetJoints()[n]->GetAngle(0).Radian();
-    msg.data=joint->GetForceTorque(0).body2Torque.GetLength();
+    
+    //std::map<std::string, double> x; 
+    //x = parent_model->GetJointController()->GetForces();
+    //msg.data= x[joint_name];
+
+    msg.data=joint->GetForceTorque(0).body2Torque[0];
+
     pub_states[n].publish(msg);
   }
 }
