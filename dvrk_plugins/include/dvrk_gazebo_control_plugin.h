@@ -21,9 +21,7 @@ public:
 
   void clock_cb(const rosgraph_msgs::Clock msg);
 
-  void print(const std_msgs::BoolConstPtr& msg);
-
-  void getJointStrings(gazebo::physics::JointPtr jointPtr, std::string &str1, std::string &str2);
+  void getJointStrings(gazebo::physics::JointPtr jointPtr, std::string &str1);
 
   void SetPosition(const std_msgs::Float64Ptr& msg, gazebo::physics::JointPtr joint);
 
@@ -61,7 +59,7 @@ public:
 
 private:
   gazebo::physics::JointPtr jointPtr;
-  std::string joint_namespace;
+  // std::string joint_namespace;
   std::string joint_name;
   double p, i, d;
 
