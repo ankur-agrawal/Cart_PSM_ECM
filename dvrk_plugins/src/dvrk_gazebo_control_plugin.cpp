@@ -101,11 +101,10 @@ void dvrkGazeboControlPlugin::PublishStates()
     //msg.data=parent_model->GetJoints()[n]->GetAngle(0).Radian();
     
     //std::map<std::string, double> x; 
-    //x = parent_model->GetJointController()->GetForces();
+    //msg.data = parent_model->GetJointController()->GetForces()[joint->GetScopedName()];
     //msg.data= x[joint_name];
 
-    msg.data=joint->GetForceTorque(0).body2Torque[0];
-
+    msg.data=joint->GetForceTorque(0).body2Torque[0]; //Am not sure which index 0,1,2 is correct? Seems 0 is most correct
     pub_states[n].publish(msg);
   }
 }
