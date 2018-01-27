@@ -5,6 +5,7 @@
 #include <ros/ros.h>
 #include <std_msgs/Bool.h>
 #include <std_msgs/Float64.h>
+#include <sensor_msgs/JointState.h>
 #include <string.h>
 #include <boost/bind.hpp>
 #include <boost/function.hpp>

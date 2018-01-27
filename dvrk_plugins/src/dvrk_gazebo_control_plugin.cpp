@@ -32,7 +32,9 @@ void dvrkGazeboControlPlugin::Load(gazebo::physics::ModelPtr _model, sdf::Elemen
 
     std::string joint_namespace, joint_name;
     getJointStrings(joint,joint_namespace, joint_name);
-    pub_states[i] = model_nh_.advertise<std_msgs::Float64>(joint_namespace+"/"+joint_name+"/states", 1000);
+
+    //COPY THIS TO SENSOR MSGS-->change the header file to include sensor_msgs
+    pub_states[i] = model_nh_.advertise<sensor_msgs::JointState>(joint_namespace+"/"+joint_name+"/states", 1000);
     // std::cout << (joint_name.find("outer_pitch_joint")!=std::string::npos) << '\n';
     //if ((joint_name.find("outer_pitch_joint")!=std::string::npos) && joint_name.compare("one_outer_pitch_joint_1")||(joint_name.find("fixed")!=std::string::npos))
     //  continue;
@@ -87,9 +89,12 @@ void dvrkGazeboControlPlugin::SetForce(const std_msgs::Float64Ptr& msg, gazebo::
   PublishStates();
 }
 
+//COPY THIS MAN
 void dvrkGazeboControlPlugin::PublishStates()
 {
-  std_msgs::Float64 msg;
+  //std_msgs::Float64 msg;
+  sensor_msgs::JointState msg;
+
   gazebo::physics::JointPtr joint;
   for (int n=0; n<num_joints; n++)
   {
@@ -98,13 +103,29 @@ void dvrkGazeboControlPlugin::PublishStates()
     getJointStrings(joint,joint_namespace, joint_name);
     if ((joint_name.find("fixed")!=std::string::npos))
       continue;
-    //msg.data=parent_model->GetJoints()[n]->GetAngle(0).Radian();
-    
+   /* msg.name.push_back(joint->GetName());
+    msg.position.push_back(parent_model->GetJoints()[n]->GetAngle(0).Radian());
     //std::map<std::string, double> x; 
     //msg.data = parent_model->GetJointController()->GetForces()[joint->GetScopedName()];
     //msg.data= x[joint_name];
+    msg.velocity.push_back(joint->GetVelocity(0));
+    msg.effort.push_back(joint->GetForceTorque(0).body2Torque[0]); //Am not sure which index 0,1,2 is correct? Seems 0 is most correct
+    */
+    msg.name.resize(1);
+    msg.position.resize(1);
+    msg.velocity.resize(1);
+    msg.effort.resize(1);
+    
+    msg.name[0]=joint->GetName();
+    msg.position[0]= parent_model->GetJoints()[n]->GetAngle(0).Radian();
+    //std::map<std::string, double> x; 
+    //msg.data = parent_model->GetJointController()->GetForces()[joint->GetScopedName()];
+    //msg.data= x[joint_name];
+    msg.velocity[0] = joint->GetVelocity(0);
+    msg.effort[0] = joint->GetForceTorque(0).body2Torque[0]; //Am not sure which index 0,1,2 is correct? Seems 0 is most correct
 
-    msg.data=joint->GetForceTorque(0).body2Torque[0]; //Am not sure which index 0,1,2 is correct? Seems 0 is most correct
+
+
     pub_states[n].publish(msg);
   }
 }

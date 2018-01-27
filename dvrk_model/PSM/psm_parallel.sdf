@@ -348,6 +348,9 @@
         </limit>
         <dynamics/>
       </axis-->
+      <physics>
+      <provide_feedback>true</provide_feedback>
+      </physics>
     </joint> 
 
     <joint name='outer_yaw_joint' type='revolute'>
@@ -363,6 +366,9 @@
         </limit>
         <dynamics damping="0.1"/>
       </axis>
+      <physics>
+      <provide_feedback>true</provide_feedback>
+      </physics>
     </joint>
     <joint name='outer_pitch_joint_1' type='revolute'>
       <child>outer_pitch_back_link</child>
@@ -377,6 +383,9 @@
         </limit>
         <dynamics damping="0.1"/>
       </axis>
+      <physics>
+      <provide_feedback>true</provide_feedback>
+      </physics>
     </joint>
     <joint name='outer_pitch_joint_2' type='revolute'>
       <child>outer_pitch_bottom_link</child>
@@ -391,6 +400,9 @@
         </limit>
         <dynamics damping="0.1"/>
       </axis>
+      <physics>
+      <provide_feedback>true</provide_feedback>
+      </physics>
     </joint>
     <joint name='outer_pitch_joint_3' type='revolute'>
       <child>outer_pitch_front_link</child>
@@ -405,6 +417,9 @@
         </limit>
         <dynamics damping="0.1"/>
       </axis>
+      <physics>
+      <provide_feedback>true</provide_feedback>
+      </physics>
     </joint>
     <joint name='outer_pitch_joint_4' type='revolute'>
       <child>outer_pitch_bottom_link</child>
@@ -420,6 +435,9 @@
         </limit>
         <dynamics damping="0.1"/>
       </axis>
+      <physics>
+      <provide_feedback>true</provide_feedback>
+      </physics>
     </joint>
     <joint name='outer_pitch_joint_5' type='revolute'>
       <child>outer_pitch_top_link</child>
@@ -434,6 +452,9 @@
         </limit>
         <dynamics damping="0.1"/>
       </axis>
+      <physics>
+      <provide_feedback>true</provide_feedback>
+      </physics>
     </joint>
 <!-- DontIncludeStart -->
 
@@ -450,6 +471,9 @@
         </limit>
         <dynamics/>
       </axis>
+      <physics>
+      <provide_feedback>true</provide_feedback>
+      </physics>
     </joint>-->
 <!-- DontIncludeEnd     -->
 
@@ -466,6 +490,9 @@
         </limit>
         <dynamics damping="0.1"/>
       </axis>
+      <physics>
+      <provide_feedback>true</provide_feedback>
+      </physics>
     </joint>
     <joint name='outer_pitch_joint_8' type='revolute'>
       <child>outer_insertion_link</child>
@@ -481,6 +508,9 @@
         </limit>
         <dynamics damping="0.1"/>
       </axis>
+      <physics>
+      <provide_feedback>true</provide_feedback>
+      </physics>
     </joint>
     <joint name='outer_insertion_joint' type='prismatic'>
       <child>tool_main_link</child>
@@ -495,6 +525,9 @@
         </limit>
         <dynamics damping="0.1"/>
       </axis>
+      <physics>
+      <provide_feedback>true</provide_feedback>
+      </physics>
     </joint>
    <link name='tool_wrist_link'>
       <pose>-0.4997 -1.99273e-05 1.01949 -3.14159 3.67319e-06 1.5708</pose>
@@ -565,6 +598,9 @@
         </limit>
         <dynamics damping="0.1"/>
       </axis>
+      <physics>
+      <provide_feedback>true</provide_feedback>
+      </physics>
     </joint>
     <link name='tool_wrist_sca_link'>
       <!-- <pose>-0.4997 -2.0061e-05 0.983092 -2.03445 1.57079 -2.03444</pose> -->
@@ -617,6 +653,9 @@
         </limit>
         <dynamics damping="0.1"/>
       </axis>
+      <physics>
+      <provide_feedback>true</provide_feedback>
+      </physics>
     </joint>
     <link name='tool_wrist_sca_shaft_link'>
       <pose>-0.4997 -2.01264e-05 1.0009 -1.57081 2.69848e-11 7.29285e-06</pose>
@@ -668,6 +707,9 @@
         </limit>
         <dynamics damping="0.1"/>
       </axis>
+      <physics>
+      <provide_feedback>true</provide_feedback>
+      </physics>
     </joint>
     <link name='tool_wrist_sca_ee_link_1'>
       <!-- <pose>-0.4997 -2.01264e-05 0.974192 -1.57081 2.69848e-11 7.29285e-06</pose> -->
@@ -720,6 +762,10 @@
         </limit>
         <dynamics damping="0.1"/>
       </axis>
+      <physics>
+      <provide_feedback>true</provide_feedback>
+      </physics>
+
     </joint>
     <link name='tool_wrist_sca_ee_link_2'>
       <pose>-0.4997 -2.01264e-05 1.0009 -1.57081 2.69848e-11 7.29285e-06</pose>
@@ -773,6 +819,9 @@
         </limit>
         <dynamics damping="0.1"/>
       </axis>
+      <physics>
+      <provide_feedback>true</provide_feedback>
+      </physics>
     </joint>
 
     <static>0</static>
