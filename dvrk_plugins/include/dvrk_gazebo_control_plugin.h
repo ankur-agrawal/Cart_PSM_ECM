@@ -37,7 +37,7 @@ private:
   sdf::ElementPtr sdf;
   gazebo::transport::NodePtr node;
   std::vector<ros::Subscriber> sub_position, sub_positionTarget, sub_Force;
-  std::vector<ros::Publisher> pub_states;
+  ros::Publisher pub_states;
   ros::Subscriber sub_clock;
   int num_joints;
 protected:
@@ -60,7 +60,6 @@ public:
 
 private:
   gazebo::physics::JointPtr jointPtr;
-  // std::string joint_namespace;
   std::string joint_name;
   double p, i, d;
 
