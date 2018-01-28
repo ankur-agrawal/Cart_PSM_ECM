@@ -16,7 +16,7 @@ void dvrkGazeboControlPlugin::Load(gazebo::physics::ModelPtr _model, sdf::Elemen
       << "Load the Gazebo system plugin 'libgazebo_ros_api_plugin.so' in the gazebo_ros package)");
     return;
   }
-  
+
   parent_model=_model;
   sdf=_sdf;
   gazebo::physics::JointPtr joint;
@@ -55,7 +55,7 @@ void dvrkGazeboControlPlugin::Load(gazebo::physics::ModelPtr _model, sdf::Elemen
     }
 
     //Initializing the publisher topic
-    pub_states[i] = model_nh_.advertise<std_msgs::Float64>("/"+joint_name+"/states", 1000);
+    pub_states[i] = model_nh_.advertise<sensor_msgs::JointState>("/"+joint_name+"/states", 1000);
 
     //Biniding subscriber callback functions for additional arguments to be passed in the functions
     boost::function<void (const std_msgs::Float64Ptr)>PositionFunc(boost::bind(&dvrkGazeboControlPlugin::SetPosition,this, _1,joint));
@@ -108,7 +108,7 @@ void dvrkGazeboControlPlugin::SetForce(const std_msgs::Float64Ptr& msg, gazebo::
 
 void dvrkGazeboControlPlugin::PublishStates()
 {
-  std_msgs::Float64 msg;
+  sensor_msgs::JointState msg;
   gazebo::physics::JointPtr joint;
   for (int n=0; n<num_joints; n++)
   {
@@ -130,7 +130,18 @@ void dvrkGazeboControlPlugin::PublishStates()
         continue;
       }
     }
-    msg.data=parent_model->GetJoints()[n]->GetAngle(0).Radian();
+    // msg.data=parent_model->GetJoints()[n]->GetAngle(0).Radian();
+    msg.name.resize(1);
+    msg.position.resize(1);
+    msg.velocity.resize(1);
+    msg.effort.resize(1);
+
+    msg.header.stamp=ros::Time::now();
+    msg.name[0]=joint_name;
+    msg.position[0]= joint->GetAngle(0).Radian();
+    msg.velocity[0] = joint->GetVelocity(0);
+    msg.effort[0] = joint->GetForce(0);
+
 
     pub_states[n].publish(msg);
   }
