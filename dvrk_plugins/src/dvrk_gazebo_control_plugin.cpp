@@ -122,7 +122,8 @@ void dvrkGazeboControlPlugin::PublishStates()
     //msg.data = parent_model->GetJointController()->GetForces()[joint->GetScopedName()];
     //msg.data= x[joint_name];
     msg.velocity[0] = joint->GetVelocity(0);
-    msg.effort[0] = joint->GetForceTorque(0).body2Torque[0]; //Am not sure which index 0,1,2 is correct? Seems 0 is most correct
+    msg.effort[0] = joint ->GetForce(0);
+    //msg.effort[0] = joint->GetForceTorque(0).body2Torque[0]; //Am not sure which index 0,1,2 is correct? Seems 0 is most correct
 
 
 

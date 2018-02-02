@@ -5,6 +5,8 @@
   <arg name="gui" default="true" />
   <arg name="rate" default="20" />
 
+  <rosparam param="speed">0.002</rosparam>  
+  <rosparam param="turn">0.005</rosparam> 
   <rosparam param="number">3</rosparam>
   <rosparam param="name">['one','two','three']</rosparam>
   <rosparam param="gazebo_on">0</rosparam>

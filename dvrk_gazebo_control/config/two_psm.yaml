@@ -8,9 +8,13 @@ PSM1:
     i: 1
     d: 15
   outer_insertion_joint_controller:
-    p: 40
+    p: 400
     i: 0.1
-    d: 15
+    d: 100
+  outer_roll_joint_controller:
+    p:40
+    i:0.1
+    d:15
 
 PSM2:
   outer_yaw_joint_controller:
@@ -22,6 +26,11 @@ PSM2:
     i: 1
     d: 15
   outer_insertion_joint_controller:
-    p: 40
+    p: 400
     i: 0.1
-    d: 15
+    d: 100
+  outer_roll_joint_controller:
+    p:40
+    i:0.1
+    d:15
+
