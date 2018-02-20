@@ -329,7 +329,11 @@
           <effort>1000</effort>
           <velocity>0.4</velocity>
         </limit>
-        <dynamics/>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0.1</spring_stiffness>
+          <damping>0.1</damping>
+        </dynamics>
       </axis>
     </joint>
     <joint name='outer_pitch_joint_1' type='revolute'>
@@ -343,7 +347,11 @@
           <effort>1000</effort>
           <velocity>0.4</velocity>
         </limit>
-        <dynamics/>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0.1</spring_stiffness>
+          <damping>0.1</damping>
+        </dynamics>
       </axis>
     </joint>
     <joint name='outer_pitch_joint_2' type='revolute'>
@@ -357,7 +365,11 @@
           <effort>1000</effort>
           <velocity>0.4</velocity>
         </limit>
-        <dynamics/>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0.1</spring_stiffness>
+          <damping>0.1</damping>
+        </dynamics>
       </axis>
     </joint>
     <joint name='outer_pitch_joint_3' type='revolute'>
@@ -371,7 +383,11 @@
           <effort>1000</effort>
           <velocity>0.4</velocity>
         </limit>
-        <dynamics/>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0.1</spring_stiffness>
+          <damping>0.1</damping>
+        </dynamics>
       </axis>
     </joint>
     <joint name='outer_pitch_joint_4' type='revolute'>
@@ -386,7 +402,11 @@
           <effort>1000</effort>
           <velocity>0.4</velocity>
         </limit>
-        <dynamics/>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0.1</spring_stiffness>
+          <damping>0.1</damping>
+        </dynamics>
       </axis>
     </joint>
     <joint name='outer_pitch_joint_5' type='revolute'>
@@ -400,7 +420,11 @@
           <effort>1000</effort>
           <velocity>0.4</velocity>
         </limit>
-        <dynamics/>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0.1</spring_stiffness>
+          <damping>0.1</damping>
+        </dynamics>
       </axis>
     </joint>
 <!-- DontIncludeStart -->
@@ -432,7 +456,11 @@
           <effort>1000</effort>
           <velocity>0.4</velocity>
         </limit>
-        <dynamics/>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0.1</spring_stiffness>
+          <damping>0.1</damping>
+        </dynamics>
       </axis>
     </joint>
     <joint name='outer_pitch_joint_8' type='revolute'>
@@ -461,7 +489,11 @@
           <effort>1000</effort>
           <velocity>0.4</velocity>
         </limit>
-        <dynamics/>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0.1</spring_stiffness>
+          <damping>0.1</damping>
+        </dynamics>
       </axis>
     </joint>
    <link name='tool_wrist_link'>
@@ -531,7 +563,11 @@
           <effort>1000</effort>
           <velocity>0.4</velocity>
         </limit>
-        <dynamics/>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0.1</spring_stiffness>
+          <damping>0.1</damping>
+        </dynamics>
       </axis>
     </joint>
     <link name='tool_wrist_sca_link'>
@@ -583,7 +619,11 @@
           <effort>1000</effort>
           <velocity>0.4</velocity>
         </limit>
-        <dynamics/>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0.1</spring_stiffness>
+          <damping>0.1</damping>
+        </dynamics>
       </axis>
     </joint>
     <link name='tool_wrist_sca_shaft_link'>
@@ -634,7 +674,11 @@
           <effort>1000</effort>
           <velocity>0.4</velocity>
         </limit>
-        <dynamics/>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0.1</spring_stiffness>
+          <damping>0.1</damping>
+        </dynamics>
       </axis>
     </joint>
     <link name='tool_wrist_sca_ee_link_1'>
@@ -686,7 +730,11 @@
           <effort>1000</effort>
           <velocity>0.4</velocity>
         </limit>
-        <dynamics/>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0.1</spring_stiffness>
+          <damping>0.1</damping>
+        </dynamics>
       </axis>
     </joint>
     <link name='tool_wrist_sca_ee_link_2'>
@@ -739,11 +787,14 @@
           <effort>1000</effort>
           <velocity>0.4</velocity>
         </limit>
-        <dynamics/>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0.1</spring_stiffness>
+          <damping>0.1</damping>
+        </dynamics>
       </axis>
     </joint>
 
     <static>0</static>
-    <plugin name='dvrk_plugins' filename='libdvrk_plugins.so'/>
   </model>
 </sdf>
