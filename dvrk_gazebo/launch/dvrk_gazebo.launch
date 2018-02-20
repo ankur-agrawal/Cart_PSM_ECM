@@ -1,6 +1,5 @@
 <launch>
 
-
   <arg name="paused" default="false"/>
   <arg name="use_sim_time" default="true"/>
   <arg name="gui" default="true"/>
@@ -18,56 +17,19 @@
   </include>
   <arg
     name="model" />
-  <!-- <arg
-    name="gui"
-    default="true" /> -->
+
   <rosparam file="$(find dvrk_gazebo_control)/config/dvrk_new.yaml" command="load"/>
 
-  <!-- <param
-    name="robot_description_cart"
-    command="$(find xacro)/xacro.py $(find dvrk_model)/urdf/dvrk_t1_1.xacro" /> -->
-
-    <!-- <param
-      name="robot_description"
-      command="$(find xacro)/xacro.py $(find dvrk_model)/urdf/dvrk.urdf.xacro" /> -->
-
-    <param
-      name="robot_description_sdf"
-      command="$(find xacro)/xacro.py $(find dvrk_model)/dvrk/dvrk_full.sdf" />
-
-      <!-- <param
-        name="robot_description_sdf"
-        command="$(find xacro)/xacro.py $(find dvrk_model)/Cart/Cart_n.sdf" /> -->
-
-      <!-- <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
-        	 args="-urdf -model dvrk -param robot_description"/> -->
-   <!-- <param
-     name="robot_description_sdf2"
-     command="$(find xacro)/xacro.py $(find dvrk_model)/urdf/psm_parallel.sdf" /> -->
+  <param name="robot_description" command="$(find xacro)/xacro.py $(find dvrk_model)/dvrk/dvrk_full.sdf" />
 
 
-       <node name="sdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
-         	 args="-sdf -model dvrk -param robot_description_sdf"/>
+  <node name="sdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+        args="-sdf -model dvrk -param robot_description"/>
 
-       <!-- <node name="sdf_spawner2" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
-         	 args="-sdf -model dvrk -param robot_description_sdf"/> -->
-  <param
-    name="use_gui"
-    value="$(arg gui)" />
-  <!-- <node
-    name="joint_state_publisher"
-    pkg="joint_state_publisher"
-    type="joint_state_publisher" /> -->
-  <!-- <node
-    name="robot_state_publisher"
-    pkg="robot_state_publisher"
-    type="state_publisher" />
-  <node
-    name="rviz"
-    pkg="rviz"
-    type="rviz"
-    args="-d $(find dvrk_gazebo)/rviz/dvrk.rviz" /> -->
+  <param name="use_gui" value="$(arg gui)" />
 
-    <!-- <include file="$(find dvrk_gazebo_control)/launch/dvrk_cart.launch"/> -->
-    <!-- <include file="$(find dvrk_gazebo_control)/launch/dvrk_control.launch"/> -->
+  <node name="image_view" type="image_view" pkg="image_view">
+  <remap from="image" to="/dvrk/ecm/camera/image_raw"/>
+  </node>
+
 </launch>

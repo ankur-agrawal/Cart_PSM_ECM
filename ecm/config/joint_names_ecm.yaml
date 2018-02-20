@@ -1,1 +1,0 @@
-controller_joint_names: ['yaw_joint', 'pitch_front_joint', 'pitch_bottom_joint', 'pitch_end_joint', 'main_insertion_joint', 'tool_joint', 'pitch_top_joint', 'pitch_back_joint', ]
