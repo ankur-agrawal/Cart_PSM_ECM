@@ -24,3 +24,7 @@ gazebo_ros_control
 CONTRIBUTING.md
 .travis.yml
 dvrk_gazebo_control/src/RL_agent.py
+dvrk_model/dvrk/dvrk_thesis.sdf
+dvrk_gazebo/launch/dvrk_thesis.launch
+dvrk_gazebo_control/src/valueFunction.py
+dvrk_gazebo/worlds/dvrk_thesis.world
