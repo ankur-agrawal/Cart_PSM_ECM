@@ -1,0 +1,69 @@
+<sdf version="1.6">
+  <model name="dvrk_psm">
+
+  <include>
+    <uri>model://PSM</uri>
+      <name>PSM1</name>
+      <pose> 0 0 -0.5 0 0 0</pose>
+  </include>
+
+  <include>
+    <uri>model://PSM</uri>
+      <name>PSM2</name>
+      <pose>-0.7 0 -0.5 0.15 0.2 0.3</pose>
+  </include>
+
+  <include>
+    <uri>model://box</uri>
+      <name>box</name>
+      <pose>0 0 0 0.15 0.2 0.3</pose>
+  </include>
+  
+  <joint name='PSM1::rev_joint' type='fixed'>
+   <child>PSM1::base_link</child>
+   <parent>world</parent>
+   <!--axis>
+     <limit>
+       <lower>-1.57</lower>
+       <upper>1.57</upper>
+     </limit>
+     <dynamics>
+       <damping>0</damping>
+     </dynamics>
+     <xyz>0 0 1</xyz>
+   </axis-->
+ </joint>
+
+  <joint name='PSM2::rev_joint' type='fixed'>
+   <child>PSM2::base_link</child>
+   <parent>world</parent>
+   <!--axis>
+     <limit>
+       <lower>-1.57</lower>
+       <upper>1.57</upper>
+     </limit>
+     <dynamics>
+       <damping>0</damping>
+     </dynamics>
+     <xyz>0 0 1</xyz>
+   </axis-->
+ </joint>
+
+  <joint name='String' type='ball'>
+   <child>box::link</child>
+   <parent>PSM1::tool_wrist_link</parent>
+   <!--axis>
+     <limit>
+       <lower>-1.57</lower>
+       <upper>1.57</upper>
+     </limit>
+     <dynamics>
+       <damping>0</damping>
+     </dynamics>
+     <xyz>0 0 1</xyz>
+   </axis-->
+ </joint>
+
+ <plugin name='dvrk_plugins' filename='libdvrk_plugins.so'/>
+ </model>
+</sdf>

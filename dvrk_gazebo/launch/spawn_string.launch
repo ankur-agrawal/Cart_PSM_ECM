@@ -1,0 +1,8 @@
+<launch>
+
+<param name="environment_description" command="$(find xacro)/xacro.py '$(find dvrk_model)/PSM/string.sdf'" />
+
+<node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+args="-sdf -model string -param environment_description"/>
+
+</launch>
