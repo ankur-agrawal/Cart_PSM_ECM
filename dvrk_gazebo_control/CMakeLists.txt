@@ -14,6 +14,9 @@ find_package(catkin REQUIRED COMPONENTS
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
 
+find_package(cmake_modules REQUIRED)
+find_package(Eigen REQUIRED)
+
 
 ## Uncomment this if the package has a setup.py. This macro ensures
 ## modules and global scripts declared therein get installed
@@ -104,7 +107,7 @@ catkin_package(
   INCLUDE_DIRS include
 #  LIBRARIES dvrk_gazebo_control
 #  CATKIN_DEPENDS roscpp rospy std_msgs
-#  DEPENDS system_lib
+#  DEPENDS EIGEN
 )
 
 ###########
@@ -116,6 +119,7 @@ catkin_package(
 # include_directories(include)
 include_directories(
   ${catkin_INCLUDE_DIRS}
+  ${Eigen_INCLUDE_DIRS}
   include
 )
 
@@ -141,6 +145,7 @@ target_link_libraries(dvrk_gazebo_control_node
    ${catkin_LIBRARIES}
 )
 
+set(CMAKE_CXX_FLAGS "-std=c++11 ${CMAKE_CXX_FLAGS}")
 #############
 ## Install ##
 #############

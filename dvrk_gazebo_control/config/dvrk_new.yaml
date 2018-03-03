@@ -95,38 +95,70 @@ dvrk:
       i: 0
       d: 10
   PSM1:
-    outer_yaw_controller:
-      p: 20
+    outer_yaw_joint_controller:
+      p: 500
+      i: 0.1
+      d: 10
+    outer_pitch_joint_1_controller:
+      p: 800
+      i: 0.1
+      d: 30
+    outer_insertion_joint_controller:
+      p: 600
+      i: 0.01
+      d: 10
+    outer_roll_joint_controller:
+      p: 40
+      i: 0.1
+      d: 15
+  PSM2:
+    outer_yaw_joint_controller:
+      p: 500
       i: 0
       d: 10
     outer_pitch_joint_1_controller:
       p: 600
       i: 0
       d: 0
-  PSM2:
-    outer_yaw_controller:
-      p: 20
+    outer_insertion_joint_controller:
+      p: 600
       i: 0
-      d: 10
-    outer_pitch_joint_1_controller:
+      d: 0
+    outer_roll_joint_controller:
       p: 600
       i: 0
       d: 0
   PSM3:
-    outer_yaw_controller:
-      p: 20
+    outer_yaw_joint_controller:
+      p: 500
       i: 0
       d: 10
     outer_pitch_joint_1_controller:
       p: 600
       i: 0
       d: 0
+    outer_insertion_joint_controller:
+      p: 600
+      i: 0
+      d: 0
+    outer_roll_joint_controller:
+      p: 600
+      i: 0
+      d: 0
   ecm:
+    yaw_joint_controller:
+      p: 100
+      i: 0
+      d: 10
     pitch_front_joint_controller:
       p: 500
       i: 0
-      d: 0
+      d: 10
     main_insertion_joint_controller:
-      p: 50
+      p: 500
+      i: 0
+      d: 0
+    tool_joint_controller:
+      p: 500
       i: 0
       d: 0
