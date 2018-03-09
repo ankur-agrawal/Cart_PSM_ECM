@@ -6,6 +6,7 @@
 #include <std_msgs/Bool.h>
 #include <std_msgs/Float64.h>
 #include <sensor_msgs/JointState.h>
+#include <rosgraph_msgs/Clock.h>
 #include <string.h>
 #include <boost/bind.hpp>
 #include <boost/function.hpp>
@@ -19,9 +20,9 @@ public:
 
   void Load(gazebo::physics::ModelPtr _model, sdf::ElementPtr _sdf);
 
-  void print(const std_msgs::BoolConstPtr& msg);
+  void clock_cb(const rosgraph_msgs::Clock msg);
 
-  void getJointStrings(gazebo::physics::JointPtr jointPtr, std::string &str1, std::string &str2);
+  void getJointStrings(gazebo::physics::JointPtr jointPtr, std::string &str1);
 
   void SetPosition(const std_msgs::Float64Ptr& msg, gazebo::physics::JointPtr joint);
 
@@ -36,7 +37,8 @@ private:
   sdf::ElementPtr sdf;
   gazebo::transport::NodePtr node;
   std::vector<ros::Subscriber> sub_position, sub_positionTarget, sub_Force;
-  std::vector<ros::Publisher> pub_states;
+  ros::Publisher pub_states;
+  ros::Subscriber sub_clock;
   int num_joints;
 protected:
   ros::NodeHandle model_nh_;
@@ -58,7 +60,6 @@ public:
 
 private:
   gazebo::physics::JointPtr jointPtr;
-  std::string joint_namespace;
   std::string joint_name;
   double p, i, d;
 
