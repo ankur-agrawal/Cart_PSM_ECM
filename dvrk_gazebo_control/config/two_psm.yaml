@@ -1,4 +1,5 @@
-PSM1:
+dvrk_psm:
+ PSM1:
   outer_yaw_joint_controller:
     p: 15
     i: 0
@@ -12,11 +13,11 @@ PSM1:
     i: 0.1
     d: 100
   outer_roll_joint_controller:
-    p:40
-    i:0.1
-    d:15
+    p: 40
+    i: 0.1
+    d: 15
 
-PSM2:
+ PSM2:
   outer_yaw_joint_controller:
     p: 15
     i: 0
@@ -30,7 +31,7 @@ PSM2:
     i: 0.1
     d: 100
   outer_roll_joint_controller:
-    p:40
-    i:0.1
-    d:15
+    p: 40
+    i: 0.1
+    d: 15
 
