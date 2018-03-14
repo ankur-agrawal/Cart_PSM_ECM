@@ -10,6 +10,11 @@
   <param name="use_gui" value="$(arg gui)"/>
   <param name="rate" value="$(arg rate)"/>
   
+  <rosparam param="speed">0.001</rosparam>  
+  <rosparam param="turn">0.005</rosparam>
+  <rosparam param="number">2</rosparam>
+  <rosparam param="name">['one','two','three']</rosparam>
+  <rosparam param="gazebo_on">0</rosparam>
  
   <!-- joint state publisher -->
 
