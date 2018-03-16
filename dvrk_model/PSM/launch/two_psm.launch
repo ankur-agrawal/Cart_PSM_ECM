@@ -15,6 +15,7 @@
   <rosparam param="number">2</rosparam>
   <rosparam param="name">['one','two','three']</rosparam>
   <rosparam param="gazebo_on">0</rosparam>
+  <rosparam param="track_force">0</rosparam>
  
   <!-- joint state publisher -->
 

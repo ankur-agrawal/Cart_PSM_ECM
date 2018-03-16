@@ -23,6 +23,8 @@
 <rosparam param="name">['one','two']</rosparam>
 <rosparam param="gazebo_on">1</rosparam>
 
+<rosparam param="track_force">1</rosparam>
+
 <param name="robot_description" command="$(find xacro)/xacro.py '$(find dvrk_model)/PSM/two_psm_launch.sdf'" />
 
 <rosparam file="$(find dvrk_gazebo_control)/config/two_psm.yaml" command="load"/>

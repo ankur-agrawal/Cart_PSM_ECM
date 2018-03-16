@@ -8,7 +8,7 @@
 
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="world_name" value="$(find dvrk_gazebo)/worlds/dvrk.world"/>
-    <arg name="debug" value="$(arg debug)" />
+    <arg name="debug" value="$(arg debug)" /> 
     <arg name="gui" value="$(arg gui)" />
     <arg name="paused" value="$(arg paused)"/>
     <arg name="use_sim_time" value="$(arg use_sim_time)"/>
@@ -21,10 +21,14 @@
 <rosparam param="number">3</rosparam>
 <rosparam param="name">['one','two','three']</rosparam>
 <rosparam param="gazebo_on">1</rosparam>
+<rosparam param="track_force">1</rosparam>
+
 
 <param name="robot_description" command="$(find xacro)/xacro.py '$(find dvrk_model)/PSM/three_psm_launch.sdf'" />
 
+
 <rosparam file="$(find dvrk_gazebo_control)/config/three_psm.yaml" command="load"/>
+
 
 <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
 args="-sdf -model dvrk_psm -param robot_description"/>
