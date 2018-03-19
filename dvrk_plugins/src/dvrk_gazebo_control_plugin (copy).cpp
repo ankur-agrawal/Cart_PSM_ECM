@@ -21,7 +21,6 @@ void dvrkGazeboControlPlugin::Load(gazebo::physics::ModelPtr _model, sdf::Elemen
   sub_position.resize(num_joints);
   sub_positionTarget.resize(num_joints);
   sub_Force.resize(num_joints);
-  sub_Force_tool.resize(1);
 
   //Initializing clock subscriber to continually publish states
   sub_clock = model_nh_.subscribe<rosgraph_msgs::Clock>("/clock",1,&dvrkGazeboControlPlugin::clock_cb, this);
@@ -66,12 +65,6 @@ void dvrkGazeboControlPlugin::Load(gazebo::physics::ModelPtr _model, sdf::Elemen
     sub_Force[i] = model_nh_.subscribe<std_msgs::Float64>("/"+joint_name+"/SetEffort",1,ForceFunc);
 
   }
-
-  gazebo::physics::LinkPtr link;
-  link=parent_model->GetLink("dvrk_psm::PSM1::tool_wrist_link");
-  boost::function<void (const std_msgs::Float64Ptr)>ForceLinkFunc(boost::bind(&dvrkGazeboControlPlugin::SetForceLink,this,link));
-  sub_Force_tool = model_nh_.subscribe<std_msgs::Float64>("/PSM1/tool_wrist_link/SetForce",1,ForceLinkFunc);
-
   this->PublishStates(); //Publish the read values from Gazebo to ROS
 }
 
