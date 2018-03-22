@@ -69,8 +69,8 @@ void dvrkGazeboControlPlugin::Load(gazebo::physics::ModelPtr _model, sdf::Elemen
 
   gazebo::physics::LinkPtr link;
   link=parent_model->GetLink("dvrk_psm::PSM1::tool_wrist_link");
-  boost::function<void (const std_msgs::Float64Ptr)>ForceLinkFunc(boost::bind(&dvrkGazeboControlPlugin::SetForceLink,this,link));
-  sub_Force_tool = model_nh_.subscribe<std_msgs::Float64>("/PSM1/tool_wrist_link/SetForce",1,ForceLinkFunc);
+  //boost::function<void (const std_msgs::Float64Ptr)>ForceLinkFunc(boost::bind(&dvrkGazeboControlPlugin::SetForceLink,this,link));
+  //sub_Force_tool = model_nh_.subscribe<std_msgs::Float64>("/PSM1/tool_wrist_link/SetForce",1,ForceLinkFunc);
 
   this->PublishStates(); //Publish the read values from Gazebo to ROS
 }

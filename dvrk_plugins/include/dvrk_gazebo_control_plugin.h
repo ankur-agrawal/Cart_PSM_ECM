@@ -36,7 +36,7 @@ private:
   gazebo::physics::ModelPtr parent_model;
   sdf::ElementPtr sdf;
   gazebo::transport::NodePtr node;
-  std::vector<ros::Subscriber> sub_position, sub_positionTarget, sub_Force; sub_Force_tool;
+  std::vector<ros::Subscriber> sub_position, sub_positionTarget, sub_Force, sub_Force_tool;
   ros::Publisher pub_states;
   ros::Subscriber sub_clock;
   int num_joints;
