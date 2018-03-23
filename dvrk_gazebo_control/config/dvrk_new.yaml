@@ -95,70 +95,121 @@ dvrk:
       i: 0
       d: 10
   PSM1:
-    outer_yaw_joint_controller:
+    yaw_joint_controller:
       p: 500
       i: 0.1
       d: 10
-    outer_pitch_joint_1_controller:
+    pitch_back_joint_controller:
       p: 800
       i: 0.1
       d: 30
-    outer_insertion_joint_controller:
+    main_insertion_joint_controller:
       p: 600
       i: 0.01
       d: 10
-    outer_roll_joint_controller:
-      p: 40
-      i: 0.1
-      d: 15
+    large_needle_driver:
+      tool_roll_joint_controller:
+        p: 100
+        i: 0.1
+        d: 10
+      tool_pitch_joint_controller:
+        p: 100
+        i: 0.1
+        d: 10
+      tool_yaw_joint_controller:
+        p: 100
+        i: 0.1
+        d: 10
+      gripper1_joint_controller:
+        p: 100
+        i: 0.1
+        d: 10
+      gripper2_joint_controller:
+        p: 100
+        i: 0.1
+        d: 10
   PSM2:
-    outer_yaw_joint_controller:
+    yaw_joint_controller:
       p: 500
-      i: 0
+      i: 0.1
       d: 10
-    outer_pitch_joint_1_controller:
+    pitch_back_joint_controller:
+      p: 800
+      i: 0.1
+      d: 30
+    main_insertion_joint_controller:
       p: 600
-      i: 0
-      d: 0
-    outer_insertion_joint_controller:
-      p: 600
-      i: 0
-      d: 0
-    outer_roll_joint_controller:
-      p: 600
-      i: 0
-      d: 0
+      i: 0.01
+      d: 10
+    large_needle_driver:
+      tool_roll_joint_controller:
+        p: 100
+        i: 0.1
+        d: 10
+      tool_pitch_joint_controller:
+        p: 100
+        i: 0.1
+        d: 10
+      tool_yaw_joint_controller:
+        p: 100
+        i: 0.1
+        d: 10
+      gripper1_joint_controller:
+        p: 100
+        i: 0.1
+        d: 10
+      gripper2_joint_controller:
+        p: 100
+        i: 0.1
+        d: 10
   PSM3:
-    outer_yaw_joint_controller:
+    yaw_joint_controller:
       p: 500
-      i: 0
+      i: 0.1
       d: 10
-    outer_pitch_joint_1_controller:
+    pitch_back_joint_controller:
+      p: 800
+      i: 0.1
+      d: 30
+    main_insertion_joint_controller:
       p: 600
-      i: 0
-      d: 0
-    outer_insertion_joint_controller:
-      p: 600
-      i: 0
-      d: 0
-    outer_roll_joint_controller:
-      p: 600
-      i: 0
-      d: 0
+      i: 0.01
+      d: 10
+    large_needle_driver:
+      tool_roll_joint_controller:
+        p: 100
+        i: 0.1
+        d: 10
+      tool_pitch_joint_controller:
+        p: 100
+        i: 0.1
+        d: 10
+      tool_yaw_joint_controller:
+        p: 100
+        i: 0.1
+        d: 10
+      gripper1_joint_controller:
+        p: 100
+        i: 0.1
+        d: 10
+      gripper2_joint_controller:
+        p: 100
+        i: 0.1
+        d: 10
   ecm:
     yaw_joint_controller:
-      p: 100
-      i: 0
-      d: 10
+      p: 700
+      i: 1
+      d: 90
     pitch_front_joint_controller:
-      p: 500
-      i: 0
-      d: 10
+      p: 700
+      i: 1
+      d: 50
     main_insertion_joint_controller:
       p: 500
-      i: 0
-      d: 0
+      i: 0.1
+      d: 20
     tool_joint_controller:
-      p: 500
-      i: 0
-      d: 0
+      p: 200
+      i: 0.1
+      d: 10

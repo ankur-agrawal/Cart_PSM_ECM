@@ -35,6 +35,6 @@
     <child>ecm::base_link</child>
     <parent>world</parent>
   </joint> -->
-  <!-- <plugin name='dvrk_plugins' filename='libdvrk_plugins.so'/> -->
+  <plugin name='dvrk_plugins' filename='libdvrk_plugins.so'/>
   </model>
 </sdf>

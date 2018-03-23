@@ -40,6 +40,36 @@
         </material>
       </visual>
     </link>
+
+    <link name='remote_center_link'>
+    <pose>0.4864 0 0.1524 0 0 0</pose>
+    <inertial>
+      <pose frame=''>-0 0 0 0 -0 0</pose>
+      <mass>0.01</mass>
+      <inertia>
+        <ixx>0</ixx>
+        <ixy>0</ixy>
+        <ixz>0</ixz>
+        <iyy>0</iyy>
+        <iyz>0</iyz>
+        <izz>0</izz>
+      </inertia>
+    </inertial>
+    <visual name='remote_center_link_visual'>
+      <geometry>
+        <sphere>
+          <radius>0.01</radius>
+        </sphere>
+      </geometry>
+      <transparency>1</transparency>
+    </visual>
+    </link>
+
+    <joint name='remote_center_joint' type='fixed'>
+      <child>remote_center_link</child>
+      <parent>base_link</parent>
+    </joint>
+
     <link name='yaw_Link'>
       <pose frame=''>0.1174 0 0.1524 1.5708 -0 1.5708</pose>
       <inertial>
@@ -87,6 +117,8 @@
         <limit>
           <lower>-1.605</lower>
           <upper>1.5994</upper>
+          <effort>1000</effort>
+          <velocity>1</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -129,7 +161,7 @@
         <material>
           <ambient>0 0 0 1</ambient>
           <diffuse>0 0 0 1</diffuse>
-          <specular>0.1 0.1 0.1 1</specular>
+          <specular>0.8 0.8 0.8 1</specular>
           <emissive>0 0 0 1</emissive>
         </material>
       </visual>
@@ -142,6 +174,8 @@
         <limit>
           <lower>-0.93556</lower>
           <upper>0.94249</upper>
+          <effort>1000</effort>
+          <velocity>1</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -184,7 +218,7 @@
         <material>
           <ambient>0 0 0 1</ambient>
           <diffuse>0 0 0 1</diffuse>
-          <specular>0.1 0.1 0.1 1</specular>
+          <specular>0.8 0.8 0.8 1</specular>
           <emissive>0 0 0 1</emissive>
         </material>
       </visual>
@@ -197,6 +231,8 @@
         <limit>
           <lower>-0.93556</lower>
           <upper>0.94249</upper>
+          <effort>1000</effort>
+          <velocity>1</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -239,7 +275,7 @@
         <material>
           <ambient>0 0 0 1</ambient>
           <diffuse>0 0 0 1</diffuse>
-          <specular>0.1 0.1 0.1 1</specular>
+          <specular>0.8 0.8 0.8 1</specular>
           <emissive>0 0 0 1</emissive>
         </material>
       </visual>
@@ -252,6 +288,8 @@
         <limit>
           <lower>-0.93556</lower>
           <upper>0.94249</upper>
+          <effort>1000</effort>
+          <velocity>1</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -307,8 +345,8 @@
         <limit>
           <lower>0</lower>
           <upper>0.24</upper>
-          <effort>0</effort>
-          <velocity>0</velocity>
+          <effort>1000</effort>
+          <velocity>1</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -351,7 +389,7 @@
         <material>
           <ambient>0 0 0 1</ambient>
           <diffuse>0 0 0 1</diffuse>
-          <specular>0.1 0.1 0.1 1</specular>
+          <specular>0.8 0.8 0.8 1</specular>
           <emissive>0 0 0 1</emissive>
         </material>
       </visual>
@@ -364,6 +402,8 @@
         <limit>
           <lower>-0.93556</lower>
           <upper>0.94249</upper>
+          <effort>1000</effort>
+          <velocity>1</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -406,7 +446,7 @@
         <material>
           <ambient>0 0 0 1</ambient>
           <diffuse>0 0 0 1</diffuse>
-          <specular>0.1 0.1 0.1 1</specular>
+          <specular>0.8 0.8 0.8 1</specular>
           <emissive>0 0 0 1</emissive>
         </material>
       </visual>
@@ -419,6 +459,8 @@
         <limit>
           <lower>-0.93556</lower>
           <upper>0.94249</upper>
+          <effort>1000</effort>
+          <velocity>1</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -437,6 +479,8 @@
         <limit>
           <lower>-0.93556</lower>
           <upper>0.94249</upper>
+          <effort>1000</effort>
+          <velocity>1</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -455,6 +499,8 @@
         <limit>
           <lower>-0.93556</lower>
           <upper>0.94249</upper>
+          <effort>1000</effort>
+          <velocity>1</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
