@@ -152,11 +152,6 @@ void dvrk_gazebo_control::getECMEndEffector(const gazebo_msgs::LinkStatesPtr &ms
 {
   gazebo_msgs::LinkState ecm_rcm;
 
-
-  // if( !outdata ) { // file couldn't be opened
-  //     std::cerr << "Error: file could not be opened" << std::endl;
-  //     exit(1);
-  //  }
   for (int i=0;i<msg->pose.size();i++)
   {
     if (!msg->name[i].compare("dvrk::PSM1::outer_insertion_link"))
@@ -257,8 +252,8 @@ void dvrk_gazebo_control::getECMEndEffector(const gazebo_msgs::LinkStatesPtr &ms
   // msg2.data=ecm_rcm.pose.position.z;
   // plot_z.publish(msg2);
   msg2.data=0;
-  ecmPub[3].publish(msg2);
-  psm1Pub[3].publish(msg2);
+  // ecmPub[3].publish(msg2);
+  // psm1Pub[3].publish(msg2);
   //
   if (iter > 5000)
   {

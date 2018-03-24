@@ -13,6 +13,7 @@ void dvrkGazeboControlPlugin::Load(gazebo::physics::ModelPtr _model, sdf::Elemen
   }
 
   parent_model=_model;
+  // std::cout << parent_model << '\n';
   sdf=_sdf;
   gazebo::physics::JointPtr joint;
 
@@ -21,9 +22,8 @@ void dvrkGazeboControlPlugin::Load(gazebo::physics::ModelPtr _model, sdf::Elemen
   sub_position.resize(num_joints);
   sub_positionTarget.resize(num_joints);
   sub_Force.resize(num_joints);
-
+  sub_clock.resize(num_joints);
   //Initializing clock subscriber to continually publish states
-  sub_clock = model_nh_.subscribe<rosgraph_msgs::Clock>("/clock",1,&dvrkGazeboControlPlugin::clock_cb, this);
 
   //Initializing the publisher topic
   pub_states = model_nh_.advertise<sensor_msgs::JointState>("joint/states", 1000);
@@ -31,6 +31,7 @@ void dvrkGazeboControlPlugin::Load(gazebo::physics::ModelPtr _model, sdf::Elemen
   for (int i=0;i<num_joints; i++)
   {
     joint=parent_model->GetJoints()[i];   //Get joint pointer handle
+    joint_class joint_obj(joint, parent_model);
 
     std::string joint_name;
     getJointStrings(joint, joint_name);   //Get joint name which is compatible with ROS
@@ -42,7 +43,7 @@ void dvrkGazeboControlPlugin::Load(gazebo::physics::ModelPtr _model, sdf::Elemen
     //Checking if the joint is the active pitch joint of the kinematic chain for PSM
     if (joint_name.find("PSM")!=std::string::npos)
     {
-      if ((joint_name.find("outer_pitch_joint")!=std::string::npos) && joint_name.find("pitch_joint_1")==std::string::npos)
+      if ((joint_name.find("pitch_")!=std::string::npos) && joint_name.find("pitch_back")==std::string::npos && joint_name.find("tool_pitch_")==std::string::npos)
         continue;
     }
     //Checking if the joint is the active pitch joint of the kinematic chain for ecm
@@ -55,48 +56,56 @@ void dvrkGazeboControlPlugin::Load(gazebo::physics::ModelPtr _model, sdf::Elemen
     }
 
     //Biniding subscriber callback functions for additional arguments to be passed in the functions
-    boost::function<void (const std_msgs::Float64Ptr)>PositionFunc(boost::bind(&dvrkGazeboControlPlugin::SetPosition,this, _1,joint));
-    boost::function<void (const std_msgs::Float64Ptr)>PositionTargetFunc(boost::bind(&dvrkGazeboControlPlugin::SetPositionTarget,this, _1,joint));
+    boost::function<void (const std_msgs::Float64Ptr)>PositionFunc(boost::bind(&joint_class::SetPosition,joint_obj, _1));
+    boost::function<void (const std_msgs::Float64Ptr)>PositionTargetFunc(boost::bind(&joint_class::SetPositionTarget,joint_obj, _1));
     boost::function<void (const std_msgs::Float64Ptr)>ForceFunc(boost::bind(&dvrkGazeboControlPlugin::SetForce,this, _1,joint));
+
+    boost::function<void (const rosgraph_msgs::Clock msg)>clockFunc(boost::bind(&joint_class::clock_cb,joint_obj, _1));
 
     //Initializing the subscriber topic for setting Position, Position Target or Effort
     sub_position[i] = model_nh_.subscribe<std_msgs::Float64>("/"+joint_name+"/SetPosition",1,PositionFunc);
     sub_positionTarget[i] = model_nh_.subscribe<std_msgs::Float64>("/"+joint_name+"/SetPositionTarget",1,PositionTargetFunc);
     sub_Force[i] = model_nh_.subscribe<std_msgs::Float64>("/"+joint_name+"/SetEffort",1,ForceFunc);
 
+    sub_clock[i] = model_nh_.subscribe<rosgraph_msgs::Clock>("/clock",1,clockFunc);
+
+    // joint_obj.setPositionTarget();
   }
   this->PublishStates(); //Publish the read values from Gazebo to ROS
 }
 
 //callback function for clock.
-void dvrkGazeboControlPlugin::clock_cb(const rosgraph_msgs::Clock msg)
+void joint_class::clock_cb(const rosgraph_msgs::Clock msg)
 {
   //Always publishes the state of all joints as long as the Gazebo simulation is running
-  PublishStates();
+  // PublishStates();
+
+  // if (dynamic)
+  // {
+  //   setPositionTarget();
+  // }
+  // else
+  // {
+  //   setPosition();
+  // }
+
 }
 
 //callback function to set position of the joint
-void dvrkGazeboControlPlugin::SetPosition(const std_msgs::Float64Ptr& msg, gazebo::physics::JointPtr joint)
+void joint_class::SetPosition(const std_msgs::Float64Ptr& msg)
 {
-  joint->SetPosition(0,msg->data);
+  joint_pos=msg->data;
+  dynamic=0;
+  setPosition();
+  setPositionTarget();
 }
 
 //callback function to set target position and use the pid controller in Gazebo. pid values are specified through the rosparam server
-void dvrkGazeboControlPlugin::SetPositionTarget(const std_msgs::Float64Ptr& msg, gazebo::physics::JointPtr joint)
+void joint_class::SetPositionTarget(const std_msgs::Float64Ptr& msg)
 {
-  joint_class joint_obj(joint);
-  double p, i, d;
-  joint_obj.getPID(p, i, d);
-
-  if (p<0|| i<0 || d<0)
-  {
-    ROS_FATAL_STREAM("PID controller could not be initialized. Check if the parameters have been loaded properly on the ROS parameter server." << '\n');
-  }
-  gazebo::common::PID pid;
-  pid=gazebo::common::PID(p,i,d);
-  parent_model->GetJointController()->SetPositionPID(joint->GetScopedName(), pid);
-  parent_model->GetJointController()->SetPositionTarget(joint->GetScopedName(), msg->data);
-
+  joint_pos=msg->data;
+  dynamic=1;
+  setPositionTarget();
 }
 
 //callback function to set effort (torque for revolute, force for prismatic) of the joint
@@ -182,4 +191,30 @@ void joint_class::getPID(double& K_p, double& K_i, double& K_d)
   K_i=i;
 }
 
+void joint_class::setPosition()
+{
+  jointPtr->SetPosition(0,joint_pos);
+}
+
+void joint_class::setPositionTarget()
+{
+  double p, i, d;
+  getPID(p, i, d);
+
+  if (p<0|| i<0 || d<0)
+  {
+    ROS_FATAL_STREAM("PID controller for " + joint_name + " could not be initialized. Check if the parameters have been loaded properly on the ROS parameter server." << '\n');
+  }
+  gazebo::common::PID pid;
+  pid=gazebo::common::PID(p,i,d);
+  // std::cout << parent_model << '\n';
+  parent_model->GetJointController()->SetPositionPID(jointPtr->GetScopedName(), pid);
+  // std::cout << jointPtr->GetScopedName() << '\n';
+  parent_model->GetJointController()->SetPositionTarget(jointPtr->GetScopedName(), joint_pos);
+}
+
+void joint_class::print()
+{
+  std::cout << "joint name is:"<< joint_name << '\n';
+}
 }
