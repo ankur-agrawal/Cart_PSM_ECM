@@ -17,7 +17,8 @@
 
 <xacro:suj prefix=""/>
  <xacro:if value="${ecm_num_1}">
-	<xacro:ecm prefix="ECM_" parent_link="SUJ_ECM_L3" xyz="0.103 0.173 0" rpy="-1.5708 0 ${-0.735398+3.14}"  />
+	<!-- <xacro:ecm prefix="ECM_" parent_link="SUJ_ECM_L3" xyz="0.16 0.125 0.075" rpy="0.0 0 -${3.14159/4-0.05}"  /> -->
+  <xacro:ecm prefix="ECM_" parent_link="SUJ_ECM_L3" xyz="0.103 0.173 0" rpy="-1.5708 0 ${-0.735398+3.14}"  />
  </xacro:if>
  <xacro:if value="${psm_num_1}">
 	<xacro:psm prefix="PSM1_" parent_link="SUJ_PSM1_L4" xyz= "0 0.3479 -0.0495" rpy="0 0 0"/>

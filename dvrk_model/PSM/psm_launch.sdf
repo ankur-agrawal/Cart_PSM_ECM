@@ -7,8 +7,8 @@
       <pose> 0 0 0.5 0 0 0</pose>
   </include>
 
-  <joint name='PSM::rev_joint' type='revolute'>
-   <child>PSM::remote_center_link</child>
+  <joint name='PSM::one_rev_joint' type='revolute'>
+   <child>PSM::one_remote_center_link</child>
    <parent>world</parent>
    <axis>
      <limit>

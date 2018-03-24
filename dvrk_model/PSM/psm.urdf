@@ -4,6 +4,6 @@
 <xacro:include filename="$(find dvrk_model)/PSM/psm.urdf.xacro"/>
 
 <link name="world"/>
-<xacro:psm parent_link="world" prefix="one_" xyz=" 0 0 .2" rpy="0 3.1416 0"/>
+<xacro:psm parent_link="world" prefix="one_" xyz=" 0 0 1" rpy="0 3.1416 0"/>
 
 </robot>
