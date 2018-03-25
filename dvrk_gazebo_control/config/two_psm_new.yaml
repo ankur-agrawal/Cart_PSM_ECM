@@ -1,0 +1,37 @@
+dvrk_psm:
+ PSM1:
+  yaw_joint_controller:
+    p: 100
+    i: 1
+    d: 40
+  pitch_back_joint_controller:
+    p: 100
+    i: 1
+    d: 40
+  main_insertion_joint_controller:
+    p: 400
+    i: 0.1
+    d: 100
+  tool_roll_joint_controller:
+    p: 40
+    i: 0.1
+    d: 15
+
+ PSM2:
+  yaw_joint_controller:
+    p: 100
+    i: 1
+    d: 40
+  pitch_back_joint_controller:
+    p: 100
+    i: 1
+    d: 40
+  main_insertion_joint_controller:
+    p: 400
+    i: 0.1
+    d: 100
+  tool_roll_joint_controller:
+    p: 40
+    i: 0.1
+    d: 15
+

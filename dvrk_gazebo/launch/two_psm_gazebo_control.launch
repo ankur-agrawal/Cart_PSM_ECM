@@ -23,11 +23,11 @@
 <rosparam param="name">['one','two']</rosparam>
 <rosparam param="gazebo_on">1</rosparam>
 
-<rosparam param="track_force">1</rosparam>
+<rosparam param="track_force">0</rosparam>
 
 <param name="robot_description" command="$(find xacro)/xacro.py '$(find dvrk_model)/PSM/two_psm_launch.sdf'" />
 
-<rosparam file="$(find dvrk_gazebo_control)/config/two_psm.yaml" command="load"/>
+<rosparam file="$(find dvrk_gazebo_control)/config/two_psm_new.yaml" command="load"/>
 
 <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" 
 args="-sdf -model dvrk_psm -param robot_description"/>

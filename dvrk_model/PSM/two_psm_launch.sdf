@@ -4,13 +4,13 @@
   <include>
     <uri>model://PSM</uri>
       <name>PSM1</name>
-      <pose> 0 0 -0.5 0 0 0</pose>
+      <pose> 0 0 0.5 0 0 0</pose>
   </include>
 
   <include>
     <uri>model://PSM</uri>
       <name>PSM2</name>
-      <pose>-0.7 0 -0.5 0.15 0.2 0.3</pose>
+      <pose>-0 0.7 0.5 0.15 0.2 0.3</pose>
   </include>
   
   <joint name='PSM1::rev_joint' type='fixed'>
