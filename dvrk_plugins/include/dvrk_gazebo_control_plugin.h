@@ -10,6 +10,7 @@
 #include <string.h>
 #include <boost/bind.hpp>
 #include <boost/function.hpp>
+#include <gazebo/common/common.hh>
 
 namespace dvrk_plugins
 {
@@ -30,8 +31,10 @@ public:
 private:
   sdf::ElementPtr sdf;
   gazebo::transport::NodePtr node;
-  std::vector<ros::Subscriber> sub_position, sub_positionTarget, sub_Force, sub_clock;
+  std::vector<ros::Subscriber> sub_position, sub_positionTarget, sub_Force;
   ros::Publisher pub_states;
+  std::vector<gazebo::event::ConnectionPtr> updateConnection;
+  gazebo::event::ConnectionPtr updateStates;
   // ros::Subscriber sub_clock;
   int num_joints;
 protected:
@@ -50,9 +53,10 @@ public:
     setController();
     joint_pos=0;
     parent_model=model_;
-    dynamic=1;
+    dynamic_init=0;
     // setPosition();
   }
+  void update();
 
   void SetPosition(const std_msgs::Float64Ptr& msg);
   void setPosition();
@@ -65,15 +69,17 @@ public:
   void setJointStrings();
   void setController();
   void getPID(double& K_p, double& K_i, double& K_d);
-  void print();
+  void name(std::string &name);
+  bool isInLoop();
+  void setDefaultMode();
 
 private:
-  gazebo::physics::JointPtr jointPtr;
   std::string joint_name;
+  gazebo::physics::JointPtr jointPtr;
   double p, i, d;
   double joint_pos;
-  bool dynamic;
-
+  bool mode;
+  int dynamic_init;
 };
 
 GZ_REGISTER_MODEL_PLUGIN(dvrkGazeboControlPlugin)
