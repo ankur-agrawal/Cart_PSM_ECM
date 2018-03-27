@@ -3,38 +3,36 @@
 
   <include>
     <uri>model://PSM</uri>
-      <name>PSM1</name> -->
-      <!-- <pose>1.0348 0.3419 0.3991 0 0 0.7</pose> -->
-      <pose>0 0 1 0 0 0</pose>
+      <name>PSM1</name>
+      <pose>0 -0.4 1.25 0 0 0.7</pose>
   </include>
 
-  <!-- <include>
+  <include>
     <uri>model://PSM</uri>
     <name>PSM2</name>
-    <pose>0.1623 0.2591 0.3591 0 0 2.5</pose>
-  </include> -->
-  <!-- <pose>0.6213 -0.4 -0.5009 0 0 0</pose> -->
+    <pose>0 0.4 1.25 0 0 -0.7</pose>
+  </include>
 
-  <!-- <include>
+  <include>
     <uri>model://ECM</uri>
     <name>ecm</name>
     <pose>0 0 1.5 0 0 0</pose>
-  </include> -->
+  </include>
 
   <joint name='PSM1::fixed_joint' type='fixed'>
    <child>PSM1::base_link</child>
    <parent>world</parent>
  </joint>
 
- <!-- <joint name='PSM2::fixed_joint' type='fixed'>
+ <joint name='PSM2::fixed_joint' type='fixed'>
   <child>PSM2::remote_center_link</child>
   <parent>world</parent>
-  </joint> -->
+  </joint>
 
-  <!-- <joint name='ecm::fixed' type='fixed'>
+  <joint name='ecm::fixed' type='fixed'>
     <child>ecm::base_link</child>
     <parent>world</parent>
-  </joint> -->
+  </joint>
   <plugin name='dvrk_plugins' filename='libdvrk_plugins.so'/>
   </model>
 </sdf>

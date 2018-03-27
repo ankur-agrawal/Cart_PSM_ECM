@@ -47,7 +47,7 @@
       </geometry>
     </collision>
   </link>
-  <link
+  <!-- <link
     name="left_shoulder_link">
     <inertial>
       <origin
@@ -330,7 +330,7 @@
     <child
       link="left_inner_link" />
     <axis
-      xyz="0 0 1" />
+      xyz="0 0 -1" />
     <limit
       lower="-3.14"
       upper="3.14"
@@ -388,7 +388,7 @@
     <child
       link="left_grip_link" />
     <axis
-      xyz="0 0 1" />
+      xyz="0 0 -1" />
     <limit
       lower="-3.14"
       upper="3.14"
@@ -452,7 +452,7 @@
       upper="3.14"
       effort="0"
       velocity="0.1" />
-  </joint>
+  </joint> -->
   <link
     name="right_shoulder_link">
     <inertial>
@@ -678,7 +678,7 @@
     <child
       link="right_outer_link" />
     <axis
-      xyz="-1 0 0" />
+      xyz="1 0 0" />
       <limit
         lower="-3.14"
         upper="3.14"
@@ -727,7 +727,7 @@
   </link>
   <joint
     name="right_inner_axis"
-    type="fixed">
+    type="revolute">
     <origin
       xyz="0 0 0"
       rpy="3.14159265358887 1.98203565121497E-15 -0.471889922187409" />
@@ -736,7 +736,7 @@
     <child
       link="right_inner_link" />
     <axis
-      xyz="0 0 0" />
+      xyz="0 0 1" />
       <limit
         lower="-3.14"
         upper="3.14"
@@ -790,12 +790,15 @@
     <origin
       xyz="-0.00793139546805466 0.0549050123843542 -0.0299894490800136"
       rpy="2.448856438822 0.742158838609391 -0.511207263500882" />
+    <!-- <origin
+      xyz="0.065119 0 -0.0006985"
+      rpy="1.5708 0.49008 -1.5708" /> -->
     <parent
       link="right_inner_link" />
     <child
       link="right_grip_link" />
     <axis
-      xyz="-0.642787609686614 0 0.766044443118915" />
+      xyz="0 0 1" />
       <limit
         lower="-3.14"
         upper="3.14"

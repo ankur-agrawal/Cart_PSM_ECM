@@ -22,9 +22,9 @@
 #include <tf/transform_datatypes.h>
 #include <string.h>
 
-// #define IP "192.168.1.205"
-#define IP "127.0.0.1"
-#define DATATYPE 0
+#define IP "192.168.1.205"
+// #define IP "127.0.0.1"
+#define DATATYPE 1
 
 class Server{
 private:
@@ -220,7 +220,7 @@ void Server::getRosPoses(geometry_msgs::PoseStamped &leftPose, geometry_msgs::Po
   rightPose.pose.orientation.y=RightQuaternion.getY();
   rightPose.pose.orientation.z=RightQuaternion.getZ();
   rightPose.pose.orientation.w=RightQuaternion.getW();
-  std::cout << RightQuaternion.getX() << '\t' << RightQuaternion.getY() << '\t' << RightQuaternion.getZ() << '\t' << RightQuaternion.getW() << '\n';
+  // std::cout << RightQuaternion.getX() << '\t' << RightQuaternion.getY() << '\t' << RightQuaternion.getZ() << '\t' << RightQuaternion.getW() << '\n';
 }
 
 void Server::getRosJoints(sensor_msgs::JointState &joints)
