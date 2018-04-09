@@ -44,5 +44,7 @@
  </joint>
 
  <plugin name='dvrk_plugins' filename='libdvrk_plugins.so'/>
+
+
  </model>
 </sdf>

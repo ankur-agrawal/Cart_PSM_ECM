@@ -2,6 +2,25 @@
 
 namespace dvrk_plugins
 {
+
+dvrkGazeboControlPlugin::dvrkGazeboControlPlugin()
+{
+  
+  this->wrench_msg_.resize(2);
+  this->wrench_msg_[0].force.x = 0;
+  this->wrench_msg_[0].force.y = 0;
+  this->wrench_msg_[0].force.z = 0;
+  this->wrench_msg_[0].torque.x = 0;
+  this->wrench_msg_[0].torque.y = 0;
+  this->wrench_msg_[0].torque.z = 0;
+
+  this->wrench_msg_[1].force.x = 0;
+  this->wrench_msg_[1].force.y = 0;
+  this->wrench_msg_[1].force.z = 0;
+  this->wrench_msg_[1].torque.x = 0;
+  this->wrench_msg_[1].torque.y = 0;
+  this->wrench_msg_[1].torque.z = 0; 
+}
 void dvrkGazeboControlPlugin::Load(gazebo::physics::ModelPtr _model, sdf::ElementPtr _sdf)
 {
   // Make sure the ROS node for Gazebo has already been initialized
@@ -21,7 +40,7 @@ void dvrkGazeboControlPlugin::Load(gazebo::physics::ModelPtr _model, sdf::Elemen
   sub_position.resize(num_joints);
   sub_positionTarget.resize(num_joints);
   sub_Force.resize(num_joints);
-  sub_Force_tool.resize(1);
+  sub_Force_tool.resize(2);
 
   //Initializing clock subscriber to continually publish states
   sub_clock = model_nh_.subscribe<rosgraph_msgs::Clock>("/clock",1,&dvrkGazeboControlPlugin::clock_cb, this);
@@ -67,10 +86,23 @@ void dvrkGazeboControlPlugin::Load(gazebo::physics::ModelPtr _model, sdf::Elemen
 
   }
 
-  gazebo::physics::LinkPtr link;
-  link=parent_model->GetLink("dvrk_psm::PSM1::tool_wrist_link");
-  //boost::function<void (const std_msgs::Float64Ptr)>ForceLinkFunc(boost::bind(&dvrkGazeboControlPlugin::SetForceLink,this,link));
-  //sub_Force_tool = model_nh_.subscribe<std_msgs::Float64>("/PSM1/tool_wrist_link/SetForce",1,ForceLinkFunc);
+  
+
+  
+  boost::function<void (const geometry_msgs::Wrench::ConstPtr)>ForceLinkFunc(boost::bind(&dvrkGazeboControlPlugin::SetForceLink,this,_1,0));
+  sub_Force_tool[0] = model_nh_.subscribe<geometry_msgs::Wrench>("/dvrk_psm/PSM1/tool_roll_link/SetForce",1,ForceLinkFunc);
+
+
+  
+  boost::function<void (const geometry_msgs::Wrench::ConstPtr)>ForceLinkFunc2(boost::bind(&dvrkGazeboControlPlugin::SetForceLink,this,_1,1));
+  sub_Force_tool[1] = model_nh_.subscribe<geometry_msgs::Wrench>("/dvrk_psm/PSM2/tool_roll_link/SetForce",1,ForceLinkFunc2);
+ 
+ // New Mechanism for Updating every World Cycle
+  // Listen to the update event. This event is broadcast every
+  // simulation iteration.
+  this->update_connection_ = gazebo::event::Events::ConnectWorldUpdateBegin(
+      boost::bind(&dvrkGazeboControlPlugin::UpdateChild, this));
+
 
   this->PublishStates(); //Publish the read values from Gazebo to ROS
 }
@@ -110,6 +142,32 @@ void dvrkGazeboControlPlugin::SetPositionTarget(const std_msgs::Float64Ptr& msg,
 void dvrkGazeboControlPlugin::SetForce(const std_msgs::Float64Ptr& msg, gazebo::physics::JointPtr joint)
 {
   joint->SetForce(0,msg->data);
+}
+
+void dvrkGazeboControlPlugin::SetForceLink(const geometry_msgs::Wrench::ConstPtr& _msg, int x)
+{
+  this->wrench_msg_[x].force.x = _msg->force.x;
+  this->wrench_msg_[x].force.y = _msg->force.y;
+  this->wrench_msg_[x].force.z = _msg->force.z;
+  this->wrench_msg_[x].torque.x = _msg->torque.x;
+  this->wrench_msg_[x].torque.y = _msg->torque.y;
+  this->wrench_msg_[x].torque.z = _msg->torque.z;
+}
+
+void dvrkGazeboControlPlugin::UpdateChild()
+{
+  this->lock_.lock();
+  this->l1=this->parent_model->GetLink("dvrk_psm::PSM1::large_needle_driver::tool_roll_link");
+  this->l2=this->parent_model->GetLink("dvrk_psm::PSM2::large_needle_driver::tool_roll_link");
+  
+  ignition::math::Vector3d force1(this->wrench_msg_[0].force.x,this->wrench_msg_[0].force.y,this->wrench_msg_[0].force.z);
+  ignition::math::Vector3d torque1(this->wrench_msg_[0].torque.x,this->wrench_msg_[0].torque.y,this->wrench_msg_[0].torque.z);
+  
+   ignition::math::Vector3d force2(this->wrench_msg_[1].force.x,this->wrench_msg_[1].force.y,this->wrench_msg_[1].force.z);
+  ignition::math::Vector3d torque2(this->wrench_msg_[1].torque.x,this->wrench_msg_[1].torque.y,this->wrench_msg_[1].torque.z);
+  this->l1->SetForce(force1);
+  this->l2->SetForce(force2);
+  this->lock_.unlock();
 }
 
 //publish all joint state values for position, velocity and external effort applied at the joint
