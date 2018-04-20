@@ -14,6 +14,7 @@
 #include <iomanip>
 #include <ros/ros.h>
 #include <geometry_msgs/PoseStamped.h>
+#include <geometry_msgs/WrenchStamped.h>
 #include <sensor_msgs/JointState.h>
 #include <vector>
 #include <signal.h>
@@ -24,7 +25,7 @@
 
 #define IP "192.168.1.205"
 // #define IP "127.0.0.1"
-#define DATATYPE 1
+#define DATATYPE 0
 
 class Server{
 private:
@@ -41,6 +42,10 @@ private:
   double RT[4][4];
   double LJ[7];
   double RJ[7];
+  double LW[7];
+  double RW[7];
+  double LJaw=0;
+  double RJaw=0;
   double MotionScale;
   int clutch;
   int frozen;
@@ -78,6 +83,7 @@ public:
 
   void getRosPoses(geometry_msgs::PoseStamped &leftPose, geometry_msgs::PoseStamped &rightPose);
   void getRosJoints(sensor_msgs::JointState &joints);
+  void getRosWrenches(geometry_msgs::Wrench &leftWrench, geometry_msgs::Wrench &rightWrench);
 
   void DebugPrint();
   // void siginthandler(int param);
@@ -134,7 +140,37 @@ void Server::ReceiveData()
 
 void Server::PackData()
 {
-  snprintf(out_buf, 2, "%d", DATATYPE);
+  int iterator=0;
+  int hand, i;
+  int flag=1;
+  snprintf(out_buf+iterator, 2, "%d", DATATYPE);
+  iterator=iterator+1;
+  snprintf(out_buf+iterator, 2, "%d",flag);
+  iterator=iterator+1;
+  for (hand=0; hand<=1;hand++)
+  {
+    for (i=0; i<6;i++)
+    {
+      if (hand==0)
+      {
+        snprintf(out_buf+iterator, 9, "%08d", (int) 100000*LW[i]);
+      }
+      else
+      {
+        snprintf(out_buf+iterator, 9, "%08d", (int) 100000*RW[i]);
+      }
+      iterator=iterator+8;
+    }
+    if (hand==0)
+    {
+      snprintf(out_buf+iterator, 9, "%08d", (int) 100000*LJaw);
+    }
+    else
+    {
+      snprintf(out_buf+iterator, 9, "%08d", (int) 100000*RJaw);
+    }
+    iterator=iterator+8;
+  }
 }
 
 void Server::UnpackData()
@@ -258,6 +294,22 @@ void Server::getRosJoints(sensor_msgs::JointState &joints)
   joints.position[11]=RJ[4];
   joints.position[12]=RJ[5];
   joints.position[13]=RJ[6];
+}
+
+void Server::getRosWrenches(geometry_msgs::Wrench &leftWrench, geometry_msgs::Wrench &rightWrench)
+{
+  LW[0]=leftWrench.force.x;
+  LW[1]=leftWrench.force.y;
+  LW[2]=leftWrench.force.z;
+  LW[3]=leftWrench.torque.x;
+  LW[4]=leftWrench.torque.y;
+  LW[5]=leftWrench.torque.z;
+  RW[0]=rightWrench.force.x;
+  RW[1]=rightWrench.force.y;
+  RW[2]=rightWrench.force.z;
+  RW[3]=rightWrench.torque.x;
+  RW[4]=rightWrench.torque.y;
+  RW[5]=rightWrench.torque.z;
 }
 
 void Server::DebugPrint()

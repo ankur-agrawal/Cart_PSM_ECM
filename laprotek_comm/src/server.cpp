@@ -31,6 +31,12 @@ int main(int argc, char **argv)
     }
     while(1)
     {
+      ros::spinOnce();
+      if (argc==2 && !strcmp(argv[1], "ROS"))
+      {
+        Bridge.setFuncPtr3(&Server::getRosWrenches);
+        Bridge.setWrenches();
+      }
       server.PackData();
       if (!server.SendData())
         break;
