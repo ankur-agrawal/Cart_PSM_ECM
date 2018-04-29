@@ -157,9 +157,13 @@ void dvrkGazeboControlPlugin::SetForceLink(const geometry_msgs::Wrench::ConstPtr
 void dvrkGazeboControlPlugin::UpdateChild()
 {
   this->lock_.lock();
-  this->l1=this->parent_model->GetLink("dvrk_psm::PSM1::large_needle_driver::tool_roll_link");
-  this->l2=this->parent_model->GetLink("dvrk_psm::PSM2::large_needle_driver::tool_roll_link");
+  //this->l1=this->parent_model->GetLink("dvrk_psm::PSM1::large_needle_driver::tool_roll_link");
+  //this->l2=this->parent_model->GetLink("dvrk_psm::PSM2::large_needle_driver::tool_roll_link");
   
+  this->l1=this->parent_model->GetLink("dvrk_psm::PSM1::tool_wrist_link");
+  this->l2=this->parent_model->GetLink("dvrk_psm::PSM2::tool_wrist_link");
+  
+
   ignition::math::Vector3d force1(this->wrench_msg_[0].force.x,this->wrench_msg_[0].force.y,this->wrench_msg_[0].force.z);
   ignition::math::Vector3d torque1(this->wrench_msg_[0].torque.x,this->wrench_msg_[0].torque.y,this->wrench_msg_[0].torque.z);
   
