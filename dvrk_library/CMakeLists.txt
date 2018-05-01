@@ -9,7 +9,7 @@ roslib
 )
 
 
-#add_definitions(-std=c++11)
+# add_definitions(-std=c++11)
 find_package(cmake_modules REQUIRED)
 
 find_package( PythonLibs 2.7 REQUIRED )
@@ -62,7 +62,11 @@ target_link_libraries(dvrk_library
 target_link_libraries(psm
    ${catkin_LIBRARIES} ${Boost_LIBRARIES} ${sawRobotIO1394_LIBRARIES}
  )
+target_link_libraries(ecm
+  ${catkin_LIBRARIES} ${Boost_LIBRARIES} ${sawRobotIO1394_LIBRARIES}
+)
 cisst_target_link_libraries (psm ${REQUIRED_CISST_LIBRARIES})
+cisst_target_link_libraries (dvrk_library ${REQUIRED_CISST_LIBRARIES})
 
 set_target_properties(dvrk_library PROPERTIES PREFIX ""
  # LIBRARY_OUTPUT_DIRECTORY /usr/lib/python2.7/dist-packages)

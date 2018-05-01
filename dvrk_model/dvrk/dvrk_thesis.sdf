@@ -4,19 +4,20 @@
   <include>
     <uri>model://PSM</uri>
       <name>PSM1</name>
-      <pose>0 -0.4 1.25 0 0 0.7</pose>
+      <pose>0.25 -0.5 0.95 0 0 0.7</pose>
+      <!-- <pose>0 0 1 0 0 0</pose> -->
   </include>
 
-  <include>
+  <!-- <include>
     <uri>model://PSM</uri>
     <name>PSM2</name>
-    <pose>0 0.4 1.25 0 0 -0.7</pose>
-  </include>
+    <pose>0.25 0.4 1.25 0 0 -0.7</pose>
+  </include> -->
 
   <include>
     <uri>model://ECM</uri>
     <name>ecm</name>
-    <pose>0 0 1.5 0 0 0</pose>
+    <pose>0 0 1.25 0 0 0</pose>
   </include>
 
   <joint name='PSM1::fixed_joint' type='fixed'>
@@ -24,10 +25,10 @@
    <parent>world</parent>
  </joint>
 
- <joint name='PSM2::fixed_joint' type='fixed'>
+ <!-- <joint name='PSM2::fixed_joint' type='fixed'>
   <child>PSM2::remote_center_link</child>
   <parent>world</parent>
-  </joint>
+  </joint> -->
 
   <joint name='ecm::fixed' type='fixed'>
     <child>ecm::base_link</child>

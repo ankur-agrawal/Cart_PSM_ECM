@@ -153,21 +153,21 @@ void Server::PackData()
     {
       if (hand==0)
       {
-        snprintf(out_buf+iterator, 9, "%08d", (int) 100000*LW[i]);
+        snprintf(out_buf+iterator, 9, "%08d", (int) (100000*LW[i]));
       }
       else
       {
-        snprintf(out_buf+iterator, 9, "%08d", (int) 100000*RW[i]);
+        snprintf(out_buf+iterator, 9, "%08d", (int) (100000*RW[i]));
       }
       iterator=iterator+8;
     }
     if (hand==0)
     {
-      snprintf(out_buf+iterator, 9, "%08d", (int) 100000*LJaw);
+      snprintf(out_buf+iterator, 9, "%08d", (int) (100000*LJaw));
     }
     else
     {
-      snprintf(out_buf+iterator, 9, "%08d", (int) 100000*RJaw);
+      snprintf(out_buf+iterator, 9, "%08d", (int) (100000*RJaw));
     }
     iterator=iterator+8;
   }

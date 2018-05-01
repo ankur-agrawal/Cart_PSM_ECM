@@ -66,9 +66,9 @@ void dvrkGazeboControlPlugin::Load(gazebo::physics::ModelPtr _model, sdf::Elemen
     boost::function<void (const std_msgs::Float64Ptr)>ForceFunc(boost::bind(&dvrkGazeboControlPlugin::SetForce,this, _1,joint));
 
     //Initializing the subscriber topic for setting Position, Position Target or Effort
-    sub_position[i] = model_nh_.subscribe<std_msgs::Float64>("/"+joint_name+"/SetPosition",1,PositionFunc);
-    sub_positionTarget[i] = model_nh_.subscribe<std_msgs::Float64>("/"+joint_name+"/SetPositionTarget",1,PositionTargetFunc);
-    sub_Force[i] = model_nh_.subscribe<std_msgs::Float64>("/"+joint_name+"/SetEffort",1,ForceFunc);
+    sub_position[i] = model_nh_.subscribe<std_msgs::Float64>("/"+joint_name+"/SetPosition",1000,PositionFunc);
+    sub_positionTarget[i] = model_nh_.subscribe<std_msgs::Float64>("/"+joint_name+"/SetPositionTarget",1000,PositionTargetFunc);
+    sub_Force[i] = model_nh_.subscribe<std_msgs::Float64>("/"+joint_name+"/SetEffort",1000,ForceFunc);
 
     // joint_obj.setPositionTarget();
     this->updateConnection[i] = gazebo::event::Events::ConnectWorldUpdateBegin(boost::bind(&joint_class::update, joint_obj));
@@ -133,7 +133,7 @@ void dvrkGazeboControlPlugin::PublishStates()
 
     if (joint_name.find("PSM")!=std::string::npos)
     {
-      if ((joint_name.find("outer_pitch_joint")!=std::string::npos) && joint_name.find("pitch_back")==std::string::npos && joint_name.find("tool_pitch_")==std::string::npos)
+      if ((joint_name.find("pitch_")!=std::string::npos) && joint_name.find("pitch_back")==std::string::npos && joint_name.find("tool_pitch_")==std::string::npos)
         continue;
     }
     else if (joint_name.find("ecm")!=std::string::npos)
@@ -197,7 +197,11 @@ void joint_class::getPID(double& K_p, double& K_i, double& K_d)
 
 void joint_class::setPosition()
 {
-  jointPtr->SetPosition(0,joint_pos);
+  if (!jointPtr->SetPosition(0,joint_pos))
+    std::cout << "Position not set" << '\n';
+  // parent_model->GetJointController()->Reset();
+  // parent_model->GetJointController()->SetJointPosition(jointPtr->GetScopedName(), joint_pos);
+  // parent_model->GetJointController()->RemoveJoint(*jointPtr)
   // std::cout <<  << '\n';
 }
 
@@ -232,9 +236,10 @@ bool joint_class::isInLoop()
 
 void joint_class::setDefaultMode()
 {
-  if (isInLoop())
-    mode=1;
-  else
-    mode=0;
+  // if (isInLoop()||)
+  //   mode=1;
+  // else
+  //   mode=0;
+  mode=1;
 }
 }

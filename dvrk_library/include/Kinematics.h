@@ -1,3 +1,6 @@
+#ifndef KINEMATICS_H
+#define KINEMATICS_H
+
 #include <Eigen/Dense>
 #include <ros/ros.h>
 #define PI 3.14159265359
@@ -61,7 +64,7 @@ Eigen::Matrix4d Kinematics::compute_mod_dh_matrix(double alpha, double a, double
 Eigen::Matrix4d Kinematics::ForwardKinematics()
 {
   set_dh_params();
-
+  rcm_to_tip=Eigen::Matrix4d::Identity();
   if (dh_params.cols()!=4)
   {
     std::cout << "DH Parameters specified are wrong. Check again." << '\n';
@@ -74,3 +77,4 @@ Eigen::Matrix4d Kinematics::ForwardKinematics()
 
   return world_to_base*base_to_rcm*rcm_to_tip*tip_to_end_frame;
 }
+#endif

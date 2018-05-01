@@ -16,7 +16,7 @@
       <cast_shadows>false</cast_shadows>
     </include>
 
-    <physics name="ode_70iters" type="ode">
+    <physics name="ode_500iters" type="ode">
       <real_time_update_rate>1000</real_time_update_rate>
       <ode>
         <solver>
@@ -24,8 +24,30 @@
           <iters>500</iters>
         </solver>
       </ode>
+      <!-- <real_time_factor>1</real_time_factor> -->
     </physics>
 
+    <!-- <include>
+      <pose> 0.8 0 0 0 0 1.5708</pose>
+      <uri>model://table</uri>
+    </include> -->
+
+    <!-- <population name="objects">
+      <model name="object">
+        <include>
+          <static>false</static>
+          <uri>model://metal_peg</uri>
+        </include>
+      </model>
+      <pose>0.62 0 1 0 0 0</pose>
+      <box>
+        <size>0.1 0.1 0.00001</size>
+      </box>
+      <model_count>5</model_count>
+      <distribution>
+        <type>random</type>
+      </distribution>
+    </population> -->
     <!-- <light type="point" name="point_light">
       <pose>0.612599 0.000594 1.6009 0 0 0</pose>
       <diffuse>1 1 1 1</diffuse> -->

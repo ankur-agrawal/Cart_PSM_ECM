@@ -340,6 +340,13 @@
       effort="0"
       velocity="0" />
   </joint>
+
+  <link name="${prefix}tool_tip_link"/>
+  <joint name="${prefix}tool_tip_joint" type="fixed">
+    <parent link="${prefix}tool_yaw_link"/>
+    <child link="${prefix}tool_tip_link"/>
+    <origin rpy="3.14159265358979 0 -0.28511888006" xyz="0 0 0"/>
+  </joint>
   </xacro:macro>
 
 </robot>
