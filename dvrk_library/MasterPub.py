@@ -12,8 +12,8 @@ while not rospy.is_shutdown():
     msg=PoseStamped()
     msg.header.frame_id='world'
     msg.header.stamp=rospy.Time.now()
-    msg.pose.position.x=0
-    msg.pose.position.y=0.001+previous
+    msg.pose.position.x=0.001+previous
+    msg.pose.position.y=0
     msg.pose.position.z=0
     msg.pose.orientation.w=1
     msg.pose.orientation.x=0
@@ -23,7 +23,7 @@ while not rospy.is_shutdown():
     # rospy.sleep(0.003)
     # print "publishing"
     # rospy.Rate(1000)
-    time.sleep(0.01)
-    previous = msg.pose.position.y
+    # time.sleep(1)
+    previous = msg.pose.position.x
 
 # raw_input("press enter to exit")

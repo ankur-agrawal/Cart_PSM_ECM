@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <robot name="PSM" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:macro name="transmission_tags" params = "joint_name mech_red hw_intf">
+    <transmission name="${joint_name}_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="${joint_name}">
+        <hardwareInterface> ${hw_intf} </hardwareInterface>
+      </joint>
+      <actuator name="${joint_name}_motor">
+        <mechanicalReduction>${mech_red}</mechanicalReduction>
+      </actuator>
+    </transmission>
+  </xacro:macro>
 
   <xacro:macro name="psm" params=" prefix parent_link xyz rpy">
 
@@ -472,6 +483,11 @@
     <child link="${prefix}remote_center_link"/>
     <origin rpy="0 0 -1.5708" xyz="0.4864 0 0.1524"/>
   </joint>
+
+  <xacro:transmission_tags joint_name="${prefix}yaw_joint" mech_red = "1" hw_intf= "hardware_interface/EffortJointInterface" />
+  <xacro:transmission_tags joint_name="${prefix}pitch_back_joint" mech_red = "1" hw_intf= "hardware_interface/EffortJointInterface" />
+  <xacro:transmission_tags joint_name="${prefix}main_insertion_joint" mech_red = "1" hw_intf= "hardware_interface/EffortJointInterface" />
+
   </xacro:macro>
 
 </robot>

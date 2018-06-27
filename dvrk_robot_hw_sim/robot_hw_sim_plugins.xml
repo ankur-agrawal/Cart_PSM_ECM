@@ -1,0 +1,10 @@
+<library path="lib/libdvrk_robot_hw_sim">
+  <class
+    name="dvrk_robot_hw_sim/RobotHWSimDVRK"
+    type="dvrk_robot_hw_sim::RobotHWSimDVRK"
+    base_class_type="gazebo_ros_control::RobotHWSim">
+    <description>
+      A robot simulation interface which constructs joint handles from an SDF/URDF, and uses a plugin to implement latency.
+    </description>
+  </class>
+</library>

@@ -66,9 +66,9 @@ void dvrkGazeboControlPlugin::Load(gazebo::physics::ModelPtr _model, sdf::Elemen
     boost::function<void (const std_msgs::Float64Ptr)>ForceFunc(boost::bind(&dvrkGazeboControlPlugin::SetForce,this, _1,joint));
 
     //Initializing the subscriber topic for setting Position, Position Target or Effort
-    sub_position[i] = model_nh_.subscribe<std_msgs::Float64>("/"+joint_name+"/SetPosition",1000,PositionFunc);
-    sub_positionTarget[i] = model_nh_.subscribe<std_msgs::Float64>("/"+joint_name+"/SetPositionTarget",1000,PositionTargetFunc);
-    sub_Force[i] = model_nh_.subscribe<std_msgs::Float64>("/"+joint_name+"/SetEffort",1000,ForceFunc);
+    sub_position[i] = model_nh_.subscribe<std_msgs::Float64>("/"+joint_name+"/SetPosition",1,PositionFunc);
+    sub_positionTarget[i] = model_nh_.subscribe<std_msgs::Float64>("/"+joint_name+"/SetPositionTarget",1,PositionTargetFunc);
+    sub_Force[i] = model_nh_.subscribe<std_msgs::Float64>("/"+joint_name+"/SetEffort",1,ForceFunc);
 
     // joint_obj.setPositionTarget();
     this->updateConnection[i] = gazebo::event::Events::ConnectWorldUpdateBegin(boost::bind(&joint_class::update, joint_obj));
@@ -89,6 +89,12 @@ void joint_class::update()
   {
     setPosition();
   }
+  current_time = ros::Time::now().toSec();
+  // std::cout << current_time-last_time << '\n';
+  last_time = current_time;
+  // if (joint_name.find("dvrk/PSM1/yaw_joint")!=std::string::npos)
+    // std::cout << joint_name << '\t' << joint_pos << '\t' << jointPtr->GetAngle(0).Radian() << '\t' << jointPtr->GetForce(0) << '\n';
+
 }
 
 //callback function to set position of the joint
@@ -217,9 +223,10 @@ void joint_class::setPositionTarget()
   gazebo::common::PID pid;
   pid=gazebo::common::PID(p,i,d);
 
-  parent_model->GetJointController()->SetPositionPID(jointPtr->GetScopedName(), pid);
-
-  parent_model->GetJointController()->SetPositionTarget(jointPtr->GetScopedName(), joint_pos);
+  // parent_model->GetJointController()->SetPositionPID(jointPtr->GetScopedName(), pid);
+  //
+  // parent_model->GetJointController()->SetPositionTarget(jointPtr->GetScopedName(), joint_pos);
+  
 }
 
 void joint_class::name(std::string &name)

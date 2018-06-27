@@ -55,12 +55,16 @@
   <build_export_depend>roscpp</build_export_depend>
   <exec_depend>gazebo_ros</exec_depend>
   <exec_depend>roscpp</exec_depend>
+  <depend>control_toolbox</depend>
+  <depend>controller_manager</depend>
+  <depend>pluginlib</depend>
+  <depend>hardware_interface</depend>
 
 
   <!-- The export tag contains other, unspecified, tags -->
   <export>
     <!-- Other tools can request additional information be placed here -->
-    <gazebo_ros plugin_path="${prefix}/lib" gazebo_media_path="${prefix}" />
-
+    <dvrk_plugins plugin="${prefix}/simulation_interface.xml"/>
+    <dvrk_plugins plugin_path="${prefix}/lib" gazebo_media_path="${prefix}" />
   </export>
 </package>

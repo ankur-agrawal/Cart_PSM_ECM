@@ -102,7 +102,7 @@ dvrk:
     pitch_back_joint_controller:
       p: 3000
       i: 0.01
-      d: 1000
+      d: 200
     main_insertion_joint_controller:
       p: 2700
       i: 0.01

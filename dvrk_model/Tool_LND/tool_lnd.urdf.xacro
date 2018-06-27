@@ -3,6 +3,18 @@
 
   <xacro:macro name="tool_lnd" params=" prefix parent_link xyz rpy">
 
+  <xacro:macro name="transmission_tags" params = "joint_name mech_red hw_intf">
+    <transmission name="${joint_name}_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="${joint_name}">
+        <hardwareInterface> ${hw_intf} </hardwareInterface>
+      </joint>
+      <actuator name="${joint_name}_motor">
+        <mechanicalReduction>${mech_red}</mechanicalReduction>
+      </actuator>
+    </transmission>
+  </xacro:macro>
+
   <joint name="${prefix}tool_joint" type="fixed">
    <parent link="${parent_link}"/>
    <child link="${prefix}tool_main_link"/>
@@ -347,6 +359,13 @@
     <child link="${prefix}tool_tip_link"/>
     <origin rpy="3.14159265358979 0 -0.28511888006" xyz="0 0 0"/>
   </joint>
+
+  <xacro:transmission_tags joint_name="${prefix}tool_roll_joint" mech_red = "1" hw_intf= "hardware_interface/EffortJointInterface" />
+  <xacro:transmission_tags joint_name="${prefix}tool_pitch_joint" mech_red = "1" hw_intf= "hardware_interface/EffortJointInterface" />
+  <xacro:transmission_tags joint_name="${prefix}tool_yaw_joint" mech_red = "1" hw_intf= "hardware_interface/EffortJointInterface" />
+  <xacro:transmission_tags joint_name="${prefix}gripper1_joint" mech_red = "1" hw_intf= "hardware_interface/EffortJointInterface" />
+  <xacro:transmission_tags joint_name="${prefix}gripper2_joint" mech_red = "1" hw_intf= "hardware_interface/EffortJointInterface" />
+
   </xacro:macro>
 
 </robot>

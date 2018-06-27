@@ -1,0 +1,27 @@
+<launch>
+<rosparam file="$(find dvrk_gazebo_control)/config/dvrk_control.yaml" command="load"/>
+
+<node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+output="screen" args="dvrk/joint_state_controller
+                      dvrk/ecm/yaw_joint_controller
+                      dvrk/ecm/pitch_joint_controller
+                      dvrk/ecm/insertion_joint_controller
+                      dvrk/ecm/tool_roll_joint_controller
+                      dvrk/PSM1/yaw_joint_controller
+                      dvrk/PSM1/pitch_joint_controller
+                      dvrk/PSM1/insertion_joint_controller
+                      dvrk/PSM1/tool_roll_joint_controller
+                      dvrk/PSM1/tool_pitch_joint_controller
+                      dvrk/PSM1/tool_yaw_joint_controller
+                      dvrk/PSM1/tool_gripper1_joint_controller
+                      dvrk/PSM1/tool_gripper2_joint_controller"/>
+                      <!-- dvrk/PSM2/yaw_joint_controller
+                      dvrk/PSM2/pitch_joint_controller
+                      dvrk/PSM2/insertion_joint_controller
+                      dvrk/PSM2/tool_roll_joint_controller
+                      dvrk/PSM2/tool_pitch_joint_controller
+                      dvrk/PSM2/tool_yaw_joint_controller
+                      dvrk/PSM2/tool_gripper1_joint_controller
+                      dvrk/PSM2/tool_gripper2_joint_controller -->
+
+</launch>

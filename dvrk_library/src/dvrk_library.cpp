@@ -8,6 +8,7 @@ void dvrk_library::update()
   // psm1_manip->set_init_joints(-0.5,0,0.1,0,0,0);
   ros::spinOnce();
   psm1_manip->PublishJoints();
+  ecm_manip->PublishJoints();
 }
 
 int dvrk_library::read()
@@ -50,7 +51,6 @@ void dvrk_library::exit_thread()
 
 void dvrk_library::subscribe(const gazebo_msgs::LinkStatesPtr &msg)
 {
-
   for (int i=0;i<msg->pose.size();i++)
   {
     if (!msg->name[i].compare("dvrk::ecm::base_link"))
@@ -132,7 +132,6 @@ void dvrk_library::subscribeOculus(const geometry_msgs::PoseStampedPtr &msg)
   // std::cout << oculus_pose << '\n';
 }
 
-
 void dvrk_library::teleop()
 {
   // if (iter<1)
@@ -141,29 +140,34 @@ void dvrk_library::teleop()
   //   last_rightMasterPose=rightMasterPose;
   //   return;
   // }
-  psm1_tip=psm1_manip->ForwardKinematics();
+  // ros::spinOnce();
+  // psm1_tip=psm1_manip->ForwardKinematics();
+  psm1_tip=round(10000*psm1_tip.array())/10000;
+
+  // std::cout << psm1_tip.block<4,1>(0,3).transpose() << '\n';
 
   // ecm_tip=Eigen::Matrix4d::Identity();
-  // Eigen::MatrixXd diff_translation(4,1);
-  // Eigen::Matrix4d psm1_tip_command=psm1_tip;
-  // Eigen::MatrixXd cur_psm1_tip_position(4,1);
-  // diff_translation(0,0) = leftMasterPose(0,3)-last_leftMasterPose(0,3);
-  // diff_translation(1,0) = leftMasterPose(1,3)-last_leftMasterPose(1,3);
-  // diff_translation(2,0) = leftMasterPose(2,3)-last_leftMasterPose(2,3);
-  // diff_translation(3,0) = 0;
+  Eigen::MatrixXd diff_translation(4,1);
+  Eigen::Matrix4d psm1_tip_command=psm1_tip;
+  Eigen::MatrixXd cur_psm1_tip_position(4,1);
+  diff_translation(0,0) = leftMasterPose(0,3)-last_leftMasterPose(0,3);
+  diff_translation(1,0) = leftMasterPose(1,3)-last_leftMasterPose(1,3);
+  diff_translation(2,0) = leftMasterPose(2,3)-last_leftMasterPose(2,3);
+  diff_translation(3,0) = 0;
+  // std::cout << diff_translation.transpose() << '\n';
 
 
-  // cur_psm1_tip_position=psm1_tip.block<4,1>(0,3);
-  // psm1_tip_command.block<4,1>(0,3)=cur_psm1_tip_position+ecm_tip*diff_translation;
+  cur_psm1_tip_position=psm1_tip.block<4,1>(0,3);
+  psm1_tip_command.block<4,1>(0,3)=cur_psm1_tip_position+ecm_tip*diff_translation;
   // std::cout << psm1_tip_command.block<4,1>(0,3).transpose() << '\n';
 
-  // psm1_manip->joints_cmd=psm1_manip->inverse_kinematics(psm1_base.inverse()*psm1_tip_command);
-  psm1_manip->joints_cmd=psm1_manip->inverse_kinematics(psm1_base.inverse()*psm1_tip);
-  // std::cout << psm1_manip->joints_cmd.transpose() << '\n';
+  psm1_manip->joints_cmd=psm1_manip->inverse_kinematics(psm1_base.inverse()*psm1_tip_command);
+  // psm1_manip->joints_cmd=psm1_manip->inverse_kinematics(psm1_base.inverse()*psm1_tip);
+  psm1_manip->joints_cmd = round(10000*psm1_manip->joints_cmd.array())/10000;
+  std::cout << psm1_manip->joints_cmd.transpose() << '\n';
   // psm1_manip->clip_joints();
-  psm1_manip->set_joints(psm1_manip->joints_cmd);
-
-  std::cout << psm1_tip.block<4,1>(0,3).transpose() << '\n';
+  // psm1_manip->set_joints(psm1_manip->joints_cmd);
+  // std::cout << psm1_manip->joints_cmd.transpose() << '\n';
   // psm1_manip->joints_cmd(0,0)=psm1_manip->joints_cmd(0,0)+0.0001;
   // psm1_manip->PublishJoints();
   // std::cout << "out of teleop" << '\n';

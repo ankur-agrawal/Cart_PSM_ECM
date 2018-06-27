@@ -1,0 +1,11 @@
+<library path="lib/libsimulation_interface">
+
+  <class
+    name="dvrk_plugins/simulation_interface"
+    type="dvrk_plugins::SimInterface"
+    base_class_type="hardware_interface::RobotHW">
+    <description>
+      A default robot simulation interface which constructs joint handles from an SDF/URDF.
+    </description>
+  </class>
+</library>

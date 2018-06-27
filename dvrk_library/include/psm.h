@@ -17,12 +17,12 @@ public:
     filename.append("/config/dvpsm.rob");
     result = psm_manip.LoadRobot(filename);
     psmPub.resize(6);
-    psmPub[0]=n.advertise<std_msgs::Float64>("/dvrk/"+psm_name+"/yaw_joint/SetPositionTarget",1000);
-    psmPub[1]=n.advertise<std_msgs::Float64>("/dvrk/"+psm_name+"/pitch_back_joint/SetPositionTarget",1000);
-    psmPub[2]=n.advertise<std_msgs::Float64>("/dvrk/"+psm_name+"/main_insertion_joint/SetPositionTarget",1000);
-    psmPub[3]=n.advertise<std_msgs::Float64>("/dvrk/"+psm_name+"/large_needle_driver/tool_roll_joint/SetPositionTarget",1000);
-    psmPub[4]=n.advertise<std_msgs::Float64>("/dvrk/"+psm_name+"/large_needle_driver/tool_pitch_joint/SetPositionTarget",1000);
-    psmPub[5]=n.advertise<std_msgs::Float64>("/dvrk/"+psm_name+"/large_needle_driver/tool_yaw_joint/SetPositionTarget",1000);
+    psmPub[0]=n.advertise<std_msgs::Float64>("/dvrk/"+psm_name+"/yaw_joint_controller/command",1);
+    psmPub[1]=n.advertise<std_msgs::Float64>("/dvrk/"+psm_name+"/pitch_joint_controller/command",1);
+    psmPub[2]=n.advertise<std_msgs::Float64>("/dvrk/"+psm_name+"/insertion_joint_controller/command",1);
+    psmPub[3]=n.advertise<std_msgs::Float64>("/dvrk/"+psm_name+"/tool_roll_joint_controller/command",1);
+    psmPub[4]=n.advertise<std_msgs::Float64>("/dvrk/"+psm_name+"/tool_pitch_joint_controller/command",1);
+    psmPub[5]=n.advertise<std_msgs::Float64>("/dvrk/"+psm_name+"/tool_yaw_joint_controller/command",1);
     set_joint_limits();
 
   }

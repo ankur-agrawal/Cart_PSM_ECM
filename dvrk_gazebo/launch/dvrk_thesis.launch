@@ -18,19 +18,24 @@
   <arg
     name="model" />
 
-  <rosparam file="$(find dvrk_gazebo_control)/config/dvrk_new.yaml" command="load"/>
+  <!-- <rosparam file="$(find dvrk_gazebo_control)/config/dvrk_new.yaml" command="load"/> -->
 
-  <param name="robot_description" command="$(find xacro)/xacro.py $(find dvrk_model)/dvrk/dvrk_thesis.sdf" />
+  <param name="robot_description" command="$(find xacro)/xacro.py $(find dvrk_model)/dvrk/dvrk_thesis.urdf" />
 
+  <include file="$(find dvrk_gazebo_control)/launch/dvrk_control.launch"/>
+
+  <param name="robot_description_sdf" textfile="$(find dvrk_model)/dvrk/dvrk_thesis.sdf" />
+
+  <!-- <rosparam file="$(find dvrk_robot_hw_sim)/config/dvrk_transmissions.yaml" command="load"/> -->
 
   <node name="sdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
-        args="-sdf -model dvrk -param robot_description"/>
+        args="-sdf -model dvrk -param robot_description_sdf"/>
 
   <param name="use_gui" value="$(arg gui)" />
 
-  <node name="image_view" type="image_view" pkg="image_view">
+  <!-- <node name="image_view" type="image_view" pkg="image_view">
   <remap from="image" to="/dvrk/ecm/camera/left/image_raw"/>
-  </node>
+  </node> -->
 
   <!-- <node name="image_view_right" type="image_view" pkg="image_view">
   <remap from="image" to="/dvrk/ecm/camera/right/image_raw"/>

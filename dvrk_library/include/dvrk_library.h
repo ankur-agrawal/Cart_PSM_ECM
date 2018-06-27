@@ -58,14 +58,14 @@ class dvrk_library{
      // psm2_manip = new psm("PSM2", n);
      // sleep(1);
 
-     sub=n.subscribe("/gazebo/link_states", 1000, &dvrk_library::subscribe, this);
+     sub=n.subscribe("/gazebo/link_states", 1, &dvrk_library::subscribe, this);
 
      boost::function<void (const geometry_msgs::PoseStampedPtr)>LeftLaprotek(boost::bind(&dvrk_library::subscribeMaster,this, _1,0));
      boost::function<void (const geometry_msgs::PoseStampedPtr)>RightLaprotek(boost::bind(&dvrk_library::subscribeMaster,this, _1,1));
-     sub_laprotek_left=n.subscribe<geometry_msgs::PoseStamped>("/Laprotek/Lefthandle/Pose", 1000, LeftLaprotek);
-     sub_laprotek_right=n.subscribe<geometry_msgs::PoseStamped>("/Laprotek/Righthandle/Pose", 1000, RightLaprotek);
+     sub_laprotek_left=n.subscribe<geometry_msgs::PoseStamped>("/Laprotek/Lefthandle/Pose", 1, LeftLaprotek);
+     sub_laprotek_right=n.subscribe<geometry_msgs::PoseStamped>("/Laprotek/Righthandle/Pose", 1, RightLaprotek);
 
-     sub_oculus=n.subscribe("/openhmd/pose", 1000, &dvrk_library::subscribeOculus, this);
+     sub_oculus=n.subscribe("/openhmd/pose", 1, &dvrk_library::subscribeOculus, this);
      // m_thread=new boost::thread(&dvrk_library::publish_thread, this);
 
      ecm_base=Eigen::Matrix4d::Identity(4,4);
@@ -80,8 +80,10 @@ class dvrk_library{
      last_rightMasterPose=Eigen::Matrix4d::Identity(4,4);
      run_thread=1;
 
-     psm1_manip->set_init_joints(-0.5,0,0.1,0,0,0);
-     
+     psm1_manip->set_init_joints(-0.5,0.1,0.1,0,0,0);
+
+     ros::spinOnce();
+
    };
 
    void update();

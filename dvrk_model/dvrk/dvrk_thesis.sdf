@@ -5,7 +5,6 @@
     <uri>model://PSM</uri>
       <name>PSM1</name>
       <pose>0.25 -0.5 0.95 0 0 0.7</pose>
-      <!-- <pose>0 0 1 0 0 0</pose> -->
   </include>
 
   <!-- <include>
@@ -34,6 +33,13 @@
     <child>ecm::base_link</child>
     <parent>world</parent>
   </joint>
-  <plugin name='dvrk_plugins' filename='libdvrk_plugins.so'/>
+
+  <!-- <plugin name='dvrk_plugins' filename='libdvrk_plugins.so'/> -->
+
+  <plugin name="my_controls" filename="libgazebo_ros_control.so">
+    <robotSimType>dvrk_robot_hw_sim/RobotHWSimDVRK</robotSimType>
+    <!-- <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType> -->
+  </plugin>
+
   </model>
 </sdf>

@@ -54,6 +54,7 @@ public:
     joint_pos=0;
     parent_model=model_;
     dynamic_init=0;
+    last_time = ros::Time::now().toSec();
     // setPosition();
   }
   void update();
@@ -80,6 +81,8 @@ private:
   double joint_pos;
   bool mode;
   int dynamic_init;
+  double current_time;
+  double last_time;
 };
 
 GZ_REGISTER_MODEL_PLUGIN(dvrkGazeboControlPlugin)

@@ -4,6 +4,6 @@
 <xacro:include filename="$(find dvrk_model)/ECM/ecm.urdf.xacro"/>
 
 <link name="world"/>
-<xacro:ecm parent_link="world" prefix="ecm_" xyz=" 0 0 1" rpy="0 0 0"/>
+<xacro:ecm parent_link="world" prefix="dvrk/ecm/" xyz=" 0 0 1" rpy="0 0 0"/>
 
 </robot>

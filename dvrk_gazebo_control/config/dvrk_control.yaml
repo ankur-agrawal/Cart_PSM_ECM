@@ -1,0 +1,87 @@
+dvrk:
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+  ecm:
+    yaw_joint_controller:
+      type: effort_controllers/JointPositionController
+      joint: dvrk/ecm/yaw_joint
+      pid: {p: 500, i: 0.01, d: 100}
+    pitch_joint_controller:
+      type: effort_controllers/JointPositionController
+      joint: dvrk/ecm/pitch_front_joint
+      pid: {p: 700, i: 0.01, d: 100}
+    insertion_joint_controller:
+      type: effort_controllers/JointPositionController
+      joint: dvrk/ecm/main_insertion_joint
+      pid: {p: 5000, i: 0.01, d: 300}
+    tool_roll_joint_controller:
+      type: effort_controllers/JointPositionController
+      joint: dvrk/ecm/tool_joint
+      pid: {p: 200, i: 0.01, d: 35}
+  PSM1:
+    yaw_joint_controller:
+      type: effort_controllers/JointPositionController
+      joint: dvrk/PSM1/yaw_joint
+      pid: {p: 1000, i: 0.01, d: 100}
+    pitch_joint_controller:
+      type: effort_controllers/JointPositionController
+      joint: dvrk/PSM1/pitch_back_joint
+      pid: {p: 1000, i: 0.01, d: 100}
+    insertion_joint_controller:
+      type: effort_controllers/JointPositionController
+      joint: dvrk/PSM1/main_insertion_joint
+      pid: {p: 1500, i: 0.01, d: 50}
+    tool_roll_joint_controller:
+      type: effort_controllers/JointPositionController
+      joint: dvrk/PSM1/large_needle_driver/tool_roll_joint
+      pid: {p: 500, i: 0.01, d: 90}
+    tool_pitch_joint_controller:
+      type: effort_controllers/JointPositionController
+      joint: dvrk/PSM1/large_needle_driver/tool_pitch_joint
+      pid: {p: 700, i: 0.01, d: 100}
+    tool_yaw_joint_controller:
+      type: effort_controllers/JointPositionController
+      joint: dvrk/PSM1/large_needle_driver/tool_yaw_joint
+      pid: {p: 100, i: 0.01, d: 10}
+    tool_gripper1_joint_controller:
+      type: effort_controllers/JointPositionController
+      joint: dvrk/PSM1/large_needle_driver/gripper1_joint
+      pid: {p: 100, i: 0.01, d: 10}
+    tool_gripper2_joint_controller:
+      type: effort_controllers/JointPositionController
+      joint: dvrk/PSM1/large_needle_driver/gripper2_joint
+      pid: {p: 100, i: 0.01, d: 10}
+  # PSM2:
+  #   yaw_joint_controller:
+  #     type: effort_controllers/JointPositionController
+  #     joint: dvrk/PSM2/yaw_joint
+  #     pid: {p: 100, i: 0.01, d: 10}
+  #   pitch_joint_controller:
+  #     type: effort_controllers/JointPositionController
+  #     joint: dvrk/PSM2/pitch_back_joint
+  #     pid: {p: 100, i: 0.01, d: 10}
+  #   insertion_joint_controller:
+  #     type: effort_controllers/JointPositionController
+  #     joint: dvrk/PSM2/main_insertion_joint
+  #     pid: {p: 100, i: 0.01, d: 10}
+  #   tool_roll_joint_controller:
+  #     type: effort_controllers/JointPositionController
+  #     joint: dvrk/PSM2/large_needle_driver/tool_roll_joint
+  #     pid: {p: 100, i: 0.01, d: 10}
+  #   tool_pitch_joint_controller:
+  #     type: effort_controllers/JointPositionController
+  #     joint: dvrk/PSM2/large_needle_driver/tool_pitch_joint
+  #     pid: {p: 100, i: 0.01, d: 10}
+  #   tool_yaw_joint_controller:
+  #     type: effort_controllers/JointPositionController
+  #     joint: dvrk/PSM2/large_needle_driver/tool_yaw_joint
+  #     pid: {p: 100, i: 0.01, d: 10}
+  #   tool_gripper1_joint_controller:
+  #     type: effort_controllers/JointPositionController
+  #     joint: dvrk/PSM2/large_needle_driver/gripper1_joint
+  #     pid: {p: 100, i: 0.01, d: 10}
+  #   tool_gripper2_joint_controller:
+  #     type: effort_controllers/JointPositionController
+  #     joint: dvrk/PSM2/large_needle_driver/gripper2_joint
+  #     pid: {p: 100, i: 0.01, d: 10}
